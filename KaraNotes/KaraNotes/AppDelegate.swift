@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let baseViewController = BaseViewController()
+        let tabBarViewController = CPFTabBarController()
         
-        window!.rootViewController = baseViewController
+        window!.rootViewController = tabBarViewController
         
         window!.makeKeyAndVisible()
         

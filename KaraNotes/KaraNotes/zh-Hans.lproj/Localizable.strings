@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  KaraNotes
+
+  Created by 崔鹏飞 on 2017/2/15.
+  Copyright © 2017年 崔鹏飞. All rights reserved.
+*/
+
+
+// MARK: - TabBar
+"tabbar_attention" = "关注";
+"tabbar_myarticle" = "我的文章";
+"tabbar_writearticle" = "写文章";
+"tabbar_notify" = "消息";
+"tabbar_mine" = "我的";

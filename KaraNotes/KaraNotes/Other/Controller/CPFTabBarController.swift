@@ -1,0 +1,59 @@
+//
+//  CPFTabBarController.swift
+//  KaraNotes
+//
+//  Created by 崔鹏飞 on 2017/2/15.
+//  Copyright © 2017年 崔鹏飞. All rights reserved.
+//
+
+import UIKit
+
+class CPFTabBarController: UITabBarController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupChildViewControllers()
+    }
+
+}
+
+
+extension CPFTabBarController {
+    
+    func setupChildViewControllers() -> Void {
+        
+        let childControllers: [String : UIViewController] = [
+            "attention" : CPFAttentionController(),
+            "myarticle" : CPFMyArticleController(),
+            "notify" : CPFNotifyController(),
+            "mine" : CPFMineController()]
+        let keys: [String] = ["attention", "myarticle", "writearticle", "notify", "mine"]
+        
+        for key in keys {
+            
+            if key == "writearticle" {
+                setValue(CPFTabBar(), forKeyPath: "tabBar")
+                continue
+            }
+            
+            setupChildViewController(viewController: childControllers[key]!, title: CPFLocalizableTitle("tabbar_\(key)"), image: "tabbar_\(key)", selectedImage: "tabbar_\(key)_selected")
+        }
+    }
+    
+    func setupChildViewController(viewController : UIViewController, title : String, image : String, selectedImage : String) -> Void {
+        
+        tabBar.tintColor = CPFRGB(r: 220, g: 6, b: 13)
+        
+        viewController.navigationItem.title = title
+        viewController.tabBarItem.title = title
+        viewController.tabBarItem.image = UIImage.init(named: image)?.scaleToSize(newSize: CGSize(width: 30, height: 30))
+        
+        viewController.tabBarItem.selectedImage = UIImage.init(named: selectedImage)?.scaleToSize(newSize: CGSize(width: 30, height: 30))
+        
+        
+        let navCtr = CPFNavigationController(rootViewController: viewController)
+        
+        addChildViewController(navCtr)
+    }
+}

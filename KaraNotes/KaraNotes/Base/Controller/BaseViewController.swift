@@ -13,7 +13,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = CPFGlobalColor
+        view.backgroundColor = CPFGlobalColor
     }
-
+    
 }
