@@ -15,7 +15,6 @@ class CPFTabBarController: UITabBarController {
         
         setupChildViewControllers()
     }
-
 }
 
 
@@ -50,7 +49,6 @@ extension CPFTabBarController {
         viewController.tabBarItem.image = UIImage.init(named: image)?.scaleToSize(newSize: CGSize(width: 30, height: 30))
         
         viewController.tabBarItem.selectedImage = UIImage.init(named: selectedImage)?.scaleToSize(newSize: CGSize(width: 30, height: 30))
-        
         
         let navCtr = CPFNavigationController(rootViewController: viewController)
         
