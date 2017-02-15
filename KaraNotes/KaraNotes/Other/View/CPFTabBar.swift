@@ -62,7 +62,7 @@ extension CPFTabBar {
         writeArticleButton.setBackgroundImage(UIImage.init(named: "tabbar_writearticle")?.scaleToSize(newSize: CGSize(width: 40, height: 40)), for: .normal)
         writeArticleButton.addTarget(self, action: #selector(writeArticle), for: .touchUpInside)
         
-        writeArticleButton.frame = CGRect(x: 0, y: 0, width: (writeArticleButton.currentBackgroundImage?.size.width)!, height: (writeArticleButton.currentBackgroundImage?.size.height)!)
+        writeArticleButton.size = (writeArticleButton.currentBackgroundImage?.size)!
         
         addSubview(writeArticleButton)
     }
