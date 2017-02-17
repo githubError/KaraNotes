@@ -15,6 +15,10 @@ class CPFWriteArticleController: BaseViewController {
         
         view.backgroundColor = UIColor.purple
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
 
 }
 
