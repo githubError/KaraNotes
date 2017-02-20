@@ -28,7 +28,10 @@ class CPFAttentionController: BaseViewController {
 extension CPFAttentionController {
     
     func setupCollectionView() -> Void {
+        
         flowLayout.scrollDirection = .vertical
+        flowLayout.itemSize = CGSize(width: self.view.width, height: 250*CPFFitHeight)
+        flowLayout.minimumLineSpacing = 0
         
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         if let collectionView = collectionView {
@@ -36,7 +39,7 @@ extension CPFAttentionController {
             collectionView.snp.makeConstraints { make in
                 make.top.left.right.bottom.equalToSuperview()
             }
-            collectionView.backgroundColor = CPFRGB(r: 20, g: 40, b: 120)
+            collectionView.backgroundColor = CPFGlobalColor
             collectionView.register(CPFAttentionCell.self, forCellWithReuseIdentifier: cellID)
             collectionView.delegate = self
             collectionView.dataSource = self
@@ -53,8 +56,10 @@ extension CPFAttentionController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let attentionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
-        attentionCell.backgroundColor = CPFRandomColor
+        let attentionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CPFAttentionCell
+        
+        attentionCell.attentionArticle = AttentionArticle()
+        
         return attentionCell
     }
     
@@ -62,4 +67,6 @@ extension CPFAttentionController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("点击了：\(indexPath.row)行")
     }
+    
+    
 }

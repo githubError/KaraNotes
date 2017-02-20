@@ -9,6 +9,15 @@
 import UIKit
 import SnapKit
 
+public enum FontWeight: String {
+    case semiblod = "Semiblod"
+    case medium = "Medium"
+    case regular = "Regular"
+    case light = "Light"
+    case thin = "Thin"
+    case ultralight = "Ultralight"
+}
+
 // MARK: - 全局函数（宏定义）
 
 // 颜色
@@ -19,6 +28,19 @@ public func CPFRGB(r:Int, g:Int, b:Int) -> UIColor { return CPFRGBA(r: r, g: g, 
 // 国际化
 public func CPFLocalizableTitle(_ title: String) -> String { return NSLocalizedString(title, comment: title) }
 
+
+// 字体
+public func CPFPingFangSC(weight:FontWeight, size:CGFloat) -> UIFont {
+    switch weight {
+    case .light, .medium, .regular, .semiblod, .thin, .ultralight:
+        print(weight.rawValue)
+        let costomFont = UIFont.init(name: weight.rawValue, size: size)
+        if let font = costomFont {
+            return font
+        }
+        return UIFont()
+    }
+}
 
 
 // MARK: - 全局常量
