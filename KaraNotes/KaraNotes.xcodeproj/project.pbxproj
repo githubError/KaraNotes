@@ -21,6 +21,8 @@
 		D1DB515D1E53F8FE00328B65 /* CPFMineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB515C1E53F8FE00328B65 /* CPFMineController.swift */; };
 		D1DB51601E54201A00328B65 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1DB51621E54201A00328B65 /* Localizable.strings */; };
 		D1DB51671E54371200328B65 /* CPFTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB51661E54371200328B65 /* CPFTabBar.swift */; };
+		D1DB51691E5A8D8000328B65 /* CPFAttentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB51681E5A8D8000328B65 /* CPFAttentionCell.swift */; };
+		D1DB516C1E5A9EE900328B65 /* AttentionArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB516B1E5A9EE900328B65 /* AttentionArticle.swift */; };
 		E7597725F5752EF8116D584F /* Pods_KaraNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2504BCA8CAAF8866B63E73 /* Pods_KaraNotes.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,9 @@
 		D1DB51641E5420ED00328B65 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D1DB51651E5420ED00328B65 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D1DB51661E54371200328B65 /* CPFTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFTabBar.swift; sourceTree = "<group>"; };
+		D1DB51681E5A8D8000328B65 /* CPFAttentionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFAttentionCell.swift; sourceTree = "<group>"; };
+		D1DB516A1E5A90A500328B65 /* KaraNotes.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaraNotes.pch; sourceTree = "<group>"; };
+		D1DB516B1E5A9EE900328B65 /* AttentionArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttentionArticle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				D1DB51321E52E61E00328B65 /* CPFGlobalUtilits.swift */,
+				D1DB516A1E5A90A500328B65 /* KaraNotes.pch */,
 			);
 			path = Utilits;
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 		D1DB513E1E53F3F200328B65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D1DB516B1E5A9EE900328B65 /* AttentionArticle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +208,7 @@
 		D1DB513F1E53F3F200328B65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D1DB51681E5A8D8000328B65 /* CPFAttentionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -465,7 +473,9 @@
 				D1DB511D1E52DEAD00328B65 /* AppDelegate.swift in Sources */,
 				D1DB51511E53F5E600328B65 /* CPFTabBarController.swift in Sources */,
 				D1DB51551E53F89300328B65 /* CPFAttentionController.swift in Sources */,
+				D1DB51691E5A8D8000328B65 /* CPFAttentionCell.swift in Sources */,
 				D1DB51331E52E61E00328B65 /* CPFGlobalUtilits.swift in Sources */,
+				D1DB516C1E5A9EE900328B65 /* AttentionArticle.swift in Sources */,
 				D1DB51531E53F7F200328B65 /* CPFNavigationController.swift in Sources */,
 				D1DB51591E53F8CB00328B65 /* CPFWriteArticleController.swift in Sources */,
 				D1DB513B1E53F3D600328B65 /* BaseViewController.swift in Sources */,
@@ -596,6 +606,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 55DB8TVP4G;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KaraNotes.pch";
 				INFOPLIST_FILE = KaraNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cuipengfei.KaraNotes;
@@ -610,6 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 55DB8TVP4G;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KaraNotes.pch";
 				INFOPLIST_FILE = KaraNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cuipengfei.KaraNotes;

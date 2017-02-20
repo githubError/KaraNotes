@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 // MARK: - 全局函数（宏定义）
 
@@ -22,6 +23,14 @@ public func CPFLocalizableTitle(_ title: String) -> String { return NSLocalizedS
 
 // MARK: - 全局常量
 public let CPFGlobalColor = CPFRGB(r: 245, g: 245, b: 245)
+public var CPFRandomColor = CPFRGB(r: Int(arc4random_uniform(255)), g: Int(arc4random_uniform(255)), b: Int(arc4random_uniform(255)))
+
+public let CPFScreenW = UIScreen.main.bounds.size.width
+public let CPFScreenH = UIScreen.main.bounds.size.height
+
+
+public let CPFFitWidth = UIScreen.main.bounds.size.width / 375
+public let CPFFitHeight = UIScreen.main.bounds.size.height / 667
 
 
 

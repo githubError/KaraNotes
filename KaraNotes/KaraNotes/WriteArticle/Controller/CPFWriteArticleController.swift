@@ -9,7 +9,7 @@
 import UIKit
 
 class CPFWriteArticleController: BaseViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +19,7 @@ class CPFWriteArticleController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         
     }
-
+    
 }
 
 extension CPFWriteArticleController {
