@@ -13,3 +13,11 @@
 "tabbar_writearticle" = "写文章";
 "tabbar_notify" = "消息";
 "tabbar_mine" = "我的";
+
+
+// MARK: - Login
+"emailTextFieldPlaceholder" = "电子邮件";
+"passwordTextFieldPlaceholder" = "密码";
+"responBtn_next" = "继续";
+"responBtn_login" = "登录";
+"responBtn_register" = "注册";

@@ -25,6 +25,10 @@ class CPFNavigationController: UINavigationController, UIGestureRecognizerDelega
         
         interactivePopGestureRecognizer?.delegate = self
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 extension CPFNavigationController {

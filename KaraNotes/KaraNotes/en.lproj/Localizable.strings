@@ -13,3 +13,10 @@
 "tabbar_writearticle" = "WriteArticle";
 "tabbar_notify" = "Notify";
 "tabbar_mine" = "Mine";
+
+// MARK: - Login
+"emailTextFieldPlaceholder" = "Enter Your Email";
+"passwordTextFieldPlaceholder" = "Enter Your Password";
+"responBtn_next" = "Next";
+"responBtn_login" = "Login";
+"responBtn_register" = "Register";

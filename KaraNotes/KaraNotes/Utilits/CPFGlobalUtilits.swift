@@ -18,6 +18,16 @@ public enum FontWeight: String {
     case ultralight = "Ultralight"
 }
 
+public enum CPFNetworkRoute: String {
+    case base = "http://viakiba.cn:8080/KaraNotes"                              // 基地址
+    case login = "http://viakiba.cn:8080/KaraNotes/user/login"                  // 登录
+    case register = "http://viakiba.cn:8080/KaraNotes/user/register"            // 注册
+    case checkEmail = "http://viakiba.cn:8080/KaraNotes/user/checkemail"        // 检查邮箱可用性
+    case insertArticle = "http://viakiba.cn:8080/KaraNotes/article/insert"      // 新增文章
+    case deleteArticle = "http://viakiba.cn:8080/KaraNotes/article/delete"      // 删除文章
+    case updateArticle = "http://viakiba.cn:8080/KaraNotes/article/update"      // 更新文章
+}
+
 // MARK: - 全局函数（宏定义）
 
 // 颜色
@@ -33,8 +43,7 @@ public func CPFLocalizableTitle(_ title: String) -> String { return NSLocalizedS
 public func CPFPingFangSC(weight:FontWeight, size:CGFloat) -> UIFont {
     switch weight {
     case .light, .medium, .regular, .semiblod, .thin, .ultralight:
-        print(weight.rawValue)
-        let costomFont = UIFont.init(name: weight.rawValue, size: size)
+        let costomFont = UIFont.init(name: "PingFangSC-\(weight.rawValue)", size: size)
         if let font = costomFont {
             return font
         }
@@ -54,6 +63,12 @@ public let CPFScreenH = UIScreen.main.bounds.size.height
 public let CPFFitWidth = UIScreen.main.bounds.size.width / 375
 public let CPFFitHeight = UIScreen.main.bounds.size.height / 667
 
+public typealias JSONDictionary = [String:AnyObject]
+
+// 用户偏好 -> key
+public let CPFUserToken = "CPFUserToken"
+public let CPFUserEmail = "CPFUserEmail"
+public let CPFUserPath = "CPFUserPath"
 
 
 // MARK: - 标准库类扩展
@@ -62,10 +77,7 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
         draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         
-        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else {
-            return UIImage()
-        }
-        
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage() }
         return newImage
     }
 }

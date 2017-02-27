@@ -15,5 +15,4 @@ class BaseViewController: UIViewController {
         
         view.backgroundColor = CPFGlobalColor
     }
-    
 }
