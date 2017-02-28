@@ -21,3 +21,5 @@
 "responBtn_next" = "继续";
 "responBtn_login" = "登录";
 "responBtn_register" = "注册";
+"illegalEmailAddress" = "电子邮件地址不合法";
+"loginAfterRegister" = "注册成功，现在登录";

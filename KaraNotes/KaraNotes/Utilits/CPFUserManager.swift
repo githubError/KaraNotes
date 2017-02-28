@@ -51,6 +51,7 @@ extension CPFUserManager {
     }
     
     func login(withAccount account: String, password: String, completionHandler: @escaping (_ result:Int) -> Void) -> Void {
+        
         let params = ["user_email":account, "user_password":password]
         Alamofire.request(CPFNetworkRoute.login.rawValue, method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
             
@@ -105,9 +106,13 @@ extension CPFUserManager {
         }
     }
     
-    func logout() -> Bool {
+    func logout(completionHandler:@escaping ()->()) -> Void {
         UserDefaults.standard.setValue("", forKey: CPFUserToken)
-        guard isLogin() else { return true }
-        return false
+        if !isLogin() {
+            let keyWindow = UIApplication.shared.keyWindow!
+            keyWindow.rootViewController = CPFLoginController()
+            completionHandler()
+        }
+        
     }
 }

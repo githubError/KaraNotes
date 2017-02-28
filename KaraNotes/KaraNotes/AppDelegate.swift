@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         if CPFUserManager.sharedInstance().isLogin() {
-            print("已登录")
             let tabBarViewController = CPFTabBarController()
             
             window!.rootViewController = tabBarViewController
@@ -31,37 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         window!.makeKeyAndVisible()
-        
-        
-        if CPFUserManager.sharedInstance().logout() {
-            print("退出登录")
-        }
- 
-        /*
-        CPFUserManager.sharedInstance().login(withAccount: "cpf9401@163.com", password: "12345678") { result in
-            
-            if result == 1 {
-                print("登录成功")
-            } else {
-                print("登录失败")
-            }
-        }*/
-        
-        CPFUserManager.sharedInstance().checkEmail(withAccount: "cpf9401@164.com") { (result) in
-            print(result)
-        }
-        
-        CPFUserManager.sharedInstance().register(withAccount: "黄鹏傻逼", password: "嗯嗯，是的") { (result, userName) in
-            if result == 1 {
-                print("\(userName)，注册成功")
-            } else {
-                if userName == "3" {
-                    print("账户已存在")
-                } else {
-                    print("其他位置错误")
-                }
-            }
-        }
         
         return true
     }

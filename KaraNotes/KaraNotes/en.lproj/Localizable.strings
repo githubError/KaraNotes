@@ -20,3 +20,5 @@
 "responBtn_next" = "Next";
 "responBtn_login" = "Login";
 "responBtn_register" = "Register";
+"illegalEmailAddress" = "Illegal Email Address";
+"loginAfterRegister" = "Register Success,Login Just Now";
