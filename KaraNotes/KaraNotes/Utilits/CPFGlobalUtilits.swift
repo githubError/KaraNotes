@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 public enum FontWeight: String {
-    case semiblod = "Semiblod"
+    case semibold = "Semibold"
     case medium = "Medium"
     case regular = "Regular"
     case light = "Light"
@@ -42,8 +42,8 @@ public func CPFLocalizableTitle(_ title: String) -> String { return NSLocalizedS
 // 字体
 public func CPFPingFangSC(weight:FontWeight, size:CGFloat) -> UIFont {
     switch weight {
-    case .light, .medium, .regular, .semiblod, .thin, .ultralight:
-        let costomFont = UIFont.init(name: "PingFangSC-\(weight.rawValue)", size: size)
+    case .light, .medium, .regular, .semibold, .thin, .ultralight:
+        let costomFont = UIFont(name: "PingFangSC-\(weight.rawValue)", size: size)
         if let font = costomFont {
             return font
         }

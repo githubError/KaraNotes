@@ -22,3 +22,8 @@
 "responBtn_register" = "Register";
 "illegalEmailAddress" = "Illegal Email Address";
 "loginAfterRegister" = "Register Success,Login Just Now";
+
+
+// MARK: - Mine
+"mine_collectBtn" = "Collect";
+"mine_moreBtn" = "More";
