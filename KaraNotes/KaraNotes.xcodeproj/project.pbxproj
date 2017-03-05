@@ -367,6 +367,7 @@
 				D1DB51171E52DEAD00328B65 /* Resources */,
 				8B0DF6B372182F6C5F623175 /* [CP] Embed Pods Frameworks */,
 				1AC5BC69EEFEE29F9FA4F523 /* [CP] Copy Pods Resources */,
+				D17E70DA1E6C4B7E001049ED /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -457,6 +458,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KaraNotes/Pods-KaraNotes-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D17E70DA1E6C4B7E001049ED /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
 		};
 		EAD9E29E712DA8A5187C5A6A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

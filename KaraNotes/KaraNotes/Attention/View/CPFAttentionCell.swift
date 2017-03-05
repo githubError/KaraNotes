@@ -32,7 +32,7 @@ class CPFAttentionCell: UICollectionViewCell {
             authorNameLabel.attributedText = NSAttributedString(string: "我七岁就很帅", attributes: attrDic)
             articleCreateTimeLabel.attributedText = NSAttributedString(string: "2016.12.23", attributes: attrDic)
             
-            articleTitleLabel.attributedText = NSAttributedString(string: "论母猪的产后护理", attributes: attrDic)
+            articleTitleLabel.attributedText = NSAttributedString(string: "iOS开发从入门到改行", attributes: attrDic)
         }
     }
     
