@@ -48,7 +48,7 @@ extension CPFAttentionController {
         if let collectionView = collectionView {
             view.addSubview(collectionView)
             collectionView.snp.makeConstraints { make in
-                make.top.left.right.bottom.equalToSuperview()
+                make.top.left.right.bottom.equalTo(view)
             }
             collectionView.backgroundColor = CPFGlobalColor
             collectionView.register(CPFAttentionCell.self, forCellWithReuseIdentifier: cellID)
@@ -70,7 +70,7 @@ extension CPFAttentionController: UICollectionViewDelegate, UICollectionViewData
     
     // DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

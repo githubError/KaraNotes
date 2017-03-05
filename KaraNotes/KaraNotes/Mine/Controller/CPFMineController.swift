@@ -24,10 +24,7 @@ class CPFMineController: BaseViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
         
         navigationController?.delegate = self
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
+        navigationItem.title = ""
         setupSubViews()
     }
 }
@@ -97,7 +94,7 @@ extension CPFMineController {
         let collectBtn = UIButton(type: .custom)
         collectBtn.setTitle(CPFLocalizableTitle(CPFLocalizableTitle("mine_collectBtn")), for: .normal)
         collectBtn.titleLabel?.textAlignment = .center
-        collectBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 20)
+        collectBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 18)
         collectBtn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .normal)
         collectBtn.setTitleColor(CPFRGB(r: 208, g: 2, b: 27), for: .selected)
         collectBtn.tag = 0
@@ -114,7 +111,7 @@ extension CPFMineController {
         let moreBtn = UIButton(type: .custom)
         moreBtn.setTitle(CPFLocalizableTitle(CPFLocalizableTitle("mine_moreBtn")), for: .normal)
         moreBtn.titleLabel?.textAlignment = .center
-        moreBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 20)
+        moreBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 18)
         moreBtn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .normal)
         moreBtn.setTitleColor(CPFRGB(r: 208, g: 2, b: 27), for: .selected)
         moreBtn.tag = 1
@@ -149,25 +146,17 @@ extension CPFMineController {
     
     func setupContentScrollView() -> Void {
         contentScrollView = UIScrollView()
-        view.addSubview(contentScrollView)
+        view.insertSubview(contentScrollView, at: 0)
         contentScrollView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(view)
             make.top.equalTo(categoryView.snp.bottom)
         }
-        contentScrollView.contentSize = CGSize(width: 2 * view.width, height: CGFloat(MAXFLOAT))
+        automaticallyAdjustsScrollViewInsets = false
+        contentScrollView.contentSize = CGSize(width: 2 * view.width, height: 0)
         contentScrollView.isPagingEnabled = true
         contentScrollView.delegate = self
         
-        
-        // bug
-        let collectController = CPFAttentionController()
-        addChildViewController(collectController)
-        collectController.view.backgroundColor = CPFRandomColor
-        contentScrollView.addSubview(collectController.view)
-        collectController.view.snp.makeConstraints { make in
-            make.left.top.bottom.equalTo(contentScrollView)
-            make.width.equalTo(view.width)
-        }
+        scrollViewDidEndScrollingAnimation(contentScrollView)
     }
     
     func setupNavigationBar() -> Void {
@@ -176,7 +165,7 @@ extension CPFMineController {
         
         let frame = navigationController?.navigationBar.frame
         navAlphaView = UIView(frame: CGRect(x: 0, y: -20, width: (frame?.size.width)!, height: (frame?.size.height)!+20))
-        navAlphaView.backgroundColor = CPFGlobalColor
+        navAlphaView.backgroundColor = CPFRGB(r: 189, g: 34, b: 35)
         navAlphaView.isUserInteractionEnabled = false
         navigationController?.navigationBar.insertSubview(navAlphaView, at: 0)
     }
@@ -201,8 +190,56 @@ extension CPFMineController {
 }
 
 
-extension CPFMineController: UIScrollViewDelegate {
+extension CPFMineController: UIScrollViewDelegate, UICollectionViewDelegate {
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        print("============")
+        // bug
+        let collectController = CPFAttentionController()
+        addChildViewController(collectController)
+        collectController.view.backgroundColor = CPFRandomColor
+        collectController.view.x = -CPFScreenW/2
+        collectController.collectionView?.delegate = self
+        collectController.collectionView?.contentInset = UIEdgeInsets(top: -40, left: 0, bottom: 680, right: 0)
+        contentScrollView.addSubview(collectController.view)
+        
+        let moreSettingsCtr = CPFMoreSettingsController()
+        moreSettingsCtr.view.x = CPFScreenW
+        contentScrollView.addSubview(moreSettingsCtr.view)
+        
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(scrollView.contentOffset)
+        
+        if scrollView.contentOffset.y > 50 {
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                
+                self.user_InfoView.snp.updateConstraints({ (make) in
+                    make.top.equalTo(-250+64)
+                })
+                self.changeNavigationBarAlpha(alpha: 1.0)
+                self.navigationItem.title = "我七岁就很帅"
+                self.view.layoutIfNeeded()
+            })
+        }
+        
+        if scrollView.contentOffset.y < 30 {
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                
+                self.user_InfoView.snp.updateConstraints({ (make) in
+                    make.top.equalTo(self.view)
+                })
+                self.changeNavigationBarAlpha(alpha: 0)
+                self.navigationItem.title = ""
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("点击了：\(indexPath.row)行")
     }
 }
