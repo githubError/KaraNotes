@@ -17,6 +17,8 @@ class CPFMineController: BaseViewController, UINavigationControllerDelegate {
     var categoryView:UIView!                // 子视图分类
     var contentScrollView:UIScrollView!     // 包裹子控制器的ScrollView
     
+    var collectBtn:UIButton!
+    var moreBtn:UIButton!
     var selectedCategoryBtn:UIButton!
     
 
@@ -91,7 +93,7 @@ extension CPFMineController {
             make.height.equalTo(40*CPFFitHeight)
         }
         
-        let collectBtn = UIButton(type: .custom)
+        collectBtn = UIButton(type: .custom)
         collectBtn.setTitle(CPFLocalizableTitle(CPFLocalizableTitle("mine_collectBtn")), for: .normal)
         collectBtn.titleLabel?.textAlignment = .center
         collectBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 18)
@@ -108,7 +110,7 @@ extension CPFMineController {
         collectBtn.isSelected = true
         selectedCategoryBtn = collectBtn
         
-        let moreBtn = UIButton(type: .custom)
+        moreBtn = UIButton(type: .custom)
         moreBtn.setTitle(CPFLocalizableTitle(CPFLocalizableTitle("mine_moreBtn")), for: .normal)
         moreBtn.titleLabel?.textAlignment = .center
         moreBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 18)
@@ -179,9 +181,13 @@ extension CPFMineController {
         selectedCategoryBtn.isSelected = false
         
         if button.tag == 0 {
-            print("点击收藏")
+            UIView.animate(withDuration: 0.25, animations: {
+                self.contentScrollView.contentOffset.x = 0
+            })
         } else {
-            print("点击更多")
+            UIView.animate(withDuration: 0.25, animations: {
+                self.contentScrollView.contentOffset.x = CPFScreenW
+            })
         }
         
         selectedCategoryBtn = button
@@ -193,17 +199,18 @@ extension CPFMineController {
 extension CPFMineController: UIScrollViewDelegate, UICollectionViewDelegate {
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("============")
-        // bug
+        
         let collectController = CPFAttentionController()
         addChildViewController(collectController)
         collectController.view.backgroundColor = CPFRandomColor
         collectController.view.x = -CPFScreenW/2
-        collectController.collectionView?.delegate = self
+//        collectController.collectionView?.delegate = self
+//        collectController.collectionView?.dataSource = self
         collectController.collectionView?.contentInset = UIEdgeInsets(top: -40, left: 0, bottom: 680, right: 0)
         contentScrollView.addSubview(collectController.view)
         
         let moreSettingsCtr = CPFMoreSettingsController()
+        addChildViewController(moreSettingsCtr)
         moreSettingsCtr.view.x = CPFScreenW
         contentScrollView.addSubview(moreSettingsCtr.view)
         
@@ -236,6 +243,14 @@ extension CPFMineController: UIScrollViewDelegate, UICollectionViewDelegate {
                 self.navigationItem.title = ""
                 self.view.layoutIfNeeded()
             })
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x / CPFScreenW == 0 {
+            categoryBtnClick(button: collectBtn)
+        } else {
+            categoryBtnClick(button: moreBtn)
         }
     }
     

@@ -43,7 +43,7 @@ extension CPFMoreSettingsController {
     }
     
     func setupTableView() -> Void {
-        tableView = UITableView()
+        tableView = UITableView(frame: CGRect.zero, style: .grouped)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topCategaryView.snp.bottom)
@@ -52,7 +52,9 @@ extension CPFMoreSettingsController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.contentInset = UIEdgeInsets(top: -20, left: -30, bottom: 720, right: 0)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.separatorStyle = .singleLine
     }
 }
 
@@ -61,12 +63,20 @@ extension CPFMoreSettingsController: UITableViewDelegate, UITableViewDataSource 
         return 10
     }
     
-    //#warning
-    //FIXME:bug
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID)!
         
-        cell.textLabel!.text = "第\(indexPath.row)行"
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID) as UITableViewCell
+        
+        cell.selectionStyle = .none
+        cell.textLabel?.textColor = CPFRGB(r: 120, g: 120, b: 30)
+        cell.textLabel?.font = CPFPingFangSC(weight: .semibold, size: 18)
+        cell.detailTextLabel?.textColor = CPFRGB(r: 30, g: 20, b: 130)
+        cell.detailTextLabel?.font = CPFPingFangSC(weight: .thin, size: 10)
+        cell.textLabel?.text = "第\(indexPath.row)行"
+        
+        if indexPath.row%2 == 0 {
+            cell.detailTextLabel?.text = "hhhhh"
+        }
         
         return cell
     }
