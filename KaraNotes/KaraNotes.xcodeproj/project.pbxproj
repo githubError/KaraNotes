@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */; };
-		D17E70DC1E6D595A001049ED /* CPFMoreSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DB1E6D595A001049ED /* CPFMoreSettingsCell.swift */; };
+		D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */; };
 		D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198909D1E631D1E00364DF3 /* CPFLoginController.swift */; };
 		D19890A01E631D4E00364DF3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D198909F1E631D4E00364DF3 /* libsqlite3.tbd */; };
 		D19890A41E63BBFA00364DF3 /* CPFUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19890A31E63BBFA00364DF3 /* CPFUserManager.swift */; };
@@ -36,7 +36,7 @@
 		63F216FF3C1454E86CE45627 /* Pods-KaraNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaraNotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaraNotes/Pods-KaraNotes.release.xcconfig"; sourceTree = "<group>"; };
 		997B9633B276A9BD5956AB6B /* Pods-KaraNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaraNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KaraNotes/Pods-KaraNotes.debug.xcconfig"; sourceTree = "<group>"; };
 		D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsController.swift; sourceTree = "<group>"; };
-		D17E70DB1E6D595A001049ED /* CPFMoreSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsCell.swift; sourceTree = "<group>"; };
+		D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFavoriteController.swift; sourceTree = "<group>"; };
 		D198909D1E631D1E00364DF3 /* CPFLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFLoginController.swift; sourceTree = "<group>"; };
 		D198909F1E631D4E00364DF3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D19890A21E631FB800364DF3 /* KaraNotes_Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaraNotes_Bridging_Header.h; sourceTree = "<group>"; };
@@ -241,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				D1DB515C1E53F8FE00328B65 /* CPFMineController.swift */,
+				D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */,
 				D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */,
 			);
 			path = Controller;
@@ -256,7 +257,6 @@
 		D1DB51431E53F3F300328B65 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D17E70DB1E6D595A001049ED /* CPFMoreSettingsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -498,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1DB515D1E53F8FE00328B65 /* CPFMineController.swift in Sources */,
+				D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */,
 				D1DB515B1E53F8EC00328B65 /* CPFNotifyController.swift in Sources */,
 				D1DB51571E53F8AB00328B65 /* CPFMyArticleController.swift in Sources */,
 				D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */,
@@ -508,7 +509,6 @@
 				D1DB51331E52E61E00328B65 /* CPFGlobalUtilits.swift in Sources */,
 				D19890A41E63BBFA00364DF3 /* CPFUserManager.swift in Sources */,
 				D1DB516C1E5A9EE900328B65 /* AttentionArticle.swift in Sources */,
-				D17E70DC1E6D595A001049ED /* CPFMoreSettingsCell.swift in Sources */,
 				D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */,
 				D1DB51531E53F7F200328B65 /* CPFNavigationController.swift in Sources */,
 				D1DB51591E53F8CB00328B65 /* CPFWriteArticleController.swift in Sources */,

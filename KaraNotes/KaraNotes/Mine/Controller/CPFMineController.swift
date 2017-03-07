@@ -200,50 +200,19 @@ extension CPFMineController: UIScrollViewDelegate, UICollectionViewDelegate {
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         
-        let collectController = CPFAttentionController()
-        addChildViewController(collectController)
-        collectController.view.backgroundColor = CPFRandomColor
-        collectController.view.x = -CPFScreenW/2
-//        collectController.collectionView?.delegate = self
-//        collectController.collectionView?.dataSource = self
-        collectController.collectionView?.contentInset = UIEdgeInsets(top: -40, left: 0, bottom: 680, right: 0)
-        contentScrollView.addSubview(collectController.view)
+        let favoriteController = CPFFavoriteController()
+        addChildViewController(favoriteController)
+        favoriteController.view.backgroundColor = CPFRandomColor
+        favoriteController.view.x = -CPFScreenW/2
+        favoriteController.collectionView?.contentInset = UIEdgeInsets(top: -40, left: 0, bottom: 680, right: 0)
+        favoriteController.deledate = self
+        contentScrollView.addSubview(favoriteController.view)
         
         let moreSettingsCtr = CPFMoreSettingsController()
         addChildViewController(moreSettingsCtr)
         moreSettingsCtr.view.x = CPFScreenW
         contentScrollView.addSubview(moreSettingsCtr.view)
         
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset)
-        
-        if scrollView.contentOffset.y > 50 {
-            
-            UIView.animate(withDuration: 0.25, animations: {
-                
-                self.user_InfoView.snp.updateConstraints({ (make) in
-                    make.top.equalTo(-250+64)
-                })
-                self.changeNavigationBarAlpha(alpha: 1.0)
-                self.navigationItem.title = "我七岁就很帅"
-                self.view.layoutIfNeeded()
-            })
-        }
-        
-        if scrollView.contentOffset.y < 30 {
-            
-            UIView.animate(withDuration: 0.25, animations: {
-                
-                self.user_InfoView.snp.updateConstraints({ (make) in
-                    make.top.equalTo(self.view)
-                })
-                self.changeNavigationBarAlpha(alpha: 0)
-                self.navigationItem.title = ""
-                self.view.layoutIfNeeded()
-            })
-        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -256,5 +225,35 @@ extension CPFMineController: UIScrollViewDelegate, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("点击了：\(indexPath.row)行")
+    }
+}
+
+extension CPFMineController:CPFFavoriteControllerDelegate {
+    func favoriteControllerScrollToShowTop(favoriteController: CPFFavoriteController) {
+        print("显示用户头像")
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            
+            self.user_InfoView.snp.updateConstraints({ (make) in
+                make.top.equalTo(self.view)
+            })
+            self.changeNavigationBarAlpha(alpha: 0)
+            self.navigationItem.title = ""
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func favoriteControllerScrollToShowBottom(favoriteController: CPFFavoriteController) {
+        print("隐藏用户信息")
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            
+            self.user_InfoView.snp.updateConstraints({ (make) in
+                make.top.equalTo(-250+64)
+            })
+            self.changeNavigationBarAlpha(alpha: 1.0)
+            self.navigationItem.title = "我七岁就很帅"
+            self.view.layoutIfNeeded()
+        })
     }
 }
