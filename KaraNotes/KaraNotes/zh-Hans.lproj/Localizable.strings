@@ -28,3 +28,8 @@
 // MARK: - Mine
 "mine_collectBtn" = "收藏";
 "mine_moreBtn" = "更多";
+"mine_more_clearCaches" = "清除缓存";
+"mine_more_currentCaches" = "当前缓存";
+"mine_more_feedback" = "意见反馈";
+"mine_more_support_us" = "请喝饮料";
+"mine_more_logout" = "退出登录";

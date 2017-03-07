@@ -27,3 +27,8 @@
 // MARK: - Mine
 "mine_collectBtn" = "Collect";
 "mine_moreBtn" = "More";
+"mine_more_clearCaches" = "Clear Caches";
+"mine_more_currentCaches" = "Current Caches";
+"mine_more_feedback" = "Feedback";
+"mine_more_support_us" = "Support us";
+"mine_more_logout" = "Logout";

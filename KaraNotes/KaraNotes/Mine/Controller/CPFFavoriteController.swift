@@ -37,13 +37,9 @@ extension CPFFavoriteController {
         
         if let collectionView = collectionView {
             view.addSubview(collectionView)
-            collectionView.snp.makeConstraints { make in
-                make.top.left.right.bottom.equalTo(view)
-            }
+            collectionView.frame = CGRect(x: 0, y: 0, width: CPFScreenW, height: CPFScreenH - 150)
             collectionView.backgroundColor = CPFGlobalColor
             collectionView.register(CPFAttentionCell.self, forCellWithReuseIdentifier: cellID)
-            
-            collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             
             collectionView.delegate = self
             collectionView.dataSource = self

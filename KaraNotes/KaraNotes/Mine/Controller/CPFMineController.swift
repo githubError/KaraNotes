@@ -75,7 +75,7 @@ extension CPFMineController {
         user_NameLabel.text = "我七岁就很帅"
         user_NameLabel.textAlignment = .center
         user_NameLabel.textColor = UIColor.white
-        user_NameLabel.font = CPFPingFangSC(weight: .semibold, size: 24)
+        user_NameLabel.font = CPFPingFangSC(weight: .semibold, size: 20)
         user_NameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(user_InfoView.snp.centerX)
             make.left.equalTo(user_InfoView.snp.left).offset(15)
@@ -90,13 +90,13 @@ extension CPFMineController {
         categoryView.snp.makeConstraints { make in
             make.left.right.equalTo(user_InfoView)
             make.top.equalTo(user_InfoView.snp.bottom)
-            make.height.equalTo(40*CPFFitHeight)
+            make.height.equalTo(35*CPFFitHeight)
         }
         
         collectBtn = UIButton(type: .custom)
         collectBtn.setTitle(CPFLocalizableTitle(CPFLocalizableTitle("mine_collectBtn")), for: .normal)
         collectBtn.titleLabel?.textAlignment = .center
-        collectBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 18)
+        collectBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 16)
         collectBtn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .normal)
         collectBtn.setTitleColor(CPFRGB(r: 208, g: 2, b: 27), for: .selected)
         collectBtn.tag = 0
@@ -113,7 +113,7 @@ extension CPFMineController {
         moreBtn = UIButton(type: .custom)
         moreBtn.setTitle(CPFLocalizableTitle(CPFLocalizableTitle("mine_moreBtn")), for: .normal)
         moreBtn.titleLabel?.textAlignment = .center
-        moreBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 18)
+        moreBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 16)
         moreBtn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .normal)
         moreBtn.setTitleColor(CPFRGB(r: 208, g: 2, b: 27), for: .selected)
         moreBtn.tag = 1
@@ -202,9 +202,6 @@ extension CPFMineController: UIScrollViewDelegate, UICollectionViewDelegate {
         
         let favoriteController = CPFFavoriteController()
         addChildViewController(favoriteController)
-        favoriteController.view.backgroundColor = CPFRandomColor
-        favoriteController.view.x = -CPFScreenW/2
-        favoriteController.collectionView?.contentInset = UIEdgeInsets(top: -40, left: 0, bottom: 680, right: 0)
         favoriteController.deledate = self
         contentScrollView.addSubview(favoriteController.view)
         

@@ -65,20 +65,20 @@ extension CPFMoreSettingsController: UITableViewDelegate, UITableViewDataSource 
         
         cell.selectionStyle = .none
         cell.textLabel?.textColor = CPFRGB(r: 155, g: 155, b: 155)
-        cell.textLabel?.font = CPFPingFangSC(weight: .medium, size: 18)
+        cell.textLabel?.font = CPFPingFangSC(weight: .medium, size: 16)
         cell.detailTextLabel?.textColor = CPFRGB(r: 175, g: 175, b: 175)
         cell.detailTextLabel?.font = CPFPingFangSC(weight: .regular, size: 10)
         
         switch indexPath.row {
         case 0:
-            cell.textLabel?.text = "清除缓存"
-            cell.detailTextLabel?.text = "当前缓存2.6M"
+            cell.textLabel?.text = CPFLocalizableTitle("mine_more_clearCaches")
+            cell.detailTextLabel?.text = CPFLocalizableTitle("mine_more_currentCaches") + "2.6M"
             cell.accessoryType = .disclosureIndicator
         case 1:
-            cell.textLabel?.text = "意见反馈"
+            cell.textLabel?.text = CPFLocalizableTitle("mine_more_feedback")
             cell.accessoryType = .disclosureIndicator
         case 2:
-            cell.textLabel?.text = "请喝饮料"
+            cell.textLabel?.text = CPFLocalizableTitle("mine_more_support_us")
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 45, height: 44))
             label.textColor = CPFRGB(r: 175, g: 175, b: 175)
             label.font = CPFPingFangSC(weight: .regular, size: 10)
@@ -86,7 +86,7 @@ extension CPFMoreSettingsController: UITableViewDelegate, UITableViewDataSource 
             label.textAlignment = .right
             cell.accessoryView = label
         default:
-            cell.textLabel?.text = "退出登录"
+            cell.textLabel?.text = CPFLocalizableTitle("mine_more_logout")
             cell.textLabel?.textColor = CPFRGB(r: 255, g: 1, b: 1)
         }
         

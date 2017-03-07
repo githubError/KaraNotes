@@ -17,7 +17,7 @@ class CPFNavigationController: UINavigationController, UIGestureRecognizerDelega
         let navigationBar = UINavigationBar.appearance()
         navigationBar.barTintColor = CPFRGBA(r: 189, g: 34, b: 35, a: 1.0)
         navigationBar.isTranslucent = false
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName : UIFont.init(name: "PingFangSC-Semibold", size: 22)!]
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName : UIFont.init(name: "PingFangSC-Semibold", size: 18)!]
     }
     
     override func viewDidLoad() {
