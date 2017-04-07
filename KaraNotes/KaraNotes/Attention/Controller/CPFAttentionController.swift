@@ -38,10 +38,6 @@ extension CPFAttentionController {
         flowLayout.itemSize = CGSize(width: self.view.width, height: 250*CPFFitHeight)
         flowLayout.minimumLineSpacing = 0
         
-        // setup headerView's,footerView's size & contentInset
-        flowLayout.headerReferenceSize = CGSize(width: view.width, height: 40*CPFFitHeight)
-        flowLayout.footerReferenceSize = flowLayout.headerReferenceSize
-        
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         
         
@@ -53,16 +49,35 @@ extension CPFAttentionController {
             collectionView.backgroundColor = CPFGlobalColor
             collectionView.register(CPFAttentionCell.self, forCellWithReuseIdentifier: cellID)
             
-            // custom collectionHeaderView
-            collectionView.register(CPFCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerViewID")
-            
-            collectionView.register(CPFCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "footerViewID")
-            
             collectionView.contentInset = UIEdgeInsets(top: -flowLayout.headerReferenceSize.height, left: 0, bottom: -flowLayout.headerReferenceSize.height, right: 0)
             
             collectionView.delegate = self
             collectionView.dataSource = self
+            
+            let refreshHeader = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewDatas))
+            collectionView.mj_header = refreshHeader
+            collectionView.mj_header.beginRefreshing()
+            collectionView.mj_header.isAutomaticallyChangeAlpha = true
+            
+            let refreshFooter = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreDatas))
+            refreshFooter?.setTitle("没有更多啦", for: .noMoreData)
+            collectionView.mj_footer = refreshFooter
+            collectionView.mj_footer.isAutomaticallyChangeAlpha = true
         }
+    }
+}
+
+
+// MARK: - Refresh
+extension CPFAttentionController {
+    func loadNewDatas() -> Void {
+        print("下拉加载更多")
+        collectionView?.mj_header.endRefreshing()
+    }
+    
+    func loadMoreDatas() -> Void {
+        print("上拉加载更多")
+        collectionView?.mj_footer.endRefreshingWithNoMoreData()
     }
 }
 
@@ -86,35 +101,5 @@ extension CPFAttentionController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("点击了：\(indexPath.row)行")
         
-    }
-    
-    // collectionHeaderView
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionElementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerViewID", for: indexPath) as UICollectionReusableView
-            return headerView
-        default:
-            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footerViewID", for: indexPath) as UICollectionReusableView
-            return footerView
-        }
-    }
-    
-    // 上拉加载更多
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        let collectionViewHeight = (collectionView?.contentSize.height)! + (collectionView?.contentInset.bottom)! - (collectionView?.height)!
-        let offsetY = (collectionView?.contentOffset.y)!
-        
-//        print("collectionViewHeight===\(collectionViewHeight)")
-//        print("offsetY===\(offsetY)")
-        
-        if offsetY < 0.0 {
-            print("scrollView----上拉加载更多")
-        }
-        
-        if collectionViewHeight <  (offsetY - flowLayout.footerReferenceSize.height){
-            print("scrollView----上拉加载更多")
-        }
     }
 }
