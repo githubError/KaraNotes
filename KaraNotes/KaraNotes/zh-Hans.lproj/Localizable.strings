@@ -33,3 +33,8 @@
 "mine_more_feedback" = "意见反馈";
 "mine_more_support_us" = "请喝饮料";
 "mine_more_logout" = "退出登录";
+
+
+"mine_more_attentionBtn" = "关注";
+"mine_more_fansBtn" = "粉丝";
+"mine_more_tagsBtn" = "标签";

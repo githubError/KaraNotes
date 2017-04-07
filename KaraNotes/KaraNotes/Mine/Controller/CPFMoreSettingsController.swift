@@ -13,13 +13,19 @@ class CPFMoreSettingsController: BaseViewController {
     var topCategaryView:UIView!
     var tableView:UITableView!
     
+    var attentionBtn:UIButton!
+    var fansBtn:UIButton!
+    var tagsBtn:UIButton!
+    
     fileprivate let cellID = "tableViewCellID"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupSubviews()
+        
     }
+    
 }
 
 
@@ -33,12 +39,66 @@ extension CPFMoreSettingsController {
     
     func setupTopCategaryView() -> Void {
         topCategaryView = UIView()
-        topCategaryView.backgroundColor = CPFRandomColor
+        topCategaryView.backgroundColor = UIColor.white
         view.addSubview(topCategaryView)
-        topCategaryView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(view.snp.top).offset(0)
-            make.height.equalTo(45)
+        topCategaryView.x = 0.0
+        topCategaryView.top = view.top
+        topCategaryView.width = CPFScreenW
+        topCategaryView.height = 45.0
+        setupTopCategoryBtns()
+    }
+    
+    func setupTopCategoryBtns() -> Void {
+        
+        let btnW:CGFloat = 100
+        let btnH:CGFloat = 40
+        let margin:CGFloat = 15
+        
+        fansBtn = UIButton()
+        topCategaryView.addSubview(fansBtn)
+        attentionBtn = UIButton()
+        topCategaryView.addSubview(attentionBtn)
+        tagsBtn = UIButton()
+        topCategaryView.addSubview(tagsBtn)
+        
+        topCategaryView.subviews.forEach { view in
+            let btn = view as! UIButton
+            btn.width = btnW
+            btn.height = btnH
+            btn.centerY = topCategaryView.centerY
+            btn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .normal)
+            btn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 14)
+            btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+            btn.addTarget(self, action: #selector(topCategoryBtnsClick(button:)), for: .touchUpInside)
+        }
+        
+        attentionBtn.setImage(UIImage.init(named: "setting_attentionBtn"), for: .normal)
+        attentionBtn.setTitle(CPFLocalizableTitle("mine_more_attentionBtn"), for: .normal)
+        attentionBtn.tag = 0
+        attentionBtn.left = topCategaryView.left + margin
+        
+        fansBtn.setImage(UIImage.init(named: "setting_fansBtn"), for: .normal)
+        fansBtn.setTitle(CPFLocalizableTitle("mine_more_fansBtn"), for: .normal)
+        fansBtn.tag = 1
+        fansBtn.centerX = topCategaryView.centerX
+        
+        tagsBtn.setImage(UIImage.init(named: "setting_tagsBtn"), for: .normal)
+        tagsBtn.setTitle(CPFLocalizableTitle("mine_more_tagsBtn"), for: .normal)
+        tagsBtn.tag = 2
+        tagsBtn.right = topCategaryView.right - margin
+        
+    }
+    
+    func topCategoryBtnsClick(button:UIButton) -> Void {
+        if button.tag == 0 {
+            // 跳转到关注
+            
+        } else if button.tag == 1 {
+            // 跳转到粉丝
+            
+        } else if button.tag == 2{
+            // 跳转到标签
+            
         }
     }
     
