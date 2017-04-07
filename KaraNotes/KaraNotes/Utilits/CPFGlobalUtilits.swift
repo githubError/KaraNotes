@@ -19,13 +19,13 @@ public enum FontWeight: String {
 }
 
 public enum CPFNetworkRoute: String {
-    case base = "http://viakiba.cn:8080/KaraNotes"                              // 基地址
-    case login = "http://viakiba.cn:8080/KaraNotes/user/login"                  // 登录
-    case register = "http://viakiba.cn:8080/KaraNotes/user/register"            // 注册
-    case checkEmail = "http://viakiba.cn:8080/KaraNotes/user/checkemail"        // 检查邮箱可用性
-    case insertArticle = "http://viakiba.cn:8080/KaraNotes/article/insert"      // 新增文章
-    case deleteArticle = "http://viakiba.cn:8080/KaraNotes/article/delete"      // 删除文章
-    case updateArticle = "http://viakiba.cn:8080/KaraNotes/article/update"      // 更新文章
+    case base = "https://www.viakiba.cn/KaraNotes"                              // 基地址
+    case login = "https://www.viakiba.cn/KaraNotes/user/login"                  // 登录
+    case register = "https://www.viakiba.cn/KaraNotes/user/register"            // 注册
+    case checkEmail = "https://www.viakiba.cn/KaraNotes/user/checkemail"        // 检查邮箱可用性
+    case insertArticle = "https://www.viakiba.cn/KaraNotes/article/insert"      // 新增文章
+    case deleteArticle = "https://www.viakiba.cn/KaraNotes/article/delete"      // 删除文章
+    case updateArticle = "https://www.viakiba.cn/KaraNotes/article/update"      // 更新文章
 }
 
 // MARK: - 全局函数（宏定义）

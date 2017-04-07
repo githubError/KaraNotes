@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        if !CPFUserManager.sharedInstance().isLogin() {
+        if CPFUserManager.sharedInstance().isLogin() {
             let tabBarViewController = CPFTabBarController()
             window!.rootViewController = tabBarViewController
         } else {
