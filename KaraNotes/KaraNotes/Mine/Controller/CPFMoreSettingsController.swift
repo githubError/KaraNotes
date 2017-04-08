@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CPFTopCategoryBtnClickDelegate {
+    func currentController(controller:UIViewController, didClickCategoryBtn button:UIButton)
+}
+
 class CPFMoreSettingsController: BaseViewController {
     
     var topCategaryView:UIView!
@@ -16,6 +20,8 @@ class CPFMoreSettingsController: BaseViewController {
     var attentionBtn:UIButton!
     var fansBtn:UIButton!
     var tagsBtn:UIButton!
+    
+    var delegate:CPFTopCategoryBtnClickDelegate?
     
     fileprivate let cellID = "tableViewCellID"
     
@@ -90,16 +96,7 @@ extension CPFMoreSettingsController {
     }
     
     func topCategoryBtnsClick(button:UIButton) -> Void {
-        if button.tag == 0 {
-            // 跳转到关注
-            
-        } else if button.tag == 1 {
-            // 跳转到粉丝
-            
-        } else if button.tag == 2{
-            // 跳转到标签
-            
-        }
+        delegate?.currentController(controller: self, didClickCategoryBtn: button)
     }
     
     func setupTableView() -> Void {

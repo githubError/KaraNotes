@@ -10,6 +10,7 @@ import UIKit
 
 class CPFMineController: BaseViewController, UINavigationControllerDelegate {
     var navAlphaView:UIView!
+    var navBackBtn:UIButton!
     var user_InfoView:UIView!               // 用户信息
     var user_HeaderImageView:UIImageView!
     var user_NameLabel:UILabel!
@@ -28,6 +29,13 @@ class CPFMineController: BaseViewController, UINavigationControllerDelegate {
         navigationController?.delegate = self
         navigationItem.title = ""
         setupSubViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        var alpha = selectedCategoryBtn.tag == 0 ? 0.0 : 1.0
+        if user_InfoView.y >= 0.0 { alpha = 0.0 }
+        changeNavigationBarAlpha(alpha: CGFloat(alpha))
+        navBackBtn.alpha = 0.0
     }
 }
 
@@ -169,11 +177,22 @@ extension CPFMineController {
         navAlphaView = UIView(frame: CGRect(x: 0, y: -20, width: (frame?.size.width)!, height: (frame?.size.height)!+20))
         navAlphaView.backgroundColor = CPFRGB(r: 189, g: 34, b: 35)
         navAlphaView.isUserInteractionEnabled = false
+        
+        navBackBtn = UIButton(type: .custom)
+        navBackBtn.setImage(UIImage.init(named: "back"), for: .normal)
+        navBackBtn.size = CGSize(width: 20, height: 25)
+        navBackBtn.x = 15
+        navBackBtn.y = navAlphaView.middleY - 3
+        navBackBtn.contentHorizontalAlignment = .left
+        navBackBtn.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
+        
+        navAlphaView.addSubview(navBackBtn)
         navigationController?.navigationBar.insertSubview(navAlphaView, at: 0)
     }
     
     func changeNavigationBarAlpha(alpha: CGFloat) -> Void {
         navAlphaView.alpha = alpha
+        navBackBtn.alpha = alpha
     }
     
     func categoryBtnClick(button:UIButton) -> Void {
@@ -206,6 +225,7 @@ extension CPFMineController: UIScrollViewDelegate, UICollectionViewDelegate {
         contentScrollView.addSubview(favoriteController.view)
         
         let moreSettingsCtr = CPFMoreSettingsController()
+        moreSettingsCtr.delegate = self
         addChildViewController(moreSettingsCtr)
         moreSettingsCtr.view.x = CPFScreenW
         contentScrollView.addSubview(moreSettingsCtr.view)
@@ -252,5 +272,19 @@ extension CPFMineController:CPFFavoriteControllerDelegate {
             self.navigationItem.title = "我七岁就很帅"
             self.view.layoutIfNeeded()
         })
+        
+        self.navBackBtn.alpha = 0.0
+    }
+}
+
+extension CPFMineController: CPFTopCategoryBtnClickDelegate {
+    
+    func currentController(controller: UIViewController, didClickCategoryBtn button: UIButton) {
+        
+        let settingCategoryController = CPFSettingCategoryController()
+        settingCategoryController.settingCategoryType = CPFSettingCategoryType(rawValue: button.tag)
+        navigationController?.pushViewController(settingCategoryController, animated: true)
+        
+        changeNavigationBarAlpha(alpha: 1.0)
     }
 }
