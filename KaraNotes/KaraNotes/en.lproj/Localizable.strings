@@ -36,3 +36,8 @@
 "mine_more_attentionBtn" = "Attention";
 "mine_more_fansBtn" = "Fans";
 "mine_more_tagsBtn" = "Tags";
+
+// MARK: - WriteArticle
+"writeArticle_title" = "Write";
+"writeArticle_preview" = "Preview";
+"writeArticle_post" = "Post";

@@ -13,6 +13,7 @@
 		D19890A01E631D4E00364DF3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D198909F1E631D4E00364DF3 /* libsqlite3.tbd */; };
 		D19890A41E63BBFA00364DF3 /* CPFUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19890A31E63BBFA00364DF3 /* CPFUserManager.swift */; };
 		D1C190351E98B0A8007CA5D3 /* CPFSettingCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C190341E98B0A8007CA5D3 /* CPFSettingCategoryController.swift */; };
+		D1C190371E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */; };
 		D1CF34301E975C44001A615A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF342F1E975C44001A615A /* UIButton+Extension.swift */; };
 		D1CF34321E975C55001A615A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF34311E975C55001A615A /* UIView+Extension.swift */; };
 		D1CF34341E975C68001A615A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF34331E975C68001A615A /* UIImage+Extension.swift */; };
@@ -66,6 +67,7 @@
 		D19890A21E631FB800364DF3 /* KaraNotes_Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaraNotes_Bridging_Header.h; sourceTree = "<group>"; };
 		D19890A31E63BBFA00364DF3 /* CPFUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFUserManager.swift; sourceTree = "<group>"; };
 		D1C190341E98B0A8007CA5D3 /* CPFSettingCategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFSettingCategoryController.swift; sourceTree = "<group>"; };
+		D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFWriteArticleHeaderView.swift; sourceTree = "<group>"; };
 		D1CF342F1E975C44001A615A /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		D1CF34311E975C55001A615A /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D1CF34331E975C68001A615A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 		D1DB514F1E53F3F300328B65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */,
 				D1CF346B1E978569001A615A /* MJRefreshHeader.m in Sources */,
 				D1DB51531E53F7F200328B65 /* CPFNavigationController.swift in Sources */,
+				D1C190371E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift in Sources */,
 				D1DB51591E53F8CB00328B65 /* CPFWriteArticleController.swift in Sources */,
 				D1DB513B1E53F3D600328B65 /* BaseViewController.swift in Sources */,
 				D1DB51671E54371200328B65 /* CPFTabBar.swift in Sources */,
