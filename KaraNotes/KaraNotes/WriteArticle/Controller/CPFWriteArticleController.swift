@@ -11,6 +11,7 @@ import UIKit
 class CPFWriteArticleController: BaseViewController {
     
     var headerView:CPFWriteArticleHeaderView!
+    var editView:CPFEditView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +31,22 @@ extension CPFWriteArticleController {
     
     func setupSubviews() -> Void {
         setupHeaderView()
+        setupEditView()
     }
     
     func setupHeaderView() -> Void {
         headerView = CPFWriteArticleHeaderView(frame: CGRect(x: 0, y: 0, width: CPFScreenW, height: 64))
         headerView.delegate = self
         view.addSubview(headerView)
+    }
+    
+    func setupEditView() -> Void {
+        editView = CPFEditView()
+        view.addSubview(editView)
+        editView.snp.makeConstraints { (make) in
+            make.top.equalTo(headerView.snp.bottom)
+            make.left.right.bottom.equalToSuperview()
+        }
     }
 }
 

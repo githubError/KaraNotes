@@ -14,6 +14,8 @@
 		D19890A41E63BBFA00364DF3 /* CPFUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19890A31E63BBFA00364DF3 /* CPFUserManager.swift */; };
 		D1C190351E98B0A8007CA5D3 /* CPFSettingCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C190341E98B0A8007CA5D3 /* CPFSettingCategoryController.swift */; };
 		D1C190371E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */; };
+		D1C190391E99D71B007CA5D3 /* CPFEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C190381E99D71B007CA5D3 /* CPFEditView.swift */; };
+		D1C1903B1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C1903A1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift */; };
 		D1CF34301E975C44001A615A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF342F1E975C44001A615A /* UIButton+Extension.swift */; };
 		D1CF34321E975C55001A615A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF34311E975C55001A615A /* UIView+Extension.swift */; };
 		D1CF34341E975C68001A615A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF34331E975C68001A615A /* UIImage+Extension.swift */; };
@@ -68,6 +70,8 @@
 		D19890A31E63BBFA00364DF3 /* CPFUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFUserManager.swift; sourceTree = "<group>"; };
 		D1C190341E98B0A8007CA5D3 /* CPFSettingCategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFSettingCategoryController.swift; sourceTree = "<group>"; };
 		D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFWriteArticleHeaderView.swift; sourceTree = "<group>"; };
+		D1C190381E99D71B007CA5D3 /* CPFEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFEditView.swift; sourceTree = "<group>"; };
+		D1C1903A1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFKeyboardAccessoryView.swift; sourceTree = "<group>"; };
 		D1CF342F1E975C44001A615A /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		D1CF34311E975C55001A615A /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D1CF34331E975C68001A615A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -540,6 +544,8 @@
 			isa = PBXGroup;
 			children = (
 				D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */,
+				D1C190381E99D71B007CA5D3 /* CPFEditView.swift */,
+				D1C1903A1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -693,10 +699,12 @@
 				D1DB51571E53F8AB00328B65 /* CPFMyArticleController.swift in Sources */,
 				D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */,
 				D1CF34301E975C44001A615A /* UIButton+Extension.swift in Sources */,
+				D1C1903B1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift in Sources */,
 				D1DB511D1E52DEAD00328B65 /* AppDelegate.swift in Sources */,
 				D1CF34691E978569001A615A /* MJRefreshComponent.m in Sources */,
 				D1CF34791E978569001A615A /* UIScrollView+MJRefresh.m in Sources */,
 				D1CF34341E975C68001A615A /* UIImage+Extension.swift in Sources */,
+				D1C190391E99D71B007CA5D3 /* CPFEditView.swift in Sources */,
 				D1CF346F1E978569001A615A /* MJRefreshBackGifFooter.m in Sources */,
 				D1DB51511E53F5E600328B65 /* CPFTabBarController.swift in Sources */,
 				D1DB51551E53F89300328B65 /* CPFAttentionController.swift in Sources */,

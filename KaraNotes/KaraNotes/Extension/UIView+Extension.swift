@@ -10,6 +10,17 @@ import UIKit
 
 extension UIView {
     
+    public func showBorderColor(color:UIColor, withRadius radius:CGFloat, andWidth width:CGFloat) -> Void {
+        layer.masksToBounds = true
+        layer.cornerRadius = radius
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
+    }
+    
+    public func makeRound(round:CGFloat) -> Void {
+        showBorderColor(color: UIColor.clear, withRadius: round, andWidth: 1.0)
+    }
+    
     var size: CGSize {
         get {
             return frame.size
