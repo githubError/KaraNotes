@@ -16,6 +16,7 @@
 		D1C190371E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */; };
 		D1C190391E99D71B007CA5D3 /* CPFEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C190381E99D71B007CA5D3 /* CPFEditView.swift */; };
 		D1C1903B1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C1903A1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift */; };
+		D1C1903D1E9A6B48007CA5D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C1903C1E9A6B48007CA5D3 /* Assets.xcassets */; };
 		D1CF34301E975C44001A615A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF342F1E975C44001A615A /* UIButton+Extension.swift */; };
 		D1CF34321E975C55001A615A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF34311E975C55001A615A /* UIView+Extension.swift */; };
 		D1CF34341E975C68001A615A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CF34331E975C68001A615A /* UIImage+Extension.swift */; };
@@ -40,7 +41,6 @@
 		D1CF34791E978569001A615A /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF34641E978569001A615A /* UIScrollView+MJRefresh.m */; };
 		D1CF347A1E978569001A615A /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CF34661E978569001A615A /* UIView+MJExtension.m */; };
 		D1DB511D1E52DEAD00328B65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB511C1E52DEAD00328B65 /* AppDelegate.swift */; };
-		D1DB51241E52DEAD00328B65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1DB51231E52DEAD00328B65 /* Assets.xcassets */; };
 		D1DB51271E52DEAD00328B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1DB51251E52DEAD00328B65 /* LaunchScreen.storyboard */; };
 		D1DB51331E52E61E00328B65 /* CPFGlobalUtilits.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB51321E52E61E00328B65 /* CPFGlobalUtilits.swift */; };
 		D1DB513B1E53F3D600328B65 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB51391E53F3D600328B65 /* BaseViewController.swift */; };
@@ -72,6 +72,7 @@
 		D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFWriteArticleHeaderView.swift; sourceTree = "<group>"; };
 		D1C190381E99D71B007CA5D3 /* CPFEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFEditView.swift; sourceTree = "<group>"; };
 		D1C1903A1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFKeyboardAccessoryView.swift; sourceTree = "<group>"; };
+		D1C1903C1E9A6B48007CA5D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1CF342F1E975C44001A615A /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		D1CF34311E975C55001A615A /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D1CF34331E975C68001A615A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -117,7 +118,6 @@
 		D1CF34661E978569001A615A /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		D1DB51191E52DEAD00328B65 /* KaraNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaraNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DB511C1E52DEAD00328B65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D1DB51231E52DEAD00328B65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1DB51261E52DEAD00328B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1DB51281E52DEAD00328B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1DB51321E52E61E00328B65 /* CPFGlobalUtilits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFGlobalUtilits.swift; sourceTree = "<group>"; };
@@ -313,9 +313,9 @@
 				D1DB51311E52E5D400328B65 /* Utilits */,
 				D1CF342E1E975C07001A615A /* Extension */,
 				D1CF34371E97855A001A615A /* ThirdTools */,
-				D1DB51231E52DEAD00328B65 /* Assets.xcassets */,
 				D1DB51251E52DEAD00328B65 /* LaunchScreen.storyboard */,
 				D1DB51281E52DEAD00328B65 /* Info.plist */,
+				D1C1903C1E9A6B48007CA5D3 /* Assets.xcassets */,
 				D1DB51621E54201A00328B65 /* Localizable.strings */,
 			);
 			path = KaraNotes;
@@ -618,8 +618,8 @@
 			files = (
 				D1DB51271E52DEAD00328B65 /* LaunchScreen.storyboard in Resources */,
 				D1DB51601E54201A00328B65 /* Localizable.strings in Resources */,
+				D1C1903D1E9A6B48007CA5D3 /* Assets.xcassets in Resources */,
 				D1CF34751E978569001A615A /* MJRefresh.bundle in Resources */,
-				D1DB51241E52DEAD00328B65 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

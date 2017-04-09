@@ -36,6 +36,7 @@ extension CPFEditView {
         keyboardAccessoryView = CPFKeyboardAccessoryView()
         keyboardAccessoryView.accessoryViewDelegate = self
         self.inputAccessoryView = keyboardAccessoryView
+
     }
     
     func setupSubviews() -> Void {
