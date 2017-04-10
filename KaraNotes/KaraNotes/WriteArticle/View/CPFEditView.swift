@@ -14,6 +14,8 @@ class CPFEditView: UITextView {
     var titleTextField:UITextField!
     var separateImageView:UIImageView!
     
+    var textViewPlaceholderLabel:UILabel!
+    
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         configure()
@@ -35,16 +37,21 @@ extension CPFEditView {
     func configure() -> Void {
         keyboardAccessoryView = CPFKeyboardAccessoryView()
         keyboardAccessoryView.accessoryViewDelegate = self
-        self.inputAccessoryView = keyboardAccessoryView
-
+        inputAccessoryView = keyboardAccessoryView
+        textContainerInset = UIEdgeInsets(top: 55, left: 10, bottom: 0, right: 10)
+        font = CPFPingFangSC(weight: .regular, size: 14)
+        delegate = self
     }
     
     func setupSubviews() -> Void {
         titleTextField = UITextField()
         addSubview(titleTextField)
         titleTextField.placeholder = "请输入标题"
+        titleTextField.font = CPFPingFangSC(weight: .medium, size: 18)
         titleTextField.snp.makeConstraints { (make) in
-            make.left.right.top.equalToSuperview()
+            make.left.equalToSuperview().offset(10)
+            make.top.equalToSuperview()
+            make.right.equalToSuperview().offset(-10)
             make.height.equalTo(45)
         }
         
@@ -56,6 +63,30 @@ extension CPFEditView {
             make.top.equalTo(titleTextField.snp.bottom)
             make.height.equalTo(2)
         }
+        
+        configureTextViewPlaceholderLabel()
+    }
+    
+    func configureTextViewPlaceholderLabel() -> Void {
+        textViewPlaceholderLabel = UILabel()
+        textViewPlaceholderLabel.text = "请输入正文"
+        textViewPlaceholderLabel.font = CPFPingFangSC(weight: .regular, size: 14)
+        textViewPlaceholderLabel.textColor = CPFRGB(r: 185, g: 185, b: 185)
+        addSubview(textViewPlaceholderLabel)
+        textViewPlaceholderLabel.snp.makeConstraints { (make) in
+            make.left.right.equalTo(titleTextField).offset(3)
+            make.top.equalTo(separateImageView.snp.bottom).offset(3)
+            make.height.equalTo(30)
+        }
+    }
+}
+
+
+// MARK: - UITextViewDelegate
+extension CPFEditView: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        textViewPlaceholderLabel.isHidden = hasText
     }
 }
 

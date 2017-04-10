@@ -59,20 +59,23 @@ extension CPFKeyboardAccessoryView {
             button.tintColor = UIColor.blue
             button.backgroundColor = UIColor.white
             button.frame = CGRect(x: CGFloat(index % maxCount) * itemW + margin, y: CGFloat(index / maxCount) * itemW + margin, width: itemW - 2 * margin, height: itemW - 2 * margin)
-            if index == 0 {
+            
+            switch index {
+            case 0:
                 button.setTitle(value, for: .normal)
                 button.setTitleColor(UIColor.black, for: .normal)
                 button.titleLabel?.font = CPFPingFangSC(weight: .medium, size: 13)
-            } else if index > 0 && index < 3 {
+            case 1,2:
                 button.setImage(UIImage.init(named: value), for: .normal)
                 button.imageEdgeInsets = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
-            } else if index >= 3 && index < titles.count - 1 {
+            case 15:
+                button.setImage(UIImage.init(named: value), for: .normal)
+                button.imageEdgeInsets = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+            default:
                 button.setTitle(value, for: .normal)
                 button.setTitleColor(UIColor.black, for: .normal)
-            } else {
-                button.setImage(UIImage.init(named: value), for: .normal)
-                button.imageEdgeInsets = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
             }
+            
             button.addTarget(self, action: #selector(accessoryItemClick(button:)), for: .touchUpInside)
             button.makeRound(round: 6.0)
             addSubview(button)
