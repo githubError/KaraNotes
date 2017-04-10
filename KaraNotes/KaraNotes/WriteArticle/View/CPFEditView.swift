@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CPFEditView: UITextView {
 
@@ -46,7 +47,7 @@ extension CPFEditView {
     func setupSubviews() -> Void {
         titleTextField = UITextField()
         addSubview(titleTextField)
-        titleTextField.placeholder = "请输入标题"
+        titleTextField.placeholder = CPFLocalizableTitle("writeArticle_titlePlaceholder")
         titleTextField.font = CPFPingFangSC(weight: .medium, size: 18)
         titleTextField.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(10)
@@ -69,7 +70,7 @@ extension CPFEditView {
     
     func configureTextViewPlaceholderLabel() -> Void {
         textViewPlaceholderLabel = UILabel()
-        textViewPlaceholderLabel.text = "请输入正文"
+        textViewPlaceholderLabel.text = CPFLocalizableTitle("writeArticle_articlePlaceholder")
         textViewPlaceholderLabel.font = CPFPingFangSC(weight: .regular, size: 14)
         textViewPlaceholderLabel.textColor = CPFRGB(r: 185, g: 185, b: 185)
         addSubview(textViewPlaceholderLabel)
@@ -97,9 +98,17 @@ extension CPFEditView: CPFKeyboardAccessoryViewDelegate {
         
         switch item.tag {
         case 1:
-            print("插入图片")
+            
+            selectImageFromPhotoLibrary()
+            
         case 2:
-            print("插入链接")
+            insertLink(completionHandler: { (linkString) in
+                let insertString = "[KaraNotes](\(linkString))"
+                self.insertText(insertString)
+                let range = NSRange(location: self.selectedRange.location - insertString.characters.count + 1, length: 9)
+                self.selectedRange = range
+                
+            })
         case 15:
             resignFirstResponder()
         default:
@@ -109,5 +118,71 @@ extension CPFEditView: CPFKeyboardAccessoryViewDelegate {
     
     func accessoryView(accessoryView: CPFKeyboardAccessoryView, shouldSendString string: String) {
         insertText(string)
+    }
+}
+
+// MARK: - custom methods
+extension CPFEditView {
+    func insertLink(completionHandler: @escaping (_ linkString:String) -> Void ) -> Void {
+        
+        let alertCtr = UIAlertController(title: "插入链接", message: nil, preferredStyle: .alert)
+        
+        alertCtr.addTextField { (textFiled) in
+            textFiled.placeholder = "输入链接"
+        }
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (alertAction) in
+            alertCtr.dismiss(animated: true, completion: nil)
+        }
+        let insertAction = UIAlertAction(title: "插入", style: .default) { (alertAction) in
+            let textField = alertCtr.textFields?.first
+            completionHandler((textField?.text)!)
+        }
+        alertCtr.addAction(cancelAction)
+        alertCtr.addAction(insertAction)
+        
+        let vc = self.viewController(aClass: UIViewController.classForCoder())
+        vc?.present(alertCtr, animated: true, completion: nil)
+        
+    }
+    
+    func insertImageLink(linkString:String) -> Void {
+        
+        let insertString = "![KaraNotes](\(linkString))"
+        self.insertText(insertString)
+        let range = NSRange(location: self.selectedRange.location - insertString.characters.count + 2, length: 9)
+        self.selectedRange = range
+    }
+    
+    func selectImageFromPhotoLibrary() -> Void {
+        let imagePickerCtr = UIImagePickerController()
+        imagePickerCtr.sourceType = .photoLibrary
+        imagePickerCtr.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        self.viewController(aClass: UIViewController.classForCoder())?.present(imagePickerCtr, animated: true, completion: nil)
+    }
+    
+    
+    func uploadData(data:Data, completionHandler: @escaping (_ LinkString:String) -> Void) -> Void {
+        
+        Alamofire.upload(data, to: CPFNetworkRoute.uploadImage.rawValue).uploadProgress { (Progress) in
+            print("=====上传图片====\(Progress))")
+        }.response { (response) in
+            completionHandler("图片链接")
+        }
+        
+    }
+}
+
+
+// MARK: - UIImagePickerController
+extension CPFEditView: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage]
+        let imageData = UIImageJPEGRepresentation(image as! UIImage, 0)
+        
+        picker.dismiss(animated: true) {
+            self.uploadData(data: imageData!, completionHandler: { (linkString) in
+                self.insertImageLink(linkString: linkString)
+            })
+        }
     }
 }

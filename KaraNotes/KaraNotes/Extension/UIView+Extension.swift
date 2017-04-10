@@ -21,6 +21,18 @@ extension UIView {
         showBorderColor(color: UIColor.clear, withRadius: round, andWidth: 1.0)
     }
     
+    func viewController(aClass: AnyClass) -> UIViewController? {
+        var next = self.superview
+        while ((next?.superview) != nil) {
+            let nextResponder = next?.next
+            if nextResponder is UIViewController {
+                return nextResponder as? UIViewController
+            }
+            next = next?.superview
+        }
+        return nil
+    }
+    
     var size: CGSize {
         get {
             return frame.size

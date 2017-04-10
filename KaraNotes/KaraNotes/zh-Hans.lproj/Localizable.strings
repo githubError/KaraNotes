@@ -43,3 +43,6 @@
 "writeArticle_title" = "写文章";
 "writeArticle_preview" = "预览";
 "writeArticle_post" = "发表";
+
+"writeArticle_titlePlaceholder" = "请输入标题";
+"writeArticle_articlePlaceholder" = "请输入正文";

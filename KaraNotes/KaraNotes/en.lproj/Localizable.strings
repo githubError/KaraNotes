@@ -41,3 +41,6 @@
 "writeArticle_title" = "Write";
 "writeArticle_preview" = "Preview";
 "writeArticle_post" = "Post";
+
+"writeArticle_titlePlaceholder" = "Title";
+"writeArticle_articlePlaceholder" = "Article";

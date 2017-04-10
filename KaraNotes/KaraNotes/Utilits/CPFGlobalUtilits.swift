@@ -26,6 +26,8 @@ public enum CPFNetworkRoute: String {
     case insertArticle = "https://www.viakiba.cn/KaraNotes/article/insert"      // 新增文章
     case deleteArticle = "https://www.viakiba.cn/KaraNotes/article/delete"      // 删除文章
     case updateArticle = "https://www.viakiba.cn/KaraNotes/article/update"      // 更新文章
+    
+    case uploadImage = "https://www.viakiba.cn/KaraNotes/uploadImage"           // 上传图片
 }
 
 // MARK: - 全局函数（宏定义）
