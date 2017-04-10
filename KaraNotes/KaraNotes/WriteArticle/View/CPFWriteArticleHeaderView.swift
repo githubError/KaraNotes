@@ -18,7 +18,7 @@ protocol CPFWriteArticleHeaderViewDelegate {
 class CPFWriteArticleHeaderView: UIView {
     
     fileprivate var dismissBtn:UIButton!
-    fileprivate var characterCountLabel:UILabel!
+    var characterCountLabel:UILabel!
     fileprivate var titleLabel:UILabel!
     fileprivate var previewBtn:UIButton!
     fileprivate var postArticleBtn:UIButton!
@@ -55,7 +55,7 @@ extension CPFWriteArticleHeaderView {
         characterCountLabel = UILabel()
         characterCountLabel.textColor = CPFRGB(r: 222, g: 222, b: 222)
         characterCountLabel.font = CPFPingFangSC(weight: .regular, size: 10)
-        characterCountLabel.text = "0 字"
+        characterCountLabel.text = "0 \(CPFLocalizableTitle("writeArticle_character"))"
         addSubview(characterCountLabel)
         characterCountLabel.snp.makeConstraints { (make) in
             make.width.equalTo(30)

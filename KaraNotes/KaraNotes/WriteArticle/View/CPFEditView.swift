@@ -9,6 +9,10 @@
 import UIKit
 import Alamofire
 
+protocol CPFEditViewDelegate {
+    func editView(editView:CPFEditView, didChangeText text:String) -> Void
+}
+
 class CPFEditView: UITextView {
 
     var keyboardAccessoryView:CPFKeyboardAccessoryView!
@@ -16,6 +20,8 @@ class CPFEditView: UITextView {
     var separateImageView:UIImageView!
     
     var textViewPlaceholderLabel:UILabel!
+    
+    var editViewDelegate:CPFEditViewDelegate?
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -88,6 +94,7 @@ extension CPFEditView: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         textViewPlaceholderLabel.isHidden = hasText
+        editViewDelegate?.editView(editView: self, didChangeText: textView.text)
     }
 }
 
@@ -107,7 +114,6 @@ extension CPFEditView: CPFKeyboardAccessoryViewDelegate {
                 self.insertText(insertString)
                 let range = NSRange(location: self.selectedRange.location - insertString.characters.count + 1, length: 9)
                 self.selectedRange = range
-                
             })
         case 15:
             resignFirstResponder()
@@ -125,15 +131,15 @@ extension CPFEditView: CPFKeyboardAccessoryViewDelegate {
 extension CPFEditView {
     func insertLink(completionHandler: @escaping (_ linkString:String) -> Void ) -> Void {
         
-        let alertCtr = UIAlertController(title: "插入链接", message: nil, preferredStyle: .alert)
+        let alertCtr = UIAlertController(title: CPFLocalizableTitle("writeArticle_insertLinkAlertTitle"), message: nil, preferredStyle: .alert)
         
         alertCtr.addTextField { (textFiled) in
-            textFiled.placeholder = "输入链接"
+            textFiled.placeholder = CPFLocalizableTitle("writeArticle_inputLinkPlaceholder")
         }
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (alertAction) in
+        let cancelAction = UIAlertAction(title: CPFLocalizableTitle("writeArticle_insertLinkAlertCancel"), style: .cancel) { (alertAction) in
             alertCtr.dismiss(animated: true, completion: nil)
         }
-        let insertAction = UIAlertAction(title: "插入", style: .default) { (alertAction) in
+        let insertAction = UIAlertAction(title: CPFLocalizableTitle("writeArticle_insertLinkAlertInsert"), style: .default) { (alertAction) in
             let textField = alertCtr.textFields?.first
             completionHandler((textField?.text)!)
         }
@@ -148,9 +154,9 @@ extension CPFEditView {
     func insertImageLink(linkString:String) -> Void {
         
         let insertString = "![KaraNotes](\(linkString))"
-        self.insertText(insertString)
+        insertText(insertString)
         let range = NSRange(location: self.selectedRange.location - insertString.characters.count + 2, length: 9)
-        self.selectedRange = range
+        selectedRange = range
     }
     
     func selectImageFromPhotoLibrary() -> Void {
@@ -166,7 +172,7 @@ extension CPFEditView {
         Alamofire.upload(data, to: CPFNetworkRoute.uploadImage.rawValue).uploadProgress { (Progress) in
             print("=====上传图片====\(Progress))")
         }.response { (response) in
-            completionHandler("图片链接")
+            completionHandler("ImageLink")
         }
         
     }

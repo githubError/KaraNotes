@@ -42,5 +42,13 @@
 "writeArticle_preview" = "Preview";
 "writeArticle_post" = "Post";
 
+"writeArticle_character" = "character";
+
 "writeArticle_titlePlaceholder" = "Title";
 "writeArticle_articlePlaceholder" = "Article";
+
+
+"writeArticle_insertLinkAlertTitle" = "Insert Link";
+"writeArticle_inputLinkPlaceholder" = "Input Link";
+"writeArticle_insertLinkAlertCancel" = "Cancel";
+"writeArticle_insertLinkAlertInsert" = "Insert";

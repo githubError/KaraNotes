@@ -44,5 +44,12 @@
 "writeArticle_preview" = "预览";
 "writeArticle_post" = "发表";
 
+"writeArticle_character" = "字";
+
 "writeArticle_titlePlaceholder" = "请输入标题";
 "writeArticle_articlePlaceholder" = "请输入正文";
+
+"writeArticle_insertLinkAlertTitle" = "插入链接";
+"writeArticle_inputLinkPlaceholder" = "输入链接";
+"writeArticle_insertLinkAlertCancel" = "取消";
+"writeArticle_insertLinkAlertInsert" = "插入";

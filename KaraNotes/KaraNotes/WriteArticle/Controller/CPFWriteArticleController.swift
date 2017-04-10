@@ -43,6 +43,7 @@ extension CPFWriteArticleController {
     func setupEditView() -> Void {
         editView = CPFEditView()
         view.addSubview(editView)
+        editView.editViewDelegate = self
         editView.snp.makeConstraints { (make) in
             make.top.equalTo(headerView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
@@ -63,5 +64,12 @@ extension CPFWriteArticleController: CPFWriteArticleHeaderViewDelegate {
     
     func headerView(headerView: UIView, didClickPostArticleBtn postArticleBtn: UIButton) {
         print("发表")
+    }
+}
+
+// MARK: - CPFEditViewDelegate
+extension CPFWriteArticleController: CPFEditViewDelegate {
+    func editView(editView: CPFEditView, didChangeText text: String) {
+        headerView.characterCountLabel.text = "\(text.characters.count) \(CPFLocalizableTitle("writeArticle_character"))"
     }
 }
