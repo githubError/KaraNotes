@@ -52,3 +52,7 @@
 "writeArticle_inputLinkPlaceholder" = "Input Link";
 "writeArticle_insertLinkAlertCancel" = "Cancel";
 "writeArticle_insertLinkAlertInsert" = "Insert";
+
+
+// MARK: - progressView
+"progressView_dismissBtn" = "Cancel";

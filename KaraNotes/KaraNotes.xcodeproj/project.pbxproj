@@ -55,6 +55,7 @@
 		D1DB51671E54371200328B65 /* CPFTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB51661E54371200328B65 /* CPFTabBar.swift */; };
 		D1DB51691E5A8D8000328B65 /* CPFAttentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB51681E5A8D8000328B65 /* CPFAttentionCell.swift */; };
 		D1DB516C1E5A9EE900328B65 /* AttentionArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB516B1E5A9EE900328B65 /* AttentionArticle.swift */; };
+		D1EA68991E9CFB0B0073C6CA /* CPFProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA68981E9CFB0B0073C6CA /* CPFProgressView.swift */; };
 		E7597725F5752EF8116D584F /* Pods_KaraNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2504BCA8CAAF8866B63E73 /* Pods_KaraNotes.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +136,7 @@
 		D1DB51661E54371200328B65 /* CPFTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFTabBar.swift; sourceTree = "<group>"; };
 		D1DB51681E5A8D8000328B65 /* CPFAttentionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFAttentionCell.swift; sourceTree = "<group>"; };
 		D1DB516B1E5A9EE900328B65 /* AttentionArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttentionArticle.swift; sourceTree = "<group>"; };
+		D1EA68981E9CFB0B0073C6CA /* CPFProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				D1DB51661E54371200328B65 /* CPFTabBar.swift */,
+				D1EA68981E9CFB0B0073C6CA /* CPFProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				D1DB516C1E5A9EE900328B65 /* AttentionArticle.swift in Sources */,
 				D1CF34711E978569001A615A /* MJRefreshBackStateFooter.m in Sources */,
 				D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */,
+				D1EA68991E9CFB0B0073C6CA /* CPFProgressView.swift in Sources */,
 				D1CF346B1E978569001A615A /* MJRefreshHeader.m in Sources */,
 				D1DB51531E53F7F200328B65 /* CPFNavigationController.swift in Sources */,
 				D1C190371E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift in Sources */,

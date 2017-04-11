@@ -53,3 +53,6 @@
 "writeArticle_inputLinkPlaceholder" = "输入链接";
 "writeArticle_insertLinkAlertCancel" = "取消";
 "writeArticle_insertLinkAlertInsert" = "插入";
+
+// MARK: - progressView
+"progressView_dismissBtn" = "取消";

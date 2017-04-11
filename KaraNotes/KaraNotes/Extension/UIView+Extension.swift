@@ -17,6 +17,13 @@ extension UIView {
         layer.borderWidth = width
     }
     
+    public func showShadowColor(color:UIColor, withRadius radius:CGFloat, shadowOffset offset:CGSize, shadowOpacity opacity:Float) {
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = radius
+        layer.shadowOffset = offset
+        layer.shadowOpacity = opacity
+    }
+    
     public func makeRound(round:CGFloat) -> Void {
         showBorderColor(color: UIColor.clear, withRadius: round, andWidth: 1.0)
     }
