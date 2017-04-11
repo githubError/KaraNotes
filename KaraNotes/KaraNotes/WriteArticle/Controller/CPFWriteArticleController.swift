@@ -78,8 +78,8 @@ extension CPFWriteArticleController: CPFWriteArticleHeaderViewDelegate {
     
     func headerView(headerView: UIView, didClickPostArticleBtn postArticleBtn: UIButton) {
         print("发表")
-        let ctr = SLComposeViewController(forServiceType: "com.apple.reminders.RemindersEditorExtension")
-        ctr?.setInitialText("初始化字符串")
+        let ctr = SLComposeViewController(forServiceType: "com.tencent.xin.sharetimeline")
+//        ctr?.setInitialText("初始化字符串")
         present(ctr!, animated: true, completion: nil)
         
     }
