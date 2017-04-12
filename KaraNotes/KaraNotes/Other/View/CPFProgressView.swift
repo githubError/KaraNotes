@@ -12,15 +12,16 @@ class CPFProgressView: UIView {
 
     static let instance:CPFProgressView = CPFProgressView()
     
-    var progressValue:CGFloat! {
+    var progressValue:CGFloat! = 0.0 {
         didSet{
             progressFrontgroundBezierPath = UIBezierPath(arcCenter: progressView.center, radius: (progressViewSize.width - progressStrokeWidth - progressCircleMargin) / 2.0, startAngle: -CGFloat(Double.pi / 2.0), endAngle: CGFloat(Double.pi * 2.0) * progressValue - CGFloat(Double.pi / 2.0), clockwise: true)
             progressFrontgroundLayer.path = progressFrontgroundBezierPath.cgPath
         }
     }
     
-    var progressPromptText:String! {
+    var progressPromptText:String! = ""{
         didSet{
+            progressPromptLabel.text = ""
             progressPromptLabel.text = progressPromptText
         }
     }
@@ -45,20 +46,28 @@ class CPFProgressView: UIView {
     fileprivate let progressCircleMargin:CGFloat = 10.0
     fileprivate let separateLineViewHeight:CGFloat = 1.0
     
+    fileprivate var once:Bool = true
+    
     static func sharedInstance() -> CPFProgressView {
+        if instance.once {
+            let window = UIApplication.shared.keyWindow
+            instance.frame = (window?.bounds)!
+            instance.backgroundColor = CPFRGBA(r: 0, g: 0, b: 0, a: 0.2)
+            window?.addSubview(instance)
+            instance.setupSubviews()
+            
+            instance.once = false
+        }
         return instance
     }
 }
 
 extension CPFProgressView {
     
-    func showProgressView() -> Void {
+    func showProgressView(progress:CGFloat, promptMessage message:String) -> Void {
         
-        let window = UIApplication.shared.keyWindow
-        frame = (window?.bounds)!
-        backgroundColor = CPFRGBA(r: 0, g: 0, b: 0, a: 0.2)
-        window?.addSubview(self)
-        setupSubviews()
+        progressValue = progress
+        progressPromptText = message
     }
     
     func dismissProgressView() -> Void {
@@ -69,6 +78,8 @@ extension CPFProgressView {
         subviews.forEach { (view) in
             view.removeFromSuperview()
         }
+        
+        once = true
         removeFromSuperview()
     }
 }
