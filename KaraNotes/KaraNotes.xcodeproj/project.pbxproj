@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D113D5F51E9F97BE000E0A6D /* CPFHighLightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5F41E9F97BE000E0A6D /* CPFHighLightModel.swift */; };
+		D113D5F71E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5F61E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift */; };
+		D113D5F91E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5F81E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift */; };
+		D113D5FD1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5FC1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift */; };
 		D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */; };
 		D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */; };
 		D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198909D1E631D1E00364DF3 /* CPFLoginController.swift */; };
@@ -63,6 +67,10 @@
 		1C2504BCA8CAAF8866B63E73 /* Pods_KaraNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaraNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F216FF3C1454E86CE45627 /* Pods-KaraNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaraNotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaraNotes/Pods-KaraNotes.release.xcconfig"; sourceTree = "<group>"; };
 		997B9633B276A9BD5956AB6B /* Pods-KaraNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaraNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KaraNotes/Pods-KaraNotes.debug.xcconfig"; sourceTree = "<group>"; };
+		D113D5F41E9F97BE000E0A6D /* CPFHighLightModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFHighLightModel.swift; sourceTree = "<group>"; };
+		D113D5F61E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxType.swift; sourceTree = "<group>"; };
+		D113D5F81E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxModel.swift; sourceTree = "<group>"; };
+		D113D5FC1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxManager.swift; sourceTree = "<group>"; };
 		D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsController.swift; sourceTree = "<group>"; };
 		D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFavoriteController.swift; sourceTree = "<group>"; };
 		D198909D1E631D1E00364DF3 /* CPFLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFLoginController.swift; sourceTree = "<group>"; };
@@ -168,6 +176,17 @@
 				63F216FF3C1454E86CE45627 /* Pods-KaraNotes.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D113D5F31E9F9755000E0A6D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D113D5F41E9F97BE000E0A6D /* CPFHighLightModel.swift */,
+				D113D5F61E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift */,
+				D113D5F81E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift */,
+				D113D5FC1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D1CF342E1E975C07001A615A /* Extension */ = {
@@ -337,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				D1DB51351E53F24200328B65 /* Controller */,
+				D113D5F31E9F9755000E0A6D /* Model */,
 				D1DB51361E53F24200328B65 /* View */,
 			);
 			path = Other;
@@ -699,6 +719,7 @@
 				D1CF34671E978569001A615A /* MJRefreshAutoFooter.m in Sources */,
 				D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */,
 				D1DB515B1E53F8EC00328B65 /* CPFNotifyController.swift in Sources */,
+				D113D5F51E9F97BE000E0A6D /* CPFHighLightModel.swift in Sources */,
 				D1DB51571E53F8AB00328B65 /* CPFMyArticleController.swift in Sources */,
 				D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */,
 				D1CF34301E975C44001A615A /* UIButton+Extension.swift in Sources */,
@@ -708,6 +729,7 @@
 				D1CF34791E978569001A615A /* UIScrollView+MJRefresh.m in Sources */,
 				D1CF34341E975C68001A615A /* UIImage+Extension.swift in Sources */,
 				D1C190391E99D71B007CA5D3 /* CPFEditView.swift in Sources */,
+				D113D5F91E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift in Sources */,
 				D1CF346F1E978569001A615A /* MJRefreshBackGifFooter.m in Sources */,
 				D1DB51511E53F5E600328B65 /* CPFTabBarController.swift in Sources */,
 				D1DB51551E53F89300328B65 /* CPFAttentionController.swift in Sources */,
@@ -715,6 +737,7 @@
 				D1DB51331E52E61E00328B65 /* CPFGlobalUtilits.swift in Sources */,
 				D1CF34741E978569001A615A /* MJRefreshStateHeader.m in Sources */,
 				D1CF34701E978569001A615A /* MJRefreshBackNormalFooter.m in Sources */,
+				D113D5FD1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift in Sources */,
 				D1CF346D1E978569001A615A /* MJRefreshAutoNormalFooter.m in Sources */,
 				D19890A41E63BBFA00364DF3 /* CPFUserManager.swift in Sources */,
 				D1CF34771E978569001A615A /* NSBundle+MJRefresh.m in Sources */,
@@ -726,6 +749,7 @@
 				D1CF34721E978569001A615A /* MJRefreshGifHeader.m in Sources */,
 				D1CF34321E975C55001A615A /* UIView+Extension.swift in Sources */,
 				D1CF34761E978569001A615A /* MJRefreshConst.m in Sources */,
+				D113D5F71E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift in Sources */,
 				D1CF346C1E978569001A615A /* MJRefreshAutoGifFooter.m in Sources */,
 				D1CF346A1E978569001A615A /* MJRefreshFooter.m in Sources */,
 				D1DB516C1E5A9EE900328B65 /* AttentionArticle.swift in Sources */,

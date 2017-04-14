@@ -95,6 +95,29 @@ extension CPFEditView: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         textViewPlaceholderLabel.isHidden = hasText
         editViewDelegate?.editView(editView: self, didChangeText: textView.text)
+        highLightText()
+    }
+    
+    func highLightText() -> Void {
+        
+        let models = CPFMarkdownSyntaxManager.sharedManeger().syntaxModelsFromText(text: text)
+        
+        let attributedString = NSMutableAttributedString.init(string: text)
+        
+        let initAttributesDic = [NSFontAttributeName : CPFPingFangSC(weight: .regular, size: 16), NSForegroundColorAttributeName :  UIColor.black]
+        attributedString.addAttributes(initAttributesDic, range: NSRange(location: 0, length: attributedString.length))
+        
+        for item in models {
+            var highLightModel = CPFHighLightModel()
+            let attributesDic = highLightModel.attributesFromMarkdownSyntaxType(markdownSyntaxType: item.markdownSyntaxType)
+            attributedString.addAttributes(attributesDic, range: item.range)
+        }
+        
+        self.isScrollEnabled = false;
+        let selectedRange = self.selectedRange;
+        self.attributedText = attributedString;
+        self.selectedRange = selectedRange;
+        self.isScrollEnabled = true;
     }
 }
 
@@ -111,7 +134,7 @@ extension CPFEditView: CPFKeyboardAccessoryViewDelegate {
         case 2:
             insertLink(completionHandler: { (linkString) in
                 let insertString = "[KaraNotes](\(linkString))"
-                self.insertText(insertString)
+                self.titleTextField.isFirstResponder ? self.titleTextField.insertText(insertString) : self.insertText(insertString)
                 let range = NSRange(location: self.selectedRange.location - insertString.characters.count + 1, length: 9)
                 self.selectedRange = range
             })
@@ -123,7 +146,7 @@ extension CPFEditView: CPFKeyboardAccessoryViewDelegate {
     }
     
     func accessoryView(accessoryView: CPFKeyboardAccessoryView, shouldSendString string: String) {
-        insertText(string)
+        titleTextField.isFirstResponder ? titleTextField.insertText(string) : insertText(string)
     }
 }
 
@@ -154,7 +177,7 @@ extension CPFEditView {
     func insertImageLink(linkString:String) -> Void {
         
         let insertString = "![KaraNotes](\(linkString))"
-        insertText(insertString)
+        titleTextField.isFirstResponder ? titleTextField.insertText(insertString) :insertText(insertString)
         let range = NSRange(location: self.selectedRange.location - insertString.characters.count + 2, length: 9)
         selectedRange = range
     }
@@ -171,6 +194,7 @@ extension CPFEditView {
         
         Alamofire.upload(data, to: CPFNetworkRoute.uploadImage.rawValue).uploadProgress { (Progress) in
             print("=====上传图片====\(Progress))")
+            
         }.response { (response) in
             completionHandler("ImageLink")
         }
