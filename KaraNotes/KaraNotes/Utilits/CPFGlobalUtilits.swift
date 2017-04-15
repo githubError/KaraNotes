@@ -19,15 +19,19 @@ public enum FontWeight: String {
 }
 
 public enum CPFNetworkRoute: String {
-    case base = "http://karanotes.viakiba.cn/karanotes"                              // 基地址
-    case login = "http://karanotes.viakiba.cn/karanotes/user/login"                  // 登录
-    case register = "http://karanotes.viakiba.cn/karanotes/user/register"            // 注册
-    case checkEmail = "http://karanotes.viakiba.cn/karanotes/user/checkemail"        // 检查邮箱可用性
-    case insertArticle = "http://karanotes.viakiba.cn/karanotes/article/insert"      // 新增文章
-    case deleteArticle = "http://karanotes.viakiba.cn/karanotes/article/delete"      // 删除文章
-    case updateArticle = "http://karanotes.viakiba.cn/karanotes/article/update"      // 更新文章
     
-    case uploadImage = "http://karanotes.viakiba.cn/karanotes/uploadImage"           // 上传图片
+    case base = "http://karanotes.viakiba.cn/karanotes"                              // 基地址
+    case login = "/user/login"                  // 登录
+    case register = "/user/register"            // 注册
+    case checkEmail = "/user/checkemail"        // 检查邮箱可用性
+    case insertArticle = "/article/insert"      // 新增文章
+    case deleteArticle = "/article/delete"      // 删除文章
+    case updateArticle = "/article/update"      // 更新文章
+    case uploadImage = "/file/imgs/article"           // 上传图片
+    
+    static func getAPIFromRouteType(route: CPFNetworkRoute) -> String {
+        return "\(CPFNetworkRoute.base.rawValue)\(route.rawValue)"
+    }
 }
 
 // MARK: - 全局函数（宏定义）

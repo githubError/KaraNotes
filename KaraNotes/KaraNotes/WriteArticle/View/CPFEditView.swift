@@ -192,13 +192,23 @@ extension CPFEditView {
     
     func uploadData(data:Data, completionHandler: @escaping (_ LinkString:String) -> Void) -> Void {
         
-        Alamofire.upload(data, to: CPFNetworkRoute.uploadImage.rawValue).uploadProgress { (Progress) in
-            print("=====上传图片====\(Progress))")
-            
-        }.response { (response) in
-            completionHandler("ImageLink")
-        }
-        
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+                multipartFormData.append(data, withName: "img", fileName: "testName", mimeType: "image/*")
+        }, to: CPFNetworkRoute.getAPIFromRouteType(route: .uploadImage),
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.uploadProgress(closure: { (progress) in
+                        print("progress...\(progress)")
+                    })
+                    upload.response { response in
+                        print("-------\(response)")
+                    }
+                case .failure(let encodingError):
+                    print("-------\(encodingError)")
+                }
+        })
     }
 }
 
@@ -206,13 +216,14 @@ extension CPFEditView {
 // MARK: - UIImagePickerController
 extension CPFEditView: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage]
-        let imageData = UIImageJPEGRepresentation(image as! UIImage, 0)
-        
-        picker.dismiss(animated: true) {
-            self.uploadData(data: imageData!, completionHandler: { (linkString) in
-                self.insertImageLink(linkString: linkString)
-            })
+        let imageData: Data
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageData = UIImageJPEGRepresentation(image, 0)!
+            picker.dismiss(animated: true) {
+                self.uploadData(data: imageData, completionHandler: { (linkString) in
+                    self.insertImageLink(linkString: linkString)
+                })
+            }
         }
     }
 }

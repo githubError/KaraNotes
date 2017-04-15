@@ -38,7 +38,7 @@ extension CPFUserManager {
     func checkEmail(withAccount account: String, completionHandler: @escaping (_ result:Int) -> Void) {
         // 账号检测
         let params = ["email":account]
-        Alamofire.request(CPFNetworkRoute.checkEmail.rawValue, parameters: params).responseJSON { (response) in
+        Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .checkEmail), parameters: params).responseJSON { (response) in
             switch response.result {
             case .success(let json as JSONDictionary):
                 guard let result = json["success"] as? Int else{fatalError()}
@@ -53,7 +53,7 @@ extension CPFUserManager {
     func login(withAccount account: String, password: String, completionHandler: @escaping (_ result:Int) -> Void) -> Void {
         
         let params = ["user_email":account, "user_password":password]
-        Alamofire.request(CPFNetworkRoute.login.rawValue, method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
+        Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .login), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
             
             switch response.result {
                 
@@ -80,7 +80,7 @@ extension CPFUserManager {
     
     func register(withAccount account: String, password: String, completionHandler:@escaping (_ result:Int, _ userName:String)->Void ) {
         let params = ["user_email":account, "user_password":password]
-        Alamofire.request(CPFNetworkRoute.register.rawValue, method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
+        Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .register), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
             
             switch response.result {
             case .success(let json as JSONDictionary):
