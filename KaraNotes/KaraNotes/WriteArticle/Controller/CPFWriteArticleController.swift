@@ -15,9 +15,6 @@ class CPFWriteArticleController: BaseViewController {
     var headerView:CPFWriteArticleHeaderView!
     var editView:CPFEditView!
     
-    //FIXME: 测试 progressView
-    var progress:CGFloat = 0.0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,17 +63,8 @@ extension CPFWriteArticleController: CPFWriteArticleHeaderViewDelegate {
     func headerView(headerView: UIView, didClickPreviewBtn previewBtn: UIButton) {
         print("预览")
         
-        //FIXME: 测试 progressView
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeProgressValue), userInfo: nil, repeats: true)
     }
     
-    
-    //FIXME: 测试 progressView
-    func changeProgressValue() -> Void {
-        progress += 0.1
-        
-        CPFProgressView.sharedInstance().showProgressView(progress: progress, promptMessage: "正在上传 \n \(Int(progress * 100))%")
-    }
     
     func headerView(headerView: UIView, didClickPostArticleBtn postArticleBtn: UIButton) {
         print("发表")

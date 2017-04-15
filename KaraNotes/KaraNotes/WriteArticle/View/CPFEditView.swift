@@ -27,14 +27,40 @@ class CPFEditView: UITextView {
         super.init(frame: frame, textContainer: textContainer)
         configure()
         setupSubviews()
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHidden), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configure()
         setupSubviews()
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        endEditing(true)
+    }
+    
+    @objc fileprivate func keyboardDidShow(notification: NSNotification) -> Void {
+        
+        if let userInfo = notification.userInfo {
+            if let keyboardSize: CGSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect)?.size {
+                let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height + 10, 0.0)
+                self.contentInset = contentInset
+            }
+        }
+    }
+    
+    @objc fileprivate func keyboardDidHidden() -> Void {
+        contentInset = UIEdgeInsets.zero
+    }
 }
 
 
@@ -46,6 +72,9 @@ extension CPFEditView {
         keyboardAccessoryView.accessoryViewDelegate = self
         inputAccessoryView = keyboardAccessoryView
         textContainerInset = UIEdgeInsets(top: 55, left: 10, bottom: 0, right: 10)
+        contentSize = CGSize(width: CPFScreenW, height: 0.0)
+        layoutManager.allowsNonContiguousLayout = false
+        
         font = CPFPingFangSC(weight: .regular, size: 14)
         delegate = self
     }
@@ -81,7 +110,7 @@ extension CPFEditView {
         textViewPlaceholderLabel.textColor = CPFRGB(r: 185, g: 185, b: 185)
         addSubview(textViewPlaceholderLabel)
         textViewPlaceholderLabel.snp.makeConstraints { (make) in
-            make.left.right.equalTo(titleTextField).offset(3)
+            make.left.right.equalTo(titleTextField).offset(3.5)
             make.top.equalTo(separateImageView.snp.bottom).offset(3)
             make.height.equalTo(30)
         }
@@ -95,10 +124,19 @@ extension CPFEditView: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         textViewPlaceholderLabel.isHidden = hasText
         editViewDelegate?.editView(editView: self, didChangeText: textView.text)
+        
         highLightText()
+        
+        // scroll to the last row
+        let visibleRange = NSMakeRange(text.characters.count, 1)
+        scrollRangeToVisible(visibleRange)
     }
     
     func highLightText() -> Void {
+        
+        if (markedTextRange != nil) {
+            return
+        }
         
         let models = CPFMarkdownSyntaxManager.sharedManeger().syntaxModelsFromText(text: text)
         
