@@ -27,17 +27,14 @@ class CPFEditView: UITextView {
         super.init(frame: frame, textContainer: textContainer)
         configure()
         setupSubviews()
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHidden), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        addKeyboardObserver()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configure()
         setupSubviews()
-        
+        addKeyboardObserver()
     }
     
     deinit {
@@ -46,6 +43,12 @@ class CPFEditView: UITextView {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         endEditing(true)
+    }
+    
+    fileprivate func addKeyboardObserver() -> Void {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHidden), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
     }
     
     @objc fileprivate func keyboardDidShow(notification: NSNotification) -> Void {
