@@ -70,7 +70,9 @@ extension CPFProgressView {
         progressPromptText = message
     }
     
-    func dismissProgressView() -> Void {
+    func dismissProgressView(completionHandeler: () -> Void) -> Void {
+        
+        //completionHandeler()
         
         progressView.layer.sublayers?.forEach({ (layer) in
             layer.removeFromSuperlayer()
@@ -134,7 +136,7 @@ extension CPFProgressView {
         dismissProgressViewBtn.setTitle(CPFLocalizableTitle("progressView_dismissBtn"), for: .normal)
         dismissProgressViewBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 15)
         dismissProgressViewBtn.setTitleColor(dismissBtnTitleColor, for: .normal)
-        dismissProgressViewBtn.addTarget(self, action: #selector(dismissProgressView), for: .touchUpInside)
+        dismissProgressViewBtn.addTarget(self, action: #selector(dismissProgressView(completionHandeler:)), for: .touchUpInside)
         addSubview(dismissProgressViewBtn)
     }
     

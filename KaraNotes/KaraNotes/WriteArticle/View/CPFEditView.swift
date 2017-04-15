@@ -241,10 +241,19 @@ extension CPFEditView {
                 switch encodingResult {
                 case .success(let upload, _, _):
                     upload.uploadProgress(closure: { (progress) in
-                        print("progress...\(progress)")
+                        if progress.isCancelled { return }
+                        
+                        CPFProgressView.sharedInstance().showProgressView(progress: CGFloat(progress.fractionCompleted), promptMessage: "正在上传")
+                        if progress.fractionCompleted == 1.0 {
+                            CPFProgressView.sharedInstance().dismissProgressView(completionHandeler: {
+                                progress.cancel()
+                            })
+                        }
                     })
                     upload.response { response in
-                        print("-------\(response)")
+                        let string = String(bytes: response.data!, encoding: .utf8)!
+                        print("-------\(String(describing: string))")
+                        completionHandler(string)
                     }
                 case .failure(let encodingError):
                     print("-------\(encodingError)")
