@@ -235,7 +235,7 @@ extension CPFEditView {
                     upload.uploadProgress(closure: { (progress) in
                         if progress.isCancelled { return }
                         
-                        CPFProgressView.sharedInstance().showProgressView(progress: CGFloat(progress.fractionCompleted), promptMessage: "正在上传")
+                        CPFProgressView.sharedInstance().showProgressView(progress: CGFloat(progress.fractionCompleted), promptMessage: "正在上传 \n \(Int(progress.fractionCompleted * 100))%")
                         if progress.fractionCompleted == 1.0 {
                             CPFProgressView.sharedInstance().dismissProgressView(completionHandeler: {
                                 progress.cancel()
@@ -244,7 +244,6 @@ extension CPFEditView {
                     })
                     upload.response { response in
                         let string = String(bytes: response.data!, encoding: .utf8)!
-                        print("-------\(String(describing: string))")
                         completionHandler(string)
                     }
                 case .failure(let encodingError):
