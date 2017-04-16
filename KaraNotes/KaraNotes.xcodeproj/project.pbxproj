@@ -15,6 +15,7 @@
 		D12AC3D71EA328E60023C541 /* Clearness.css in Resources */ = {isa = PBXBuildFile; fileRef = D12AC3D61EA328E60023C541 /* Clearness.css */; };
 		D12AC3D91EA32B9F0023C541 /* CPFPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3D81EA32B9F0023C541 /* CPFPreviewController.swift */; };
 		D12AC3DB1EA336510023C541 /* CPFPreviewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3DA1EA336510023C541 /* CPFPreviewHeaderView.swift */; };
+		D12AC3DD1EA3AAB50023C541 /* CPFPDFRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3DC1EA3AAB50023C541 /* CPFPDFRender.swift */; };
 		D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */; };
 		D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */; };
 		D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198909D1E631D1E00364DF3 /* CPFLoginController.swift */; };
@@ -89,6 +90,7 @@
 		D12AC3D61EA328E60023C541 /* Clearness.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Clearness.css; sourceTree = "<group>"; };
 		D12AC3D81EA32B9F0023C541 /* CPFPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFPreviewController.swift; sourceTree = "<group>"; };
 		D12AC3DA1EA336510023C541 /* CPFPreviewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFPreviewHeaderView.swift; sourceTree = "<group>"; };
+		D12AC3DC1EA3AAB50023C541 /* CPFPDFRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFPDFRender.swift; sourceTree = "<group>"; };
 		D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsController.swift; sourceTree = "<group>"; };
 		D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFavoriteController.swift; sourceTree = "<group>"; };
 		D198909D1E631D1E00364DF3 /* CPFLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFLoginController.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				D1DB51321E52E61E00328B65 /* CPFGlobalUtilits.swift */,
 				D19890A31E63BBFA00364DF3 /* CPFUserManager.swift */,
 				D19890A21E631FB800364DF3 /* KaraNotes_Bridging_Header.h */,
+				D12AC3DC1EA3AAB50023C541 /* CPFPDFRender.swift */,
 			);
 			path = Utilits;
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 				D1CF34761E978569001A615A /* MJRefreshConst.m in Sources */,
 				D113D5F71E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift in Sources */,
 				D1CF346C1E978569001A615A /* MJRefreshAutoGifFooter.m in Sources */,
+				D12AC3DD1EA3AAB50023C541 /* CPFPDFRender.swift in Sources */,
 				D1CF346A1E978569001A615A /* MJRefreshFooter.m in Sources */,
 				D1B144631EA311C400BC63DE /* html_blocks.c in Sources */,
 				D1DB516C1E5A9EE900328B65 /* AttentionArticle.swift in Sources */,

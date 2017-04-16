@@ -10,7 +10,8 @@ import UIKit
 
 class CPFPreviewController: BaseViewController {
     
-    var markdownString:String!
+    var markdownString: String!
+    fileprivate var htmlFormatString: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ extension CPFPreviewController {
     fileprivate func setupWebView() -> Void {
         let webView = UIWebView(frame: CGRect(x: 0, y: 64, width: CPFScreenW, height: CPFScreenH - 64))
         view.addSubview(webView)
-        let htmlFormatString = HTMLFormatStringFromMarkdownString(markdownString: markdownString)
+        htmlFormatString = HTMLFormatStringFromMarkdownString(markdownString: markdownString)
         webView.loadHTMLString(htmlFormatString, baseURL: nil)
     }
     
@@ -65,5 +66,12 @@ extension CPFPreviewController: CPFPreviewHeaderViewDelegate {
     
     func headerView(headerView: UIView, didClickExportBtn dismissBtn: UIButton) {
         print("导出")
+        let pdfRender = CPFPDFRender()
+        let pdfData = pdfRender.renderPDFFromHtmlString(htmlString: htmlFormatString)
+        
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let urlString = ("/Users/cuipengfei/Desktop" as NSString).appendingPathComponent("testPDFRender.pdf")
+        let url = NSURL(fileURLWithPath: urlString)
+        pdfData.write(to: url as URL, atomically: true)
     }
 }
