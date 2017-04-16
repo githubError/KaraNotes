@@ -53,6 +53,9 @@
 "writeArticle_insertLinkAlertCancel" = "Cancel";
 "writeArticle_insertLinkAlertInsert" = "Insert";
 
+// MARK: - PreviewArticle
+"previewArticle_title" = "Preview";
+"previewArticle_export" = "Export";
 
 // MARK: - progressView
 "progressView_dismissBtn" = "Cancel";

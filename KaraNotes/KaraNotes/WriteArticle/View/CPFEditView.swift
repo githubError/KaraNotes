@@ -40,10 +40,6 @@ class CPFEditView: UITextView {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        endEditing(true)
-    }
     
     fileprivate func addKeyboardObserver() -> Void {
         
@@ -129,10 +125,6 @@ extension CPFEditView: UITextViewDelegate {
         editViewDelegate?.editView(editView: self, didChangeText: textView.text)
         
         highLightText()
-        
-        // scroll to the last row
-        let visibleRange = NSMakeRange(text.characters.count, 1)
-        scrollRangeToVisible(visibleRange)
     }
     
     func highLightText() -> Void {

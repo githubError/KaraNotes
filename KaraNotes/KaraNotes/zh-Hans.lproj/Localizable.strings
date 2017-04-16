@@ -54,5 +54,11 @@
 "writeArticle_insertLinkAlertCancel" = "取消";
 "writeArticle_insertLinkAlertInsert" = "插入";
 
+
+// MARK: - PreviewArticle
+"previewArticle_title" = "预览";
+"previewArticle_export" = "导出";
+
+
 // MARK: - progressView
 "progressView_dismissBtn" = "取消";

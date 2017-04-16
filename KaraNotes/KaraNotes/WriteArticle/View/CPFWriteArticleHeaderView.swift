@@ -58,7 +58,7 @@ extension CPFWriteArticleHeaderView {
         characterCountLabel.text = "0 \(CPFLocalizableTitle("writeArticle_character"))"
         addSubview(characterCountLabel)
         characterCountLabel.snp.makeConstraints { (make) in
-            make.width.equalTo(30)
+            make.width.equalTo(60)
             make.height.equalTo(20)
             make.left.equalTo(dismissBtn.snp.right).offset(10)
             make.bottom.equalTo(dismissBtn.snp.bottom)

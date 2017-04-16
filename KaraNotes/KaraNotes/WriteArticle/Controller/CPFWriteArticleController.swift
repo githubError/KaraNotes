@@ -61,28 +61,16 @@ extension CPFWriteArticleController: CPFWriteArticleHeaderViewDelegate {
     }
     
     func headerView(headerView: UIView, didClickPreviewBtn previewBtn: UIButton) {
-        print("预览")
-        let htmlString = HTMLFromMarkdown(editView.text, hoedown_extensions(rawValue: 15), true, "", CreateHTMLRenderer(), CreateHTMLTOCRenderer())!
-        
-        let htmlFormatStringPath = Bundle.main.path(forResource: "format", ofType: "html")
-        var htmlFormatString = try! String(contentsOfFile: htmlFormatStringPath!, encoding: String.Encoding.utf8)
-        
-        let htmlStyleStringPath = Bundle.main.path(forResource: "Clearness", ofType: "css")
-        let htmlStyleString = try! String(contentsOfFile: htmlStyleStringPath!, encoding: String.Encoding.utf8)
-        
-        htmlFormatString = htmlFormatString.replacingOccurrences(of: "#_html_place_holder_#", with: htmlString)
-        htmlFormatString = htmlFormatString.replacingOccurrences(of: "#_style_place_holder_#", with: htmlStyleString)
-        
-        print("=========\(String(describing: htmlFormatString))")
         
         let previewCtr = CPFPreviewController()
+        previewCtr.markdownString = editView.text
         present(previewCtr, animated: true, completion: nil)
     }
     
     
     func headerView(headerView: UIView, didClickPostArticleBtn postArticleBtn: UIButton) {
         print("发表")
-        let ctr = SLComposeViewController(forServiceType: "com.tencent.xin.sharetimeline")
+        let ctr = SLComposeViewController(forServiceType: "com.apple.mobilenotes.SharingExtension")
 //        ctr?.setInitialText("初始化字符串")
         present(ctr!, animated: true, completion: nil)
         
