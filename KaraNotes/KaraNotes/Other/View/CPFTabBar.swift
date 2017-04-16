@@ -70,7 +70,6 @@ extension CPFTabBar {
     func writeArticle() -> Void {
         let writeArticleController = CPFWriteArticleController()
         let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        
         rootViewController?.present(writeArticleController, animated: true, completion: nil)
     }
 }

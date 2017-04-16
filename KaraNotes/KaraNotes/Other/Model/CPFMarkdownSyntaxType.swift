@@ -20,7 +20,7 @@ enum CPFMarkdownSyntaxType:Int {
             return regexp(pattern: "^(#+)(.*)", options: NSRegularExpression.Options.anchorsMatchLines)
             
         case .title://标题
-            return regexp(pattern: ".*[(\\n)|=]+[(\\s)|=]+", options: NSRegularExpression.Options(rawValue: 0))
+            return regexp(pattern: ".*\\n=+[(\\s)|=]+", options: NSRegularExpression.Options(rawValue: 0))
             
         case .links://链接
             return regexp(pattern: "(\\[.+\\]\\([^\\)]+\\))|(<.+>)", options: NSRegularExpression.Options(rawValue: 0))

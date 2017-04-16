@@ -76,7 +76,7 @@ struct CPFHighLightModel {
     }
     
     fileprivate let colorsDic = ["headers" : CPFRGB(r:  10, g:  120, b:  20),
-                     "title" : CPFRGB(r:  20, g:  220, b:  20),
+                     "title" : CPFRGB(r:  220, g:  220, b:  20),
                      "link" : CPFRGB(r:  20, g:  20, b:  20),
                      "image" : CPFRGB(r:  120, g:  20, b:  20),
                      "bold" : CPFRGB(r:  20, g:  20, b:  20),

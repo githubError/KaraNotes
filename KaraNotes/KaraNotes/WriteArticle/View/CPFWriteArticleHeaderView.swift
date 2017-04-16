@@ -17,8 +17,8 @@ protocol CPFWriteArticleHeaderViewDelegate {
 
 class CPFWriteArticleHeaderView: UIView {
     
-    fileprivate var dismissBtn:UIButton!
     var characterCountLabel:UILabel!
+    fileprivate var dismissBtn:UIButton!
     fileprivate var titleLabel:UILabel!
     fileprivate var previewBtn:UIButton!
     fileprivate var postArticleBtn:UIButton!

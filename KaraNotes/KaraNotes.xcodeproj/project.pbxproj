@@ -11,11 +11,25 @@
 		D113D5F71E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5F61E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift */; };
 		D113D5F91E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5F81E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift */; };
 		D113D5FD1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5FC1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift */; };
+		D12AC3D51EA328BC0023C541 /* format.html in Resources */ = {isa = PBXBuildFile; fileRef = D12AC3D41EA328BC0023C541 /* format.html */; };
+		D12AC3D71EA328E60023C541 /* Clearness.css in Resources */ = {isa = PBXBuildFile; fileRef = D12AC3D61EA328E60023C541 /* Clearness.css */; };
+		D12AC3D91EA32B9F0023C541 /* CPFPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3D81EA32B9F0023C541 /* CPFPreviewController.swift */; };
+		D12AC3DB1EA336510023C541 /* CPFHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3DA1EA336510023C541 /* CPFHeaderView.swift */; };
 		D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */; };
 		D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */; };
 		D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198909D1E631D1E00364DF3 /* CPFLoginController.swift */; };
 		D19890A01E631D4E00364DF3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D198909F1E631D4E00364DF3 /* libsqlite3.tbd */; };
 		D19890A41E63BBFA00364DF3 /* CPFUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19890A31E63BBFA00364DF3 /* CPFUserManager.swift */; };
+		D1B1445D1EA311C400BC63DE /* hoedown_html_patch.c in Sources */ = {isa = PBXBuildFile; fileRef = D1B144491EA311C400BC63DE /* hoedown_html_patch.c */; };
+		D1B1445E1EA311C400BC63DE /* autolink.c in Sources */ = {isa = PBXBuildFile; fileRef = D1B1444D1EA311C400BC63DE /* autolink.c */; };
+		D1B1445F1EA311C400BC63DE /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = D1B1444F1EA311C400BC63DE /* buffer.c */; };
+		D1B144601EA311C400BC63DE /* document.c in Sources */ = {isa = PBXBuildFile; fileRef = D1B144511EA311C400BC63DE /* document.c */; };
+		D1B144611EA311C400BC63DE /* escape.c in Sources */ = {isa = PBXBuildFile; fileRef = D1B144531EA311C400BC63DE /* escape.c */; };
+		D1B144621EA311C400BC63DE /* html.c in Sources */ = {isa = PBXBuildFile; fileRef = D1B144551EA311C400BC63DE /* html.c */; };
+		D1B144631EA311C400BC63DE /* html_blocks.c in Sources */ = {isa = PBXBuildFile; fileRef = D1B144571EA311C400BC63DE /* html_blocks.c */; };
+		D1B144641EA311C400BC63DE /* html_smartypants.c in Sources */ = {isa = PBXBuildFile; fileRef = D1B144581EA311C400BC63DE /* html_smartypants.c */; };
+		D1B144651EA311C400BC63DE /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = D1B144591EA311C400BC63DE /* stack.c */; };
+		D1B144661EA311C400BC63DE /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = D1B1445B1EA311C400BC63DE /* version.c */; };
 		D1C190351E98B0A8007CA5D3 /* CPFSettingCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C190341E98B0A8007CA5D3 /* CPFSettingCategoryController.swift */; };
 		D1C190371E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */; };
 		D1C190391E99D71B007CA5D3 /* CPFEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C190381E99D71B007CA5D3 /* CPFEditView.swift */; };
@@ -71,12 +85,35 @@
 		D113D5F61E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxType.swift; sourceTree = "<group>"; };
 		D113D5F81E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxModel.swift; sourceTree = "<group>"; };
 		D113D5FC1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxManager.swift; sourceTree = "<group>"; };
+		D12AC3D41EA328BC0023C541 /* format.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = format.html; path = ThirdTools/format.html; sourceTree = "<group>"; };
+		D12AC3D61EA328E60023C541 /* Clearness.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Clearness.css; sourceTree = "<group>"; };
+		D12AC3D81EA32B9F0023C541 /* CPFPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFPreviewController.swift; sourceTree = "<group>"; };
+		D12AC3DA1EA336510023C541 /* CPFHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFHeaderView.swift; sourceTree = "<group>"; };
 		D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsController.swift; sourceTree = "<group>"; };
 		D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFavoriteController.swift; sourceTree = "<group>"; };
 		D198909D1E631D1E00364DF3 /* CPFLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFLoginController.swift; sourceTree = "<group>"; };
 		D198909F1E631D4E00364DF3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D19890A21E631FB800364DF3 /* KaraNotes_Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaraNotes_Bridging_Header.h; sourceTree = "<group>"; };
 		D19890A31E63BBFA00364DF3 /* CPFUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFUserManager.swift; sourceTree = "<group>"; };
+		D1B144491EA311C400BC63DE /* hoedown_html_patch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hoedown_html_patch.c; sourceTree = "<group>"; };
+		D1B1444A1EA311C400BC63DE /* hoedown_html_patch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hoedown_html_patch.h; sourceTree = "<group>"; };
+		D1B1444B1EA311C400BC63DE /* HoedownHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoedownHelper.h; sourceTree = "<group>"; };
+		D1B1444D1EA311C400BC63DE /* autolink.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = autolink.c; sourceTree = "<group>"; };
+		D1B1444E1EA311C400BC63DE /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
+		D1B1444F1EA311C400BC63DE /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = buffer.c; sourceTree = "<group>"; };
+		D1B144501EA311C400BC63DE /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		D1B144511EA311C400BC63DE /* document.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = document.c; sourceTree = "<group>"; };
+		D1B144521EA311C400BC63DE /* document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = document.h; sourceTree = "<group>"; };
+		D1B144531EA311C400BC63DE /* escape.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = escape.c; sourceTree = "<group>"; };
+		D1B144541EA311C400BC63DE /* escape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = escape.h; sourceTree = "<group>"; };
+		D1B144551EA311C400BC63DE /* html.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = html.c; sourceTree = "<group>"; };
+		D1B144561EA311C400BC63DE /* html.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = html.h; sourceTree = "<group>"; };
+		D1B144571EA311C400BC63DE /* html_blocks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = html_blocks.c; sourceTree = "<group>"; };
+		D1B144581EA311C400BC63DE /* html_smartypants.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = html_smartypants.c; sourceTree = "<group>"; };
+		D1B144591EA311C400BC63DE /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
+		D1B1445A1EA311C400BC63DE /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		D1B1445B1EA311C400BC63DE /* version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = version.c; sourceTree = "<group>"; };
+		D1B1445C1EA311C400BC63DE /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		D1C190341E98B0A8007CA5D3 /* CPFSettingCategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFSettingCategoryController.swift; sourceTree = "<group>"; };
 		D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFWriteArticleHeaderView.swift; sourceTree = "<group>"; };
 		D1C190381E99D71B007CA5D3 /* CPFEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFEditView.swift; sourceTree = "<group>"; };
@@ -189,6 +226,41 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D1B144481EA311C400BC63DE /* Hoedown */ = {
+			isa = PBXGroup;
+			children = (
+				D1B144491EA311C400BC63DE /* hoedown_html_patch.c */,
+				D1B1444A1EA311C400BC63DE /* hoedown_html_patch.h */,
+				D1B1444B1EA311C400BC63DE /* HoedownHelper.h */,
+				D1B1444C1EA311C400BC63DE /* src */,
+			);
+			name = Hoedown;
+			path = ../Hoedown;
+			sourceTree = "<group>";
+		};
+		D1B1444C1EA311C400BC63DE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D1B1444D1EA311C400BC63DE /* autolink.c */,
+				D1B1444E1EA311C400BC63DE /* autolink.h */,
+				D1B1444F1EA311C400BC63DE /* buffer.c */,
+				D1B144501EA311C400BC63DE /* buffer.h */,
+				D1B144511EA311C400BC63DE /* document.c */,
+				D1B144521EA311C400BC63DE /* document.h */,
+				D1B144531EA311C400BC63DE /* escape.c */,
+				D1B144541EA311C400BC63DE /* escape.h */,
+				D1B144551EA311C400BC63DE /* html.c */,
+				D1B144561EA311C400BC63DE /* html.h */,
+				D1B144571EA311C400BC63DE /* html_blocks.c */,
+				D1B144581EA311C400BC63DE /* html_smartypants.c */,
+				D1B144591EA311C400BC63DE /* stack.c */,
+				D1B1445A1EA311C400BC63DE /* stack.h */,
+				D1B1445B1EA311C400BC63DE /* version.c */,
+				D1B1445C1EA311C400BC63DE /* version.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		D1CF342E1E975C07001A615A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +274,7 @@
 		D1CF34371E97855A001A615A /* ThirdTools */ = {
 			isa = PBXGroup;
 			children = (
+				D1B144481EA311C400BC63DE /* Hoedown */,
 				D1CF34381E978569001A615A /* MJRefresh */,
 			);
 			path = ThirdTools;
@@ -335,6 +408,8 @@
 				D1CF342E1E975C07001A615A /* Extension */,
 				D1CF34371E97855A001A615A /* ThirdTools */,
 				D1DB51251E52DEAD00328B65 /* LaunchScreen.storyboard */,
+				D12AC3D41EA328BC0023C541 /* format.html */,
+				D12AC3D61EA328E60023C541 /* Clearness.css */,
 				D1DB51281E52DEAD00328B65 /* Info.plist */,
 				D1C1903C1E9A6B48007CA5D3 /* Assets.xcassets */,
 				D1DB51621E54201A00328B65 /* Localizable.strings */,
@@ -552,6 +627,7 @@
 			isa = PBXGroup;
 			children = (
 				D1DB51581E53F8CB00328B65 /* CPFWriteArticleController.swift */,
+				D12AC3D81EA32B9F0023C541 /* CPFPreviewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -566,6 +642,7 @@
 		D1DB514F1E53F3F300328B65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D12AC3DA1EA336510023C541 /* CPFHeaderView.swift */,
 				D1C190361E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift */,
 				D1C190381E99D71B007CA5D3 /* CPFEditView.swift */,
 				D1C1903A1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift */,
@@ -641,6 +718,8 @@
 			files = (
 				D1DB51271E52DEAD00328B65 /* LaunchScreen.storyboard in Resources */,
 				D1DB51601E54201A00328B65 /* Localizable.strings in Resources */,
+				D12AC3D71EA328E60023C541 /* Clearness.css in Resources */,
+				D12AC3D51EA328BC0023C541 /* format.html in Resources */,
 				D1C1903D1E9A6B48007CA5D3 /* Assets.xcassets in Resources */,
 				D1CF34751E978569001A615A /* MJRefresh.bundle in Resources */,
 			);
@@ -718,9 +797,12 @@
 				D1CF34781E978569001A615A /* UIScrollView+MJExtension.m in Sources */,
 				D1CF34671E978569001A615A /* MJRefreshAutoFooter.m in Sources */,
 				D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */,
+				D1B1445F1EA311C400BC63DE /* buffer.c in Sources */,
 				D1DB515B1E53F8EC00328B65 /* CPFNotifyController.swift in Sources */,
+				D1B144601EA311C400BC63DE /* document.c in Sources */,
 				D113D5F51E9F97BE000E0A6D /* CPFHighLightModel.swift in Sources */,
 				D1DB51571E53F8AB00328B65 /* CPFMyArticleController.swift in Sources */,
+				D1B144651EA311C400BC63DE /* stack.c in Sources */,
 				D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */,
 				D1CF34301E975C44001A615A /* UIButton+Extension.swift in Sources */,
 				D1C1903B1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift in Sources */,
@@ -740,18 +822,25 @@
 				D113D5FD1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift in Sources */,
 				D1CF346D1E978569001A615A /* MJRefreshAutoNormalFooter.m in Sources */,
 				D19890A41E63BBFA00364DF3 /* CPFUserManager.swift in Sources */,
+				D1B1445E1EA311C400BC63DE /* autolink.c in Sources */,
 				D1CF34771E978569001A615A /* NSBundle+MJRefresh.m in Sources */,
 				D1C190351E98B0A8007CA5D3 /* CPFSettingCategoryController.swift in Sources */,
 				D1CF347A1E978569001A615A /* UIView+MJExtension.m in Sources */,
 				D1CF34731E978569001A615A /* MJRefreshNormalHeader.m in Sources */,
+				D1B1445D1EA311C400BC63DE /* hoedown_html_patch.c in Sources */,
 				D1CF346E1E978569001A615A /* MJRefreshAutoStateFooter.m in Sources */,
 				D1CF34681E978569001A615A /* MJRefreshBackFooter.m in Sources */,
 				D1CF34721E978569001A615A /* MJRefreshGifHeader.m in Sources */,
+				D1B144661EA311C400BC63DE /* version.c in Sources */,
+				D12AC3DB1EA336510023C541 /* CPFHeaderView.swift in Sources */,
+				D1B144641EA311C400BC63DE /* html_smartypants.c in Sources */,
 				D1CF34321E975C55001A615A /* UIView+Extension.swift in Sources */,
+				D1B144621EA311C400BC63DE /* html.c in Sources */,
 				D1CF34761E978569001A615A /* MJRefreshConst.m in Sources */,
 				D113D5F71E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift in Sources */,
 				D1CF346C1E978569001A615A /* MJRefreshAutoGifFooter.m in Sources */,
 				D1CF346A1E978569001A615A /* MJRefreshFooter.m in Sources */,
+				D1B144631EA311C400BC63DE /* html_blocks.c in Sources */,
 				D1DB516C1E5A9EE900328B65 /* AttentionArticle.swift in Sources */,
 				D1CF34711E978569001A615A /* MJRefreshBackStateFooter.m in Sources */,
 				D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */,
@@ -759,8 +848,10 @@
 				D1CF346B1E978569001A615A /* MJRefreshHeader.m in Sources */,
 				D1DB51531E53F7F200328B65 /* CPFNavigationController.swift in Sources */,
 				D1C190371E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift in Sources */,
+				D12AC3D91EA32B9F0023C541 /* CPFPreviewController.swift in Sources */,
 				D1DB51591E53F8CB00328B65 /* CPFWriteArticleController.swift in Sources */,
 				D1DB513B1E53F3D600328B65 /* BaseViewController.swift in Sources */,
+				D1B144611EA311C400BC63DE /* escape.c in Sources */,
 				D1DB51671E54371200328B65 /* CPFTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
