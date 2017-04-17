@@ -40,7 +40,7 @@ extension CPFPreviewController {
     fileprivate func setupWebView() -> Void {
         webView = UIWebView(frame: CGRect(x: 0, y: 64, width: CPFScreenW, height: CPFScreenH - 64))
         view.addSubview(webView)
-        htmlFormatString = HTMLFormatStringFromMarkdownString(markdownString: markdownString)
+        htmlFormatString = CPFShareTools.sharedInstance().HTMLFormatStringFromMarkdownString(markdownString: markdownString)
         webView.loadHTMLString(htmlFormatString, baseURL: nil)
     }
 }

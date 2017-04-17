@@ -67,7 +67,7 @@ class CPFPDFRender: UIPrintPageRenderer {
         let attributes: [String : Any] = [NSFontAttributeName:font!,
                           NSForegroundColorAttributeName:CPFRGB(r: 16, g: 48, b: 48)]
         let size = (headerText as NSString).size(attributes: attributes)
-        (headerText as NSString).draw(in: CGRect(x: paperRect.size.width - size.width, y: paperMargin - size.height / 2.0, width: size.width, height: size.height), withAttributes: attributes)
+        (headerText as NSString).draw(in: CGRect(x: paperRect.size.width - size.width, y: headerRect.origin.y - size.height / 2.0, width: size.width, height: size.height), withAttributes: attributes)
     }
     
     override func drawFooterForPage(at pageIndex: Int, in footerRect: CGRect) {

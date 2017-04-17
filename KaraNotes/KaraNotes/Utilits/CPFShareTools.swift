@@ -54,4 +54,22 @@ extension CPFShareTools {
         
         completionHandler(controller)
     }
+    
+    
+    // MARK: - Markdown 转 HTML
+    func HTMLFormatStringFromMarkdownString(markdownString:String) -> String {
+        
+        let htmlString = HTMLFromMarkdown(markdownString, hoedown_extensions(rawValue: 15), true, "", CreateHTMLRenderer(), CreateHTMLTOCRenderer())!
+        
+        let htmlFormatStringPath = Bundle.main.path(forResource: "format", ofType: "html")
+        var htmlFormatString = try! String(contentsOfFile: htmlFormatStringPath!, encoding: String.Encoding.utf8)
+        
+        let htmlStyleStringPath = Bundle.main.path(forResource: "GitHub", ofType: "css")
+        let htmlStyleString = try! String(contentsOfFile: htmlStyleStringPath!, encoding: String.Encoding.utf8)
+        
+        htmlFormatString = htmlFormatString.replacingOccurrences(of: "#_html_place_holder_#", with: htmlString)
+        htmlFormatString = htmlFormatString.replacingOccurrences(of: "#_style_place_holder_#", with: htmlStyleString)
+        
+        return htmlFormatString
+    }
 }

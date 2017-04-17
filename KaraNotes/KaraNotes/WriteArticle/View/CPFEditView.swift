@@ -191,6 +191,7 @@ extension CPFEditView {
         
         alertCtr.addTextField { (textFiled) in
             textFiled.placeholder = CPFLocalizableTitle("writeArticle_inputLinkPlaceholder")
+            textFiled.keyboardType = .URL
         }
         let cancelAction = UIAlertAction(title: CPFLocalizableTitle("writeArticle_insertLinkAlertCancel"), style: .cancel) { (alertAction) in
             alertCtr.dismiss(animated: true, completion: nil)
