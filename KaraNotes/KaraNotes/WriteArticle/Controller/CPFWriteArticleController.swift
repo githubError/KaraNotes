@@ -64,6 +64,7 @@ extension CPFWriteArticleController: CPFWriteArticleHeaderViewDelegate {
         
         let previewCtr = CPFPreviewController()
         previewCtr.markdownString = editView.text
+        previewCtr.articleTitle = editView.titleTextField.text!
         present(previewCtr, animated: true, completion: nil)
     }
     

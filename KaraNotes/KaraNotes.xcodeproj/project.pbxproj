@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D113D5F51E9F97BE000E0A6D /* CPFHighLightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5F41E9F97BE000E0A6D /* CPFHighLightModel.swift */; };
-		D113D5F71E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5F61E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift */; };
-		D113D5F91E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5F81E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift */; };
-		D113D5FD1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D113D5FC1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift */; };
 		D12AC3D51EA328BC0023C541 /* format.html in Resources */ = {isa = PBXBuildFile; fileRef = D12AC3D41EA328BC0023C541 /* format.html */; };
-		D12AC3D71EA328E60023C541 /* Clearness.css in Resources */ = {isa = PBXBuildFile; fileRef = D12AC3D61EA328E60023C541 /* Clearness.css */; };
 		D12AC3D91EA32B9F0023C541 /* CPFPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3D81EA32B9F0023C541 /* CPFPreviewController.swift */; };
 		D12AC3DB1EA336510023C541 /* CPFPreviewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3DA1EA336510023C541 /* CPFPreviewHeaderView.swift */; };
 		D12AC3DD1EA3AAB50023C541 /* CPFPDFRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3DC1EA3AAB50023C541 /* CPFPDFRender.swift */; };
+		D12AC3E31EA4635D0023C541 /* GitHub.css in Resources */ = {isa = PBXBuildFile; fileRef = D12AC3E21EA4635D0023C541 /* GitHub.css */; };
+		D12AC3E91EA464340023C541 /* CPFHighLightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3E51EA464340023C541 /* CPFHighLightModel.swift */; };
+		D12AC3EA1EA464340023C541 /* CPFMarkdownSyntaxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3E61EA464340023C541 /* CPFMarkdownSyntaxManager.swift */; };
+		D12AC3EB1EA464340023C541 /* CPFMarkdownSyntaxModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3E71EA464340023C541 /* CPFMarkdownSyntaxModel.swift */; };
+		D12AC3EC1EA464340023C541 /* CPFMarkdownSyntaxType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3E81EA464340023C541 /* CPFMarkdownSyntaxType.swift */; };
+		D12AC3EE1EA492800023C541 /* CPFFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3ED1EA492800023C541 /* CPFFileManager.swift */; };
+		D12AC3F01EA4B2F50023C541 /* CPFShareTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3EF1EA4B2F50023C541 /* CPFShareTools.swift */; };
 		D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */; };
 		D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */; };
 		D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198909D1E631D1E00364DF3 /* CPFLoginController.swift */; };
@@ -82,15 +84,17 @@
 		1C2504BCA8CAAF8866B63E73 /* Pods_KaraNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaraNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F216FF3C1454E86CE45627 /* Pods-KaraNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaraNotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaraNotes/Pods-KaraNotes.release.xcconfig"; sourceTree = "<group>"; };
 		997B9633B276A9BD5956AB6B /* Pods-KaraNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaraNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KaraNotes/Pods-KaraNotes.debug.xcconfig"; sourceTree = "<group>"; };
-		D113D5F41E9F97BE000E0A6D /* CPFHighLightModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFHighLightModel.swift; sourceTree = "<group>"; };
-		D113D5F61E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxType.swift; sourceTree = "<group>"; };
-		D113D5F81E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxModel.swift; sourceTree = "<group>"; };
-		D113D5FC1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxManager.swift; sourceTree = "<group>"; };
 		D12AC3D41EA328BC0023C541 /* format.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = format.html; path = ThirdTools/format.html; sourceTree = "<group>"; };
-		D12AC3D61EA328E60023C541 /* Clearness.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Clearness.css; sourceTree = "<group>"; };
 		D12AC3D81EA32B9F0023C541 /* CPFPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFPreviewController.swift; sourceTree = "<group>"; };
 		D12AC3DA1EA336510023C541 /* CPFPreviewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFPreviewHeaderView.swift; sourceTree = "<group>"; };
 		D12AC3DC1EA3AAB50023C541 /* CPFPDFRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFPDFRender.swift; sourceTree = "<group>"; };
+		D12AC3E21EA4635D0023C541 /* GitHub.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = GitHub.css; sourceTree = "<group>"; };
+		D12AC3E51EA464340023C541 /* CPFHighLightModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFHighLightModel.swift; sourceTree = "<group>"; };
+		D12AC3E61EA464340023C541 /* CPFMarkdownSyntaxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxManager.swift; sourceTree = "<group>"; };
+		D12AC3E71EA464340023C541 /* CPFMarkdownSyntaxModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxModel.swift; sourceTree = "<group>"; };
+		D12AC3E81EA464340023C541 /* CPFMarkdownSyntaxType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxType.swift; sourceTree = "<group>"; };
+		D12AC3ED1EA492800023C541 /* CPFFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFileManager.swift; sourceTree = "<group>"; };
+		D12AC3EF1EA4B2F50023C541 /* CPFShareTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFShareTools.swift; sourceTree = "<group>"; };
 		D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsController.swift; sourceTree = "<group>"; };
 		D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFavoriteController.swift; sourceTree = "<group>"; };
 		D198909D1E631D1E00364DF3 /* CPFLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFLoginController.swift; sourceTree = "<group>"; };
@@ -220,12 +224,19 @@
 		D113D5F31E9F9755000E0A6D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D113D5F41E9F97BE000E0A6D /* CPFHighLightModel.swift */,
-				D113D5F61E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift */,
-				D113D5F81E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift */,
-				D113D5FC1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D12AC3E41EA464340023C541 /* CPFMarkdownHighLight */ = {
+			isa = PBXGroup;
+			children = (
+				D12AC3E51EA464340023C541 /* CPFHighLightModel.swift */,
+				D12AC3E61EA464340023C541 /* CPFMarkdownSyntaxManager.swift */,
+				D12AC3E71EA464340023C541 /* CPFMarkdownSyntaxModel.swift */,
+				D12AC3E81EA464340023C541 /* CPFMarkdownSyntaxType.swift */,
+			);
+			path = CPFMarkdownHighLight;
 			sourceTree = "<group>";
 		};
 		D1B144481EA311C400BC63DE /* Hoedown */ = {
@@ -411,7 +422,7 @@
 				D1CF34371E97855A001A615A /* ThirdTools */,
 				D1DB51251E52DEAD00328B65 /* LaunchScreen.storyboard */,
 				D12AC3D41EA328BC0023C541 /* format.html */,
-				D12AC3D61EA328E60023C541 /* Clearness.css */,
+				D12AC3E21EA4635D0023C541 /* GitHub.css */,
 				D1DB51281E52DEAD00328B65 /* Info.plist */,
 				D1C1903C1E9A6B48007CA5D3 /* Assets.xcassets */,
 				D1DB51621E54201A00328B65 /* Localizable.strings */,
@@ -422,10 +433,13 @@
 		D1DB51311E52E5D400328B65 /* Utilits */ = {
 			isa = PBXGroup;
 			children = (
+				D12AC3E41EA464340023C541 /* CPFMarkdownHighLight */,
 				D1DB51321E52E61E00328B65 /* CPFGlobalUtilits.swift */,
 				D19890A31E63BBFA00364DF3 /* CPFUserManager.swift */,
 				D19890A21E631FB800364DF3 /* KaraNotes_Bridging_Header.h */,
 				D12AC3DC1EA3AAB50023C541 /* CPFPDFRender.swift */,
+				D12AC3ED1EA492800023C541 /* CPFFileManager.swift */,
+				D12AC3EF1EA4B2F50023C541 /* CPFShareTools.swift */,
 			);
 			path = Utilits;
 			sourceTree = "<group>";
@@ -721,10 +735,10 @@
 			files = (
 				D1DB51271E52DEAD00328B65 /* LaunchScreen.storyboard in Resources */,
 				D1DB51601E54201A00328B65 /* Localizable.strings in Resources */,
-				D12AC3D71EA328E60023C541 /* Clearness.css in Resources */,
 				D12AC3D51EA328BC0023C541 /* format.html in Resources */,
 				D1C1903D1E9A6B48007CA5D3 /* Assets.xcassets in Resources */,
 				D1CF34751E978569001A615A /* MJRefresh.bundle in Resources */,
+				D12AC3E31EA4635D0023C541 /* GitHub.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,18 +817,19 @@
 				D1B1445F1EA311C400BC63DE /* buffer.c in Sources */,
 				D1DB515B1E53F8EC00328B65 /* CPFNotifyController.swift in Sources */,
 				D1B144601EA311C400BC63DE /* document.c in Sources */,
-				D113D5F51E9F97BE000E0A6D /* CPFHighLightModel.swift in Sources */,
 				D1DB51571E53F8AB00328B65 /* CPFMyArticleController.swift in Sources */,
 				D1B144651EA311C400BC63DE /* stack.c in Sources */,
 				D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */,
 				D1CF34301E975C44001A615A /* UIButton+Extension.swift in Sources */,
 				D1C1903B1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift in Sources */,
+				D12AC3E91EA464340023C541 /* CPFHighLightModel.swift in Sources */,
 				D1DB511D1E52DEAD00328B65 /* AppDelegate.swift in Sources */,
+				D12AC3EC1EA464340023C541 /* CPFMarkdownSyntaxType.swift in Sources */,
 				D1CF34691E978569001A615A /* MJRefreshComponent.m in Sources */,
 				D1CF34791E978569001A615A /* UIScrollView+MJRefresh.m in Sources */,
 				D1CF34341E975C68001A615A /* UIImage+Extension.swift in Sources */,
 				D1C190391E99D71B007CA5D3 /* CPFEditView.swift in Sources */,
-				D113D5F91E9FAFA1000E0A6D /* CPFMarkdownSyntaxModel.swift in Sources */,
+				D12AC3EA1EA464340023C541 /* CPFMarkdownSyntaxManager.swift in Sources */,
 				D1CF346F1E978569001A615A /* MJRefreshBackGifFooter.m in Sources */,
 				D1DB51511E53F5E600328B65 /* CPFTabBarController.swift in Sources */,
 				D1DB51551E53F89300328B65 /* CPFAttentionController.swift in Sources */,
@@ -822,7 +837,6 @@
 				D1DB51331E52E61E00328B65 /* CPFGlobalUtilits.swift in Sources */,
 				D1CF34741E978569001A615A /* MJRefreshStateHeader.m in Sources */,
 				D1CF34701E978569001A615A /* MJRefreshBackNormalFooter.m in Sources */,
-				D113D5FD1E9FB068000E0A6D /* CPFMarkdownSyntaxManager.swift in Sources */,
 				D1CF346D1E978569001A615A /* MJRefreshAutoNormalFooter.m in Sources */,
 				D19890A41E63BBFA00364DF3 /* CPFUserManager.swift in Sources */,
 				D1B1445E1EA311C400BC63DE /* autolink.c in Sources */,
@@ -830,6 +844,7 @@
 				D1C190351E98B0A8007CA5D3 /* CPFSettingCategoryController.swift in Sources */,
 				D1CF347A1E978569001A615A /* UIView+MJExtension.m in Sources */,
 				D1CF34731E978569001A615A /* MJRefreshNormalHeader.m in Sources */,
+				D12AC3F01EA4B2F50023C541 /* CPFShareTools.swift in Sources */,
 				D1B1445D1EA311C400BC63DE /* hoedown_html_patch.c in Sources */,
 				D1CF346E1E978569001A615A /* MJRefreshAutoStateFooter.m in Sources */,
 				D1CF34681E978569001A615A /* MJRefreshBackFooter.m in Sources */,
@@ -840,7 +855,6 @@
 				D1CF34321E975C55001A615A /* UIView+Extension.swift in Sources */,
 				D1B144621EA311C400BC63DE /* html.c in Sources */,
 				D1CF34761E978569001A615A /* MJRefreshConst.m in Sources */,
-				D113D5F71E9FA26F000E0A6D /* CPFMarkdownSyntaxType.swift in Sources */,
 				D1CF346C1E978569001A615A /* MJRefreshAutoGifFooter.m in Sources */,
 				D12AC3DD1EA3AAB50023C541 /* CPFPDFRender.swift in Sources */,
 				D1CF346A1E978569001A615A /* MJRefreshFooter.m in Sources */,
@@ -850,6 +864,7 @@
 				D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */,
 				D1EA68991E9CFB0B0073C6CA /* CPFProgressView.swift in Sources */,
 				D1CF346B1E978569001A615A /* MJRefreshHeader.m in Sources */,
+				D12AC3EE1EA492800023C541 /* CPFFileManager.swift in Sources */,
 				D1DB51531E53F7F200328B65 /* CPFNavigationController.swift in Sources */,
 				D1C190371E991EAC007CA5D3 /* CPFWriteArticleHeaderView.swift in Sources */,
 				D12AC3D91EA32B9F0023C541 /* CPFPreviewController.swift in Sources */,
@@ -857,6 +872,7 @@
 				D1DB513B1E53F3D600328B65 /* BaseViewController.swift in Sources */,
 				D1B144611EA311C400BC63DE /* escape.c in Sources */,
 				D1DB51671E54371200328B65 /* CPFTabBar.swift in Sources */,
+				D12AC3EB1EA464340023C541 /* CPFMarkdownSyntaxModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

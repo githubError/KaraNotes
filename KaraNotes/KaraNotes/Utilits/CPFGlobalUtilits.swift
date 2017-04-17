@@ -76,3 +76,32 @@ public let CPFUserToken = "CPFUserToken"
 public let CPFUserEmail = "CPFUserEmail"
 public let CPFUserPath = "CPFUserPath"
 
+
+// MARK: - 生成10位时间戳
+
+public func createTimestamp() -> String {
+    let date = Date(timeIntervalSinceNow: 0)
+    let timeInterval = date.timeIntervalSince1970 * 1000
+    let timeString = "\(timeInterval)"
+    let index = timeString.index(timeString.startIndex, offsetBy: 10)
+    let timestamp = timeString.substring(to: index)
+    return timestamp
+}
+
+
+// MARK: - Markdown 转 HTML
+public func HTMLFormatStringFromMarkdownString(markdownString:String) -> String {
+    
+    let htmlString = HTMLFromMarkdown(markdownString, hoedown_extensions(rawValue: 15), true, "", CreateHTMLRenderer(), CreateHTMLTOCRenderer())!
+    
+    let htmlFormatStringPath = Bundle.main.path(forResource: "format", ofType: "html")
+    var htmlFormatString = try! String(contentsOfFile: htmlFormatStringPath!, encoding: String.Encoding.utf8)
+    
+    let htmlStyleStringPath = Bundle.main.path(forResource: "GitHub", ofType: "css")
+    let htmlStyleString = try! String(contentsOfFile: htmlStyleStringPath!, encoding: String.Encoding.utf8)
+    
+    htmlFormatString = htmlFormatString.replacingOccurrences(of: "#_html_place_holder_#", with: htmlString)
+    htmlFormatString = htmlFormatString.replacingOccurrences(of: "#_style_place_holder_#", with: htmlStyleString)
+    
+    return htmlFormatString
+}

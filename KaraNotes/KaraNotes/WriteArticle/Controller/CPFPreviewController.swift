@@ -11,7 +11,10 @@ import UIKit
 class CPFPreviewController: BaseViewController {
     
     var markdownString: String!
+    var articleTitle: String!
+    
     fileprivate var htmlFormatString: String!
+    fileprivate var webView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,26 +38,10 @@ extension CPFPreviewController {
     }
     
     fileprivate func setupWebView() -> Void {
-        let webView = UIWebView(frame: CGRect(x: 0, y: 64, width: CPFScreenW, height: CPFScreenH - 64))
+        webView = UIWebView(frame: CGRect(x: 0, y: 64, width: CPFScreenW, height: CPFScreenH - 64))
         view.addSubview(webView)
         htmlFormatString = HTMLFormatStringFromMarkdownString(markdownString: markdownString)
         webView.loadHTMLString(htmlFormatString, baseURL: nil)
-    }
-    
-    fileprivate func HTMLFormatStringFromMarkdownString(markdownString:String) -> String {
-        
-        let htmlString = HTMLFromMarkdown(markdownString, hoedown_extensions(rawValue: 15), true, "", CreateHTMLRenderer(), CreateHTMLTOCRenderer())!
-        
-        let htmlFormatStringPath = Bundle.main.path(forResource: "format", ofType: "html")
-        var htmlFormatString = try! String(contentsOfFile: htmlFormatStringPath!, encoding: String.Encoding.utf8)
-        
-        let htmlStyleStringPath = Bundle.main.path(forResource: "Clearness", ofType: "css")
-        let htmlStyleString = try! String(contentsOfFile: htmlStyleStringPath!, encoding: String.Encoding.utf8)
-        
-        htmlFormatString = htmlFormatString.replacingOccurrences(of: "#_html_place_holder_#", with: htmlString)
-        htmlFormatString = htmlFormatString.replacingOccurrences(of: "#_style_place_holder_#", with: htmlStyleString)
-        
-        return htmlFormatString
     }
 }
 
@@ -66,12 +53,20 @@ extension CPFPreviewController: CPFPreviewHeaderViewDelegate {
     
     func headerView(headerView: UIView, didClickExportBtn dismissBtn: UIButton) {
         print("导出")
-        let pdfRender = CPFPDFRender()
-        let pdfData = pdfRender.renderPDFFromHtmlString(htmlString: htmlFormatString)
         
-        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let urlString = ("/Users/cuipengfei/Desktop" as NSString).appendingPathComponent("testPDFRender.pdf")
-        let url = NSURL(fileURLWithPath: urlString)
-        pdfData.write(to: url as URL, atomically: true)
+        CPFShareTools.sharedInstance().saveAsPDFFromUIView(view: webView, useName: articleTitle!) { (toPath) in
+            CPFShareTools.sharedInstance().exportFile(filePath: toPath, completionHandler: { controller in
+                self.present(controller, animated: true, completion: nil)
+                print("toPath:\(toPath)")
+            })
+        }
+        
+//        CPFShareTools.sharedInstance().saveAsHTMLFromHtmlString(htmlString: htmlFormatString, useName: articleTitle) { (toPath) in
+//            CPFShareTools.sharedInstance().exportFile(filePath: toPath, completionHandler: { controller in
+//                self.present(controller, animated: true, completion: nil)
+//                print("toPath:\(toPath)")
+//            })
+//        }
+        
     }
 }

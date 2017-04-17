@@ -38,6 +38,20 @@ class CPFPDFRender: UIPrintPageRenderer {
         return pdfData
     }
     
+    func renderPDFFromUIView(view: UIView) -> NSMutableData {
+        let viewFormatter = view.viewPrintFormatter()
+        addPrintFormatter(viewFormatter, startingAtPageAt: 0)
+        
+        let pdfData = NSMutableData()
+        UIGraphicsBeginPDFContextToData(pdfData, CGRect.zero, nil)
+        for i in 0...numberOfPages {
+            UIGraphicsBeginPDFPage()
+            drawPage(at: i, in: UIGraphicsGetPDFContextBounds())
+        }
+        UIGraphicsEndPDFContext()
+        return pdfData
+    }
+    
     override func drawHeaderForPage(at pageIndex: Int, in headerRect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         context!.setLineWidth(2.0)
