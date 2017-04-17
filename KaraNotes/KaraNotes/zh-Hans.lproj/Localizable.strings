@@ -58,7 +58,8 @@
 // MARK: - PreviewArticle
 "previewArticle_title" = "预览";
 "previewArticle_export" = "导出";
-
+"previewArticle_export_as" = "导出为";
+"previewArticle_export_alert_cancel" = "取消";
 
 // MARK: - progressView
 "progressView_dismissBtn" = "取消";

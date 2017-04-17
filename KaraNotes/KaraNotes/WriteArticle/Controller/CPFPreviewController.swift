@@ -54,19 +54,34 @@ extension CPFPreviewController: CPFPreviewHeaderViewDelegate {
     func headerView(headerView: UIView, didClickExportBtn dismissBtn: UIButton) {
         print("导出")
         
-        CPFShareTools.sharedInstance().saveAsPDFFromUIView(view: webView, useName: articleTitle!) { (toPath) in
-            CPFShareTools.sharedInstance().exportFile(filePath: toPath, completionHandler: { controller in
-                self.present(controller, animated: true, completion: nil)
-                print("toPath:\(toPath)")
-            })
+        let alertCtr = UIAlertController(title: CPFLocalizableTitle("previewArticle_export_as"), message: nil, preferredStyle: .actionSheet)
+        
+        let PDFAction = UIAlertAction(title: "PDF", style: .default) { (alertAction) in
+            CPFShareTools.sharedInstance().saveAsPDFFromUIView(view: self.webView, useName: self.articleTitle!) { (toPath) in
+                CPFShareTools.sharedInstance().exportFile(filePath: toPath, completionHandler: { controller in
+                    self.present(controller, animated: true, completion: nil)
+                    print("toPath:\(toPath)")
+                })
+            }
         }
         
-//        CPFShareTools.sharedInstance().saveAsHTMLFromHtmlString(htmlString: htmlFormatString, useName: articleTitle) { (toPath) in
-//            CPFShareTools.sharedInstance().exportFile(filePath: toPath, completionHandler: { controller in
-//                self.present(controller, animated: true, completion: nil)
-//                print("toPath:\(toPath)")
-//            })
-//        }
+        let HTMLAction = UIAlertAction(title: "HTML", style: .default) { (alertAction) in
+            CPFShareTools.sharedInstance().saveAsHTMLFromHtmlString(htmlString: self.htmlFormatString, useName: self.articleTitle) { (toPath) in
+                CPFShareTools.sharedInstance().exportFile(filePath: toPath, completionHandler: { controller in
+                    self.present(controller, animated: true, completion: nil)
+                    print("toPath:\(toPath)")
+                })
+            }
+        }
         
+        let cancelAction = UIAlertAction(title: CPFLocalizableTitle("previewArticle_export_alert_cancel"), style: .cancel) { (alertAction) in
+            alertCtr.dismiss(animated: true, completion: nil)
+        }
+        
+        alertCtr.addAction(PDFAction)
+        alertCtr.addAction(HTMLAction)
+        alertCtr.addAction(cancelAction)
+        
+        present(alertCtr, animated: true, completion: nil)
     }
 }

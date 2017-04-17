@@ -56,6 +56,8 @@
 // MARK: - PreviewArticle
 "previewArticle_title" = "Preview";
 "previewArticle_export" = "Export";
+"previewArticle_export_as" = "Export As";
+"previewArticle_export_alert_cancel" = "Cancel";
 
 // MARK: - progressView
 "progressView_dismissBtn" = "Cancel";
