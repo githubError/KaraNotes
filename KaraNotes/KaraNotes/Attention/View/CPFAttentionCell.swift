@@ -16,7 +16,7 @@ class CPFAttentionCell: UICollectionViewCell {
     fileprivate var articleCreateTimeLabel: UILabel!
     fileprivate var articleTitleLabel: UILabel!
     
-    var attentionArticle: AttentionArticle! {
+    var attentionArticleModel: AttentionArticleModel! {
         didSet {
             
             let shadow = NSShadow()

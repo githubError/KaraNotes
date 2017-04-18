@@ -92,7 +92,7 @@ extension CPFAttentionController: UICollectionViewDelegate, UICollectionViewData
         
         let attentionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CPFAttentionCell
         
-        attentionCell.attentionArticle = AttentionArticle()
+        attentionCell.attentionArticleModel = AttentionArticleModel()
         
         return attentionCell
     }

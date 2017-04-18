@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct AttentionArticle {
+struct AttentionArticleModel {
     
 }
 
-extension AttentionArticle {
+extension AttentionArticleModel {
     
 }

@@ -75,7 +75,7 @@
 		D1DB51601E54201A00328B65 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1DB51621E54201A00328B65 /* Localizable.strings */; };
 		D1DB51671E54371200328B65 /* CPFTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB51661E54371200328B65 /* CPFTabBar.swift */; };
 		D1DB51691E5A8D8000328B65 /* CPFAttentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB51681E5A8D8000328B65 /* CPFAttentionCell.swift */; };
-		D1DB516C1E5A9EE900328B65 /* AttentionArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB516B1E5A9EE900328B65 /* AttentionArticle.swift */; };
+		D1DB516C1E5A9EE900328B65 /* AttentionArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB516B1E5A9EE900328B65 /* AttentionArticleModel.swift */; };
 		D1EA68991E9CFB0B0073C6CA /* CPFProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA68981E9CFB0B0073C6CA /* CPFProgressView.swift */; };
 		E7597725F5752EF8116D584F /* Pods_KaraNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2504BCA8CAAF8866B63E73 /* Pods_KaraNotes.framework */; };
 /* End PBXBuildFile section */
@@ -186,7 +186,7 @@
 		D1DB51651E5420ED00328B65 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D1DB51661E54371200328B65 /* CPFTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFTabBar.swift; sourceTree = "<group>"; };
 		D1DB51681E5A8D8000328B65 /* CPFAttentionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFAttentionCell.swift; sourceTree = "<group>"; };
-		D1DB516B1E5A9EE900328B65 /* AttentionArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttentionArticle.swift; sourceTree = "<group>"; };
+		D1DB516B1E5A9EE900328B65 /* AttentionArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttentionArticleModel.swift; sourceTree = "<group>"; };
 		D1EA68981E9CFB0B0073C6CA /* CPFProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -518,7 +518,7 @@
 		D1DB513E1E53F3F200328B65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D1DB516B1E5A9EE900328B65 /* AttentionArticle.swift */,
+				D1DB516B1E5A9EE900328B65 /* AttentionArticleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -859,7 +859,7 @@
 				D12AC3DD1EA3AAB50023C541 /* CPFPDFRender.swift in Sources */,
 				D1CF346A1E978569001A615A /* MJRefreshFooter.m in Sources */,
 				D1B144631EA311C400BC63DE /* html_blocks.c in Sources */,
-				D1DB516C1E5A9EE900328B65 /* AttentionArticle.swift in Sources */,
+				D1DB516C1E5A9EE900328B65 /* AttentionArticleModel.swift in Sources */,
 				D1CF34711E978569001A615A /* MJRefreshBackStateFooter.m in Sources */,
 				D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */,
 				D1EA68991E9CFB0B0073C6CA /* CPFProgressView.swift in Sources */,

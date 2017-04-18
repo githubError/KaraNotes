@@ -59,7 +59,7 @@ extension CPFFavoriteController: UICollectionViewDelegate, UICollectionViewDataS
         
         let attentionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CPFAttentionCell
         
-        attentionCell.attentionArticle = AttentionArticle()
+        attentionCell.attentionArticleModel = AttentionArticleModel()
         
         return attentionCell
     }
