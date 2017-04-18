@@ -15,13 +15,13 @@ protocol CPFEditViewDelegate {
 
 class CPFEditView: UITextView {
 
-    var keyboardAccessoryView:CPFKeyboardAccessoryView!
     var titleTextField:UITextField!
-    var separateImageView:UIImageView!
-    
-    var textViewPlaceholderLabel:UILabel!
-    
     var editViewDelegate:CPFEditViewDelegate?
+    var firstImageLinkString:String = ""
+    
+    fileprivate var keyboardAccessoryView:CPFKeyboardAccessoryView!
+    fileprivate var textViewPlaceholderLabel:UILabel!
+    fileprivate var separateImageView:UIImageView!
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -66,7 +66,7 @@ class CPFEditView: UITextView {
 // MARK: - setup subviews
 extension CPFEditView {
     
-    func configure() -> Void {
+    fileprivate func configure() -> Void {
         keyboardAccessoryView = CPFKeyboardAccessoryView()
         keyboardAccessoryView.accessoryViewDelegate = self
         inputAccessoryView = keyboardAccessoryView
@@ -78,7 +78,7 @@ extension CPFEditView {
         delegate = self
     }
     
-    func setupSubviews() -> Void {
+    fileprivate func setupSubviews() -> Void {
         titleTextField = UITextField()
         addSubview(titleTextField)
         titleTextField.placeholder = CPFLocalizableTitle("writeArticle_titlePlaceholder")
@@ -102,7 +102,7 @@ extension CPFEditView {
         configureTextViewPlaceholderLabel()
     }
     
-    func configureTextViewPlaceholderLabel() -> Void {
+    fileprivate func configureTextViewPlaceholderLabel() -> Void {
         textViewPlaceholderLabel = UILabel()
         textViewPlaceholderLabel.text = CPFLocalizableTitle("writeArticle_articlePlaceholder")
         textViewPlaceholderLabel.font = CPFPingFangSC(weight: .regular, size: 14)
@@ -214,6 +214,17 @@ extension CPFEditView {
         titleTextField.isFirstResponder ? titleTextField.insertText(insertString) :insertText(insertString)
         let range = NSRange(location: self.selectedRange.location - insertString.characters.count + 2, length: 9)
         selectedRange = range
+        
+        if firstImageLinkString.characters.count == 0 {
+            
+            let index = insertString.index(insertString.startIndex, offsetBy: 13)
+            firstImageLinkString = insertString.substring(from: index)
+            
+            let startIndex = firstImageLinkString.startIndex
+            let endIndex = firstImageLinkString.index(firstImageLinkString.endIndex, offsetBy: -1)
+            let range = startIndex..<endIndex
+            firstImageLinkString = firstImageLinkString.substring(with: range)
+        }
     }
     
     func selectImageFromPhotoLibrary() -> Void {

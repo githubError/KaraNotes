@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-import Social
+import Alamofire
 
 class CPFWriteArticleController: BaseViewController {
     
@@ -71,10 +70,46 @@ extension CPFWriteArticleController: CPFWriteArticleHeaderViewDelegate {
     
     func headerView(headerView: UIView, didClickPostArticleBtn postArticleBtn: UIButton) {
         print("发表")
-        let ctr = SLComposeViewController(forServiceType: "com.apple.mobilenotes.SharingExtension")
-//        ctr?.setInitialText("初始化字符串")
-        present(ctr!, animated: true, completion: nil)
+        postArticle { (result, articleID) in
+            print("=======\(result)===\(articleID)")
+        }
+    }
+}
+
+extension CPFWriteArticleController {
+    
+    func postArticle(completionHandler: @escaping (_ result: String, _ article_id: String) -> Void ) -> Void {
         
+        let params: [String : Any] = ["token_id":CPFUserManager.sharedInstance().userToken(),
+                      "article_title":editView.titleTextField.text!,
+                      "classify_id": "分类测试",
+                      "article_show_img": editView.firstImageLinkString,
+                      "article_content" : editView.text,
+                      "tag_content" : "[\"测试标签1\", \"测试标签2\"]"]
+        
+        Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .insertArticle), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
+            
+            switch response.result {
+            case .success(let json as JSONDictionary):
+                guard let result = json["success"] as? String else {fatalError()}
+                
+                if result == "1" {
+                    guard let article_id = json["article_id"] as? String else {fatalError()}
+                    completionHandler(result, article_id)
+                } else {
+                    guard let errorCode = json["messcode"] as? String else {fatalError()}
+                    if errorCode == "3" {
+                        completionHandler(result, String(errorCode))
+                    } else {
+                        completionHandler(result, String(errorCode))
+                    }
+                }
+            case .failure(let error as JSONDictionary):
+                guard let error = error["error"] as? Int else {fatalError()}
+                print("----\(error)")
+            default:break
+            }
+        }
     }
 }
 
