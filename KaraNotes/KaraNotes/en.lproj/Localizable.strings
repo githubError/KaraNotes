@@ -61,3 +61,10 @@
 
 // MARK: - progressView
 "progressView_dismissBtn" = "Cancel";
+
+
+// MARK: - Notify
+"notify_attention" = "Attention";
+"notify_like" = "Like";
+"notify_collection" = "Collection";
+"notify_comment" = "Comment";

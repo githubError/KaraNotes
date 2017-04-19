@@ -63,3 +63,10 @@
 
 // MARK: - progressView
 "progressView_dismissBtn" = "取消";
+
+
+// MARK: - Notify
+"notify_comment" = "评论";
+"notify_like" = "点赞";
+"notify_collection" = "收藏";
+"notify_attention" = "关注";

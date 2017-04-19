@@ -18,6 +18,8 @@
 		D12AC3EC1EA464340023C541 /* CPFMarkdownSyntaxType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3E81EA464340023C541 /* CPFMarkdownSyntaxType.swift */; };
 		D12AC3EE1EA492800023C541 /* CPFFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3ED1EA492800023C541 /* CPFFileManager.swift */; };
 		D12AC3F01EA4B2F50023C541 /* CPFShareTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3EF1EA4B2F50023C541 /* CPFShareTools.swift */; };
+		D12AC3F21EA748E00023C541 /* CPFMyArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F11EA748E00023C541 /* CPFMyArticleModel.swift */; };
+		D12AC3F41EA749200023C541 /* CPFMyArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F31EA749200023C541 /* CPFMyArticleCell.swift */; };
 		D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */; };
 		D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */; };
 		D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198909D1E631D1E00364DF3 /* CPFLoginController.swift */; };
@@ -95,6 +97,8 @@
 		D12AC3E81EA464340023C541 /* CPFMarkdownSyntaxType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMarkdownSyntaxType.swift; sourceTree = "<group>"; };
 		D12AC3ED1EA492800023C541 /* CPFFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFileManager.swift; sourceTree = "<group>"; };
 		D12AC3EF1EA4B2F50023C541 /* CPFShareTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFShareTools.swift; sourceTree = "<group>"; };
+		D12AC3F11EA748E00023C541 /* CPFMyArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMyArticleModel.swift; sourceTree = "<group>"; };
+		D12AC3F31EA749200023C541 /* CPFMyArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMyArticleCell.swift; sourceTree = "<group>"; };
 		D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsController.swift; sourceTree = "<group>"; };
 		D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFavoriteController.swift; sourceTree = "<group>"; };
 		D198909D1E631D1E00364DF3 /* CPFLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFLoginController.swift; sourceTree = "<group>"; };
@@ -587,6 +591,7 @@
 		D1DB51461E53F3F300328B65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D12AC3F11EA748E00023C541 /* CPFMyArticleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -594,6 +599,7 @@
 		D1DB51471E53F3F300328B65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D12AC3F31EA749200023C541 /* CPFMyArticleCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -816,6 +822,7 @@
 				D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */,
 				D1B1445F1EA311C400BC63DE /* buffer.c in Sources */,
 				D1DB515B1E53F8EC00328B65 /* CPFNotifyController.swift in Sources */,
+				D12AC3F21EA748E00023C541 /* CPFMyArticleModel.swift in Sources */,
 				D1B144601EA311C400BC63DE /* document.c in Sources */,
 				D1DB51571E53F8AB00328B65 /* CPFMyArticleController.swift in Sources */,
 				D1B144651EA311C400BC63DE /* stack.c in Sources */,
@@ -843,6 +850,7 @@
 				D1CF34771E978569001A615A /* NSBundle+MJRefresh.m in Sources */,
 				D1C190351E98B0A8007CA5D3 /* CPFSettingCategoryController.swift in Sources */,
 				D1CF347A1E978569001A615A /* UIView+MJExtension.m in Sources */,
+				D12AC3F41EA749200023C541 /* CPFMyArticleCell.swift in Sources */,
 				D1CF34731E978569001A615A /* MJRefreshNormalHeader.m in Sources */,
 				D12AC3F01EA4B2F50023C541 /* CPFShareTools.swift in Sources */,
 				D1B1445D1EA311C400BC63DE /* hoedown_html_patch.c in Sources */,

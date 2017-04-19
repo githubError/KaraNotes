@@ -19,8 +19,7 @@ class CPFAttentionController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // init collectionView
-        setupCollectionView()
+        setupSubviews()
         
     }
 }
@@ -31,6 +30,22 @@ class CPFCollectionHeaderView: UICollectionReusableView {
 
 // MARK: - setup
 extension CPFAttentionController {
+    
+    func setupSubviews() -> Void {
+        
+        setupNavigation()
+        
+        // init collectionView
+        setupCollectionView()
+    }
+    
+    func setupNavigation() -> Void {
+        
+        let searchBtn = UIButton(type: .custom)
+        searchBtn.setImage(UIImage.init(named: "search"), for: .normal)
+        searchBtn.addTarget(self, action: #selector(searchBtnClick), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBtn)
+    }
     
     func setupCollectionView() -> Void {
         
@@ -67,6 +82,14 @@ extension CPFAttentionController {
     }
 }
 
+
+// MARK: - custom methods
+extension CPFAttentionController {
+    
+    @objc fileprivate func searchBtnClick() -> Void {
+        print("search button click")
+    }
+}
 
 // MARK: - Refresh
 extension CPFAttentionController {
