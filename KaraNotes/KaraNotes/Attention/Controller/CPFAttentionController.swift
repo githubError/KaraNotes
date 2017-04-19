@@ -43,6 +43,7 @@ extension CPFAttentionController {
         
         let searchBtn = UIButton(type: .custom)
         searchBtn.setImage(UIImage.init(named: "search"), for: .normal)
+        searchBtn.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         searchBtn.addTarget(self, action: #selector(searchBtnClick), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchBtn)
     }
