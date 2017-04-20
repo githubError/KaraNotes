@@ -38,6 +38,8 @@
 "mine_more_fansBtn" = "粉丝";
 "mine_more_tagsBtn" = "标签";
 
+"mine_changeInfo_navTitle" = "个人信息";
+"mine_changeInfo_saveBtn" = "保存";
 
 // MARK: - WriteArticle
 "writeArticle_title" = "写文章";

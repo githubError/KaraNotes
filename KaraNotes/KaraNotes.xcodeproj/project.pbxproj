@@ -20,6 +20,8 @@
 		D12AC3F01EA4B2F50023C541 /* CPFShareTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3EF1EA4B2F50023C541 /* CPFShareTools.swift */; };
 		D12AC3F21EA748E00023C541 /* CPFMyArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F11EA748E00023C541 /* CPFMyArticleModel.swift */; };
 		D12AC3F41EA749200023C541 /* CPFMyArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F31EA749200023C541 /* CPFMyArticleCell.swift */; };
+		D12AC3F61EA8C4000023C541 /* CPFChangeUserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F51EA8C4000023C541 /* CPFChangeUserInfoController.swift */; };
+		D12AC3F81EA8C9440023C541 /* CPFChangeUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F71EA8C9440023C541 /* CPFChangeUserInfoCell.swift */; };
 		D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */; };
 		D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */; };
 		D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198909D1E631D1E00364DF3 /* CPFLoginController.swift */; };
@@ -99,6 +101,8 @@
 		D12AC3EF1EA4B2F50023C541 /* CPFShareTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFShareTools.swift; sourceTree = "<group>"; };
 		D12AC3F11EA748E00023C541 /* CPFMyArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMyArticleModel.swift; sourceTree = "<group>"; };
 		D12AC3F31EA749200023C541 /* CPFMyArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMyArticleCell.swift; sourceTree = "<group>"; };
+		D12AC3F51EA8C4000023C541 /* CPFChangeUserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFChangeUserInfoController.swift; sourceTree = "<group>"; };
+		D12AC3F71EA8C9440023C541 /* CPFChangeUserInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFChangeUserInfoCell.swift; sourceTree = "<group>"; };
 		D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsController.swift; sourceTree = "<group>"; };
 		D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFavoriteController.swift; sourceTree = "<group>"; };
 		D198909D1E631D1E00364DF3 /* CPFLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFLoginController.swift; sourceTree = "<group>"; };
@@ -552,6 +556,7 @@
 				D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */,
 				D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */,
 				D1C190341E98B0A8007CA5D3 /* CPFSettingCategoryController.swift */,
+				D12AC3F51EA8C4000023C541 /* CPFChangeUserInfoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -566,6 +571,7 @@
 		D1DB51431E53F3F300328B65 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D12AC3F71EA8C9440023C541 /* CPFChangeUserInfoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -841,6 +847,7 @@
 				D1DB51511E53F5E600328B65 /* CPFTabBarController.swift in Sources */,
 				D1DB51551E53F89300328B65 /* CPFAttentionController.swift in Sources */,
 				D1DB51691E5A8D8000328B65 /* CPFAttentionCell.swift in Sources */,
+				D12AC3F81EA8C9440023C541 /* CPFChangeUserInfoCell.swift in Sources */,
 				D1DB51331E52E61E00328B65 /* CPFGlobalUtilits.swift in Sources */,
 				D1CF34741E978569001A615A /* MJRefreshStateHeader.m in Sources */,
 				D1CF34701E978569001A615A /* MJRefreshBackNormalFooter.m in Sources */,
@@ -864,6 +871,7 @@
 				D1B144621EA311C400BC63DE /* html.c in Sources */,
 				D1CF34761E978569001A615A /* MJRefreshConst.m in Sources */,
 				D1CF346C1E978569001A615A /* MJRefreshAutoGifFooter.m in Sources */,
+				D12AC3F61EA8C4000023C541 /* CPFChangeUserInfoController.swift in Sources */,
 				D12AC3DD1EA3AAB50023C541 /* CPFPDFRender.swift in Sources */,
 				D1CF346A1E978569001A615A /* MJRefreshFooter.m in Sources */,
 				D1B144631EA311C400BC63DE /* html_blocks.c in Sources */,

@@ -75,6 +75,9 @@ public typealias JSONDictionary = [String:AnyObject]
 public let CPFUserToken = "CPFUserToken"
 public let CPFUserEmail = "CPFUserEmail"
 public let CPFUserPath = "CPFUserPath"
+public let CPFUserSignature = "CPFUserSignature"
+public let CPFUserSex = "CPFUserSex"
+public let CPFUserHeaderImg = "CPFUserHeaderImg"
 
 
 // MARK: - 生成10位时间戳

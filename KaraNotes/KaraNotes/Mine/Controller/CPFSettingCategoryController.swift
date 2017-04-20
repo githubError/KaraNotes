@@ -35,9 +35,10 @@ extension CPFSettingCategoryController {
     
     func setupNavigationBar() {
         
-        navigationLabel.size = CGSize(width: 50, height: 35)
+        navigationLabel.size = CGSize(width: 150, height: 35)
         navigationLabel.centerX = view.middleX
         navigationLabel.centerY = 22
+        navigationLabel.textAlignment = .center
         navigationLabel.font = CPFPingFangSC(weight: .semibold, size: 18)
         navigationLabel.textColor = UIColor.white
         navigationController?.navigationBar.addSubview(navigationLabel)

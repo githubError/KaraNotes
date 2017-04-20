@@ -37,6 +37,9 @@
 "mine_more_fansBtn" = "Fans";
 "mine_more_tagsBtn" = "Tags";
 
+"mine_changeInfo_navTitle" = "Personal Info";
+"mine_changeInfo_saveBtn" = "Save";
+
 // MARK: - WriteArticle
 "writeArticle_title" = "Write";
 "writeArticle_preview" = "Preview";

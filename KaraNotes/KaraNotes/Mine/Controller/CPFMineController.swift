@@ -12,8 +12,11 @@ class CPFMineController: BaseViewController, UINavigationControllerDelegate {
     var navAlphaView:UIView!
     var navBackBtn:UIButton!
     var user_InfoView:UIView!               // 用户信息
+    
     var user_HeaderImageView:UIImageView!
+    var user_SexImageView:UIImageView!
     var user_NameLabel:UILabel!
+    var user_BgImageView:UIImageView!
     
     var categoryView:UIView!                // 子视图分类
     var contentScrollView:UIScrollView!     // 包裹子控制器的ScrollView
@@ -32,10 +35,32 @@ class CPFMineController: BaseViewController, UINavigationControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        adjustCtrWhenViewAppear()
+        configUserInfo()
+    }
+}
+
+
+// MARK: - Custom Methods
+extension CPFMineController {
+    
+    func adjustCtrWhenViewAppear() -> Void {
         var alpha = selectedCategoryBtn.tag == 0 ? 0.0 : 1.0
         if user_InfoView.y >= 0.0 { alpha = 0.0 }
         changeNavigationBarAlpha(alpha: CGFloat(alpha))
         navBackBtn.alpha = 0.0
+    }
+    
+    //TODO: 要做
+    func configUserInfo() -> Void {
+        
+    }
+    
+    func changeUserInfoClick() -> Void {
+        let changeUserInfoCtr = CPFChangeUserInfoController()
+        changeUserInfoCtr.navAlphaView = navAlphaView
+        navigationController?.pushViewController(changeUserInfoCtr, animated: true)
+        changeNavigationBarAlpha(alpha: 1.0)
     }
 }
 
@@ -54,13 +79,15 @@ extension CPFMineController {
     func setupUserInfoView() -> Void {
         user_InfoView = UIView()
         navigationController?.navigationBar.isTranslucent = true
+        let tapGestureRec = UITapGestureRecognizer(target: self, action: #selector(changeUserInfoClick))
+        user_InfoView.addGestureRecognizer(tapGestureRec)
         view.addSubview(user_InfoView)
         user_InfoView.snp.makeConstraints { make in
             make.height.equalTo(250*CPFFitHeight)
             make.top.right.left.equalTo(view)
         }
         
-        let user_BgImageView:UIImageView = UIImageView()
+        user_BgImageView = UIImageView()
         user_BgImageView.image = UIImage.init(named: "user_BgImage")
         user_InfoView.addSubview(user_BgImageView)
         user_BgImageView.snp.makeConstraints { make in
@@ -77,6 +104,14 @@ extension CPFMineController {
         user_HeaderImageView.layer.cornerRadius = 40
         user_HeaderImageView.layer.masksToBounds = true
         
+        user_SexImageView = UIImageView()
+        user_SexImageView.image = UIImage.init(named: "female")
+        user_InfoView.addSubview(user_SexImageView)
+        user_SexImageView.snp.makeConstraints { (make) in
+            make.width.height.equalTo(20)
+            make.left.equalTo(user_HeaderImageView.snp.right).offset(-10)
+            make.bottom.equalTo(user_HeaderImageView.snp.bottom).offset(-0)
+        }
         
         user_NameLabel = UILabel()
         user_InfoView.addSubview(user_NameLabel)
