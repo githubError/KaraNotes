@@ -155,7 +155,7 @@ extension CPFLoginController {
             }
             
             CPFUserManager.sharedInstance().checkEmail(withAccount: emailTextField.text!, completionHandler: { (result) in
-                if result == 1 {
+                if result == 0 {
                     print("账号存在，显示登录按钮")
                     
                     self.respondBtn.setTitle(CPFLocalizableTitle("responBtn_login"), for: .normal)

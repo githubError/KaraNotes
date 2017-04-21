@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import AlamofireImage
+import Alamofire
 
 public enum FontWeight: String {
     case semibold = "Semibold"
@@ -21,13 +23,16 @@ public enum FontWeight: String {
 public enum CPFNetworkRoute: String {
     
     case base = "http://karanotes.viakiba.cn/karanotes"                              // 基地址
-    case login = "/user/login"                  // 登录
-    case register = "/user/register"            // 注册
-    case checkEmail = "/user/checkemail"        // 检查邮箱可用性
+    case login = "/select/user/login"                  // 登录
+    case register = "/select/user/register"            // 注册
+    case checkEmail = "/extra/user/checkemail"        // 检查邮箱可用性
     case insertArticle = "/article/insert"      // 新增文章
     case deleteArticle = "/article/delete"      // 删除文章
     case updateArticle = "/article/update"      // 更新文章
     case uploadImage = "/file/imgs/article"           // 上传图片
+    case articleImage = "/imgs/article"               // 文章图片下载
+    case headerImage = "/file/imgs/logo"                   // 用户头像
+    case backgroundImage = "/file/imgs/backlogo"           // 用户背景图片
     
     static func getAPIFromRouteType(route: CPFNetworkRoute) -> String {
         return "\(CPFNetworkRoute.base.rawValue)\(route.rawValue)"
@@ -78,6 +83,19 @@ public let CPFUserPath = "CPFUserPath"
 public let CPFUserSignature = "CPFUserSignature"
 public let CPFUserSex = "CPFUserSex"
 public let CPFUserHeaderImg = "CPFUserHeaderImg"
+public let CPFUserBgImg = "CPFUserBgImg"
+public let CPFUserName = "CPFUserName"
+public let CPFUserID = "CPFUserID"
+
+public func setUserInfo(value: AnyObject, forKey key: String) {
+    UserDefaults.standard.set(value, forKey: key)
+    UserDefaults.standard.synchronize()
+}
+
+public func getUserInfoForKey(key: String) -> String {
+    let value = String(describing: UserDefaults.standard.value(forKey: key)!)
+    return value
+}
 
 
 // MARK: - 生成10位时间戳

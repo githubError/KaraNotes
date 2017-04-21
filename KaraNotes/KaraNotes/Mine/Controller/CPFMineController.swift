@@ -51,9 +51,18 @@ extension CPFMineController {
         navBackBtn.alpha = 0.0
     }
     
-    //TODO: 要做
+    
     func configUserInfo() -> Void {
+        user_NameLabel.text = getUserInfoForKey(key: CPFUserName)
+        user_SexImageView.image = (getUserInfoForKey(key: CPFUserSex) == "1") ? UIImage.init(named: "male") : UIImage.init(named: "female")
         
+        let headerImageURLString = "\(CPFNetworkRoute.getAPIFromRouteType(route: .headerImage))/\(getUserInfoForKey(key: CPFUserHeaderImg))"
+        let headerImagURL = URL(string: headerImageURLString)!
+        
+        user_HeaderImageView.af_setImage(withURL: headerImagURL)
+        
+        let backgroundImageURLString = "\(CPFNetworkRoute.getAPIFromRouteType(route: .backgroundImage))/\(getUserInfoForKey(key: CPFUserBgImg))"
+        user_BgImageView.af_setImage(withURL: URL(string: backgroundImageURLString)!)
     }
     
     func changeUserInfoClick() -> Void {
@@ -94,6 +103,14 @@ extension CPFMineController {
             make.left.right.top.bottom.equalTo(user_InfoView)
         }
         
+        let blurEffect = UIBlurEffect(style: .light)
+        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView.alpha = 0.4
+        user_BgImageView.addSubview(visualEffectView)
+        visualEffectView.snp.makeConstraints { (make) in
+            make.left.right.top.bottom.equalToSuperview()
+        }
+        
         user_HeaderImageView = UIImageView()
         user_InfoView.addSubview(user_HeaderImageView)
         user_HeaderImageView.image = UIImage.init(named: "testHeaderImage")
@@ -119,6 +136,8 @@ extension CPFMineController {
         user_NameLabel.textAlignment = .center
         user_NameLabel.textColor = UIColor.white
         user_NameLabel.font = CPFPingFangSC(weight: .semibold, size: 20)
+        user_NameLabel.shadowColor = CPFRGBA(r: 0, g: 0, b: 0, a: 0.3)
+        user_NameLabel.shadowOffset = CGSize(width: 0, height: 1.5)
         user_NameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(user_InfoView.snp.centerX)
             make.left.equalTo(user_InfoView.snp.left).offset(15)
