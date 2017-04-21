@@ -60,7 +60,6 @@ extension CPFChangeUserInfoCell {
     
     func setupSubViews() -> Void {
         typeLabel = UILabel()
-        typeLabel.text = "类别"
         typeLabel.textAlignment = .left
         typeLabel.font = CPFPingFangSC(weight: .regular, size: 14)
         typeLabel.textColor = UIColor.black
@@ -82,7 +81,6 @@ extension CPFChangeUserInfoCell {
         }
         
         headerImageView = UIImageView()
-        headerImageView.image = UIImage.init(named: "testHeaderImage")
         addSubview(headerImageView)
         headerImageView.snp.makeConstraints { (make) in
             make.top.bottom.equalToSuperview()
@@ -93,7 +91,6 @@ extension CPFChangeUserInfoCell {
         headerImageView.layer.masksToBounds = true
         
         sexLabel = UILabel()
-        sexLabel.text = "男"
         sexLabel.textAlignment = .center
         sexLabel.font = CPFPingFangSC(weight: .regular, size: 16)
         sexLabel.textColor = UIColor.black
@@ -103,7 +100,6 @@ extension CPFChangeUserInfoCell {
         }
         
         textField = UITextField()
-        textField.text = "我七岁就很帅"
         textField.borderStyle = .none
         textField.clearButtonMode = .whileEditing
         addSubview(textField)
