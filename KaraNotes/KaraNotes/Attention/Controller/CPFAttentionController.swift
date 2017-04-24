@@ -24,9 +24,6 @@ class CPFAttentionController: BaseViewController {
     }
 }
 
-class CPFCollectionHeaderView: UICollectionReusableView {
-    
-}
 
 // MARK: - setup
 extension CPFAttentionController {
@@ -88,15 +85,41 @@ extension CPFAttentionController {
 extension CPFAttentionController {
     
     @objc fileprivate func searchBtnClick() -> Void {
-        print("search button click")
+        let searchCtr = CPFSearchController()
+        navigationController?.pushViewController(searchCtr, animated: true)
     }
 }
 
 // MARK: - Refresh
 extension CPFAttentionController {
+    
     func loadNewDatas() -> Void {
         print("下拉加载更多")
-        collectionView?.mj_header.endRefreshing()
+        let requestURL = "\(CPFNetworkRoute.getAPIFromRouteType(route: .myArticleWithoutCategory))/\(getUserInfoForKey(key: CPFUserPath))/\(0)/\(10)"
+        
+        print("request:\(requestURL)")
+        
+        Alamofire.request(requestURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+            switch response.result {
+            case .success(let json as JSONDictionary):
+                guard let code = json["code"] as? String else {fatalError()}
+                if code == "1" {
+                    guard let results = json["result"] as? [JSONDictionary] else {fatalError("Json 解析失败")}
+                    let resultsDic = results.map({ (json) -> Void in
+                        print("========\(json)")
+                        
+                    })
+                } else {
+                    print("--解析错误--")
+                }
+            case .failure(let error):
+                print("--------\(error.localizedDescription)")
+            default:
+                print("unknow type error")
+            }
+            
+            self.collectionView?.mj_header.endRefreshing()
+        }
     }
     
     func loadMoreDatas() -> Void {

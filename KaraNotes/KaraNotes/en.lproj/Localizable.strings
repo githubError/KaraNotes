@@ -14,6 +14,11 @@
 "tabbar_notify" = "Notify";
 "tabbar_mine" = "Mine";
 
+
+// MARK: - Attention
+"attention_search_placeholder" = "Search User & Article";
+
+
 // MARK: - Login
 "emailTextFieldPlaceholder" = "Enter Your Email";
 "passwordTextFieldPlaceholder" = "Enter Your Password";

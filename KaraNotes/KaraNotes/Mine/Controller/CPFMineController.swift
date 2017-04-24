@@ -58,6 +58,7 @@ extension CPFMineController {
     func configUserInfo() -> Void {
         user_NameLabel.text = getUserInfoForKey(key: CPFUserName)
         user_SexImageView.image = (getUserInfoForKey(key: CPFUserSex) == "1") ? UIImage.init(named: "male") : UIImage.init(named: "female")
+        navigationItem.title = getUserInfoForKey(key: CPFUserName)
         
         let headerImageURLString = "\(CPFNetworkRoute.getAPIFromRouteType(route: .headerImage))/\(getUserInfoForKey(key: CPFUserHeaderImg))"
         let headerImagURL = URL(string: headerImageURLString)!
@@ -325,7 +326,7 @@ extension CPFMineController:CPFFavoriteControllerDelegate {
                 make.top.equalTo(-250+64)
             })
             self.changeNavigationBarAlpha(alpha: 1.0)
-            self.navigationItem.title = "我七岁就很帅"
+            self.navigationItem.title = getUserInfoForKey(key: CPFUserName)
             self.view.layoutIfNeeded()
         })
         

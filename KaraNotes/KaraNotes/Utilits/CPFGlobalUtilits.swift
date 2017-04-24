@@ -34,6 +34,7 @@ public enum CPFNetworkRoute: String {
     case headerImage = "/file/imgs/logo"                   // 用户头像
     case backgroundImage = "/file/imgs/backlogo"           // 用户背景图片
     case updateUserInfo = "/user/updateuserinfo"           // 更改用户信息
+    case myArticleWithoutCategory = "/extra/article"   // 获取我的文章，不限制分类
     
     static func getAPIFromRouteType(route: CPFNetworkRoute) -> String {
         return "\(CPFNetworkRoute.base.rawValue)\(route.rawValue)"
@@ -64,6 +65,17 @@ public func CPFPingFangSC(weight:FontWeight, size:CGFloat) -> UIFont {
 public func CPFRGBA(r:Int, g:Int, b:Int, a:Float) -> UIColor { return UIColor.init(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: CGFloat(a)) }
 
 public func CPFRGB(r:Int, g:Int, b:Int) -> UIColor { return CPFRGBA(r: r, g: g, b: b, a: 1.0) }
+
+public func CPFCreateImageWithBackground(color: UIColor, withHeight height:CGFloat) -> UIImage {
+    let rect = CGRect(x: 0.0, y: 0.0, width: 0.0, height: height)
+    UIGraphicsBeginImageContext(rect.size)
+    let context = UIGraphicsGetCurrentContext()
+    context?.setFillColor(color.cgColor)
+    context?.addRect(rect)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return image!
+}
 
 public let CPFGlobalColor = CPFRGB(r: 245, g: 245, b: 245)
 public var CPFRandomColor = CPFRGB(r: Int(arc4random_uniform(255)), g: Int(arc4random_uniform(255)), b: Int(arc4random_uniform(255)))

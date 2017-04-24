@@ -24,6 +24,8 @@
 "illegalEmailAddress" = "电子邮件地址不合法";
 "loginAfterRegister" = "注册成功，现在登录";
 
+// MARK: - Attention
+"attention_search_placeholder" = "搜索用户、文章等";
 
 // MARK: - Mine
 "mine_collectBtn" = "收藏";
