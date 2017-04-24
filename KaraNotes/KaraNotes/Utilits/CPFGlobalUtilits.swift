@@ -33,6 +33,7 @@ public enum CPFNetworkRoute: String {
     case articleImage = "/imgs/article"               // 文章图片下载
     case headerImage = "/file/imgs/logo"                   // 用户头像
     case backgroundImage = "/file/imgs/backlogo"           // 用户背景图片
+    case updateUserInfo = "/user/updateuserinfo"           // 更改用户信息
     
     static func getAPIFromRouteType(route: CPFNetworkRoute) -> String {
         return "\(CPFNetworkRoute.base.rawValue)\(route.rawValue)"
@@ -86,6 +87,8 @@ public let CPFUserHeaderImg = "CPFUserHeaderImg"
 public let CPFUserBgImg = "CPFUserBgImg"
 public let CPFUserName = "CPFUserName"
 public let CPFUserID = "CPFUserID"
+
+public let kCPFUserInfoHasChanged = "kCPFUserInfoHasChanged"
 
 public func setUserInfo(value: AnyObject, forKey key: String) {
     UserDefaults.standard.set(value, forKey: key)

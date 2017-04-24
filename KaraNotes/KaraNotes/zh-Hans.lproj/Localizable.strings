@@ -41,6 +41,17 @@
 "mine_changeInfo_navTitle" = "个人信息";
 "mine_changeInfo_saveBtn" = "保存";
 
+"mine_changeInfo_headerImg" = "头像";
+"mine_changeInfo_userName" = "用户名";
+"mine_changeInfo_userSex" = "性别";
+"mine_changeInfo_bgImg" = "背景图";
+
+"mine_changeInfo_userSex_male" = "男";
+"mine_changeInfo_userSex_female" = "女";
+
+"mine_changeInfo_userSex_alertMessage" = "选择性别";
+"mine_changeInfo_userSex_alertCancel" = "取消";
+
 // MARK: - WriteArticle
 "writeArticle_title" = "写文章";
 "writeArticle_preview" = "预览";

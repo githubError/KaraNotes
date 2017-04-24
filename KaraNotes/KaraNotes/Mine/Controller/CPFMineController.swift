@@ -32,11 +32,14 @@ class CPFMineController: BaseViewController, UINavigationControllerDelegate {
         navigationController?.delegate = self
         navigationItem.title = ""
         setupSubViews()
+        
+        configUserInfo()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(configUserInfo), name: NSNotification.Name(rawValue: kCPFUserInfoHasChanged), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         adjustCtrWhenViewAppear()
-        configUserInfo()
     }
 }
 
@@ -58,7 +61,6 @@ extension CPFMineController {
         
         let headerImageURLString = "\(CPFNetworkRoute.getAPIFromRouteType(route: .headerImage))/\(getUserInfoForKey(key: CPFUserHeaderImg))"
         let headerImagURL = URL(string: headerImageURLString)!
-        
         user_HeaderImageView.af_setImage(withURL: headerImagURL)
         
         let backgroundImageURLString = "\(CPFNetworkRoute.getAPIFromRouteType(route: .backgroundImage))/\(getUserInfoForKey(key: CPFUserBgImg))"

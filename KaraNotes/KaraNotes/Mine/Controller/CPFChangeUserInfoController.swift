@@ -61,12 +61,39 @@ extension CPFChangeUserInfoController {
         saveBtn.centerX = CPFScreenW - saveBtn.size.width
         saveBtn.centerY = 25
         saveBtn.setTitle(CPFLocalizableTitle("mine_changeInfo_saveBtn"), for: .normal)
+        saveBtn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .disabled)
+        
+        saveBtn.isEnabled = false
         saveBtn.addTarget(self, action: #selector(saveBtnClick), for: .touchUpInside)
         navigationController?.navigationBar.addSubview(saveBtn)
     }
     
     func saveBtnClick() -> Void {
-        print("-------------saveBtnClick")
+        
+        let params: JSONDictionary = ["token_id":getUserInfoForKey(key: CPFUserToken) as AnyObject,
+                                      "user_name":getUserInfoForKey(key: CPFUserName) as AnyObject,
+                                      "user_sex":getUserInfoForKey(key: CPFUserSex) as AnyObject,
+                                      "user_path":getUserInfoForKey(key: CPFUserPath) as AnyObject,
+                                      "user_signature":getUserInfoForKey(key: CPFUserSignature) as AnyObject]
+        
+        
+        Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .updateUserInfo), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+            
+            switch response.result {
+                
+            case .success(let json as JSONDictionary):
+                guard let code = json["code"] as? String else {fatalError()}
+                if code == "1" {
+                    print("--------用户信息更新成功✔️")
+                } else {
+                    print("--------用户信息更新失败❌")
+                }
+            case .failure(let error):
+                print("updateUserInfo error--------\(error)")
+            default:
+                print("updateUserInfo error")
+            }
+        }
     }
 }
 
@@ -107,22 +134,24 @@ extension CPFChangeUserInfoController: UITableViewDelegate, UITableViewDataSourc
         switch indexPath.row {
         case 0:
             cell.cellType = .userHeaderImgCell
-            cell.typeLabel.text = "头像"
+            cell.typeLabel.text = CPFLocalizableTitle("mine_changeInfo_headerImg")
             
             let headerImageURLString = "\(CPFNetworkRoute.getAPIFromRouteType(route: .headerImage))/\(getUserInfoForKey(key: CPFUserHeaderImg))"
             let headerImagURL = URL(string: headerImageURLString)!
             cell.headerImageView.af_setImage(withURL: headerImagURL)
+            
         case 1:
             cell.cellType = .userNameCell
-            cell.typeLabel.text = "用户名"
+            cell.typeLabel.text = CPFLocalizableTitle("mine_changeInfo_userName")
             cell.textField.text = getUserInfoForKey(key: CPFUserName)
+            cell.textField.delegate = self
         case 2:
             cell.cellType = .userSexCell
-            cell.typeLabel.text = "性别"
-            cell.sexLabel.text = (getUserInfoForKey(key: CPFUserSex) == "1" ? "男" : "女")
+            cell.typeLabel.text = CPFLocalizableTitle("mine_changeInfo_userSex")
+            cell.sexLabel.text = (getUserInfoForKey(key: CPFUserSex) == "1" ? CPFLocalizableTitle("mine_changeInfo_userSex_male") : CPFLocalizableTitle("mine_changeInfo_userSex_female"))
         case 3:
             cell.cellType = .userNormalCell
-            cell.typeLabel.text = "背景图"
+            cell.typeLabel.text = CPFLocalizableTitle("mine_changeInfo_bgImg")
         default:
             print("unknow type cell")
         }
@@ -142,6 +171,8 @@ extension CPFChangeUserInfoController: UITableViewDelegate, UITableViewDataSourc
             print("更改姓名")
         case 2:
             print("更改性别")
+            changeUserSex()
+            
         case 3:
             print("更改背景图片")
             selectImageFromPhotoLibrary()
@@ -153,8 +184,13 @@ extension CPFChangeUserInfoController: UITableViewDelegate, UITableViewDataSourc
             let indexPath = IndexPath(row: 1, section: 0)
             let cell = tableView.cellForRow(at: indexPath) as! CPFChangeUserInfoCell
             cell.textField.resignFirstResponder()
+            
+            setUserInfo(value: cell.textField.text as AnyObject, forKey: CPFUserName)
+            
+            self.reloadUserInfo()
         }
         
+        saveBtn.isEnabled = true
     }
 }
 
@@ -169,6 +205,36 @@ extension CPFChangeUserInfoController {
         navigationController?.present(imagePickerCtr, animated: true, completion: nil)
     }
     
+    func changeUserSex() -> Void {
+        let alertCtr = UIAlertController(title: "", message: CPFLocalizableTitle("mine_changeInfo_userSex_alertMessage"), preferredStyle: .actionSheet)
+        
+        let alertMaleAction = UIAlertAction(title: CPFLocalizableTitle("mine_changeInfo_userSex_male"), style: .default) { (action) in
+            setUserInfo(value: "1" as AnyObject, forKey: CPFUserSex)
+            
+            self.reloadUserInfo()
+        }
+        
+        let alertFemaleAction = UIAlertAction(title: CPFLocalizableTitle("mine_changeInfo_userSex_female"), style: .default) { (action) in
+            setUserInfo(value: "2" as AnyObject, forKey: CPFUserSex)
+            
+            self.reloadUserInfo()
+        }
+        
+        let alertCancel = UIAlertAction(title: CPFLocalizableTitle("mine_changeInfo_userSex_alertCancel"), style: .cancel) { (action) in
+            alertCtr.dismiss(animated: true, completion: nil)
+        }
+        
+        alertCtr.addAction(alertMaleAction)
+        alertCtr.addAction(alertFemaleAction)
+        alertCtr.addAction(alertCancel)
+        
+        self.present(alertCtr, animated: true, completion: nil)
+    }
+    
+    func reloadUserInfo() -> Void {
+        self.tableView.reloadData()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kCPFUserInfoHasChanged), object: nil)
+    }
     
     func uploadData(data:Data, route: CPFNetworkRoute, completionHandler: @escaping (_ LinkString:String) -> Void) -> Void {
         
@@ -217,16 +283,22 @@ extension CPFChangeUserInfoController: UIImagePickerControllerDelegate, UINaviga
                 }
                 
                 self.uploadData(data: imageData, route: route, completionHandler: { (response) in
-                    print("---------\(response)")
                     
-                    //TODO: 更新当前 logo，发出更改用户信息页信息的通知
                     if self.currentIndexPathRow == 0 {
                         setUserInfo(value: response as AnyObject, forKey: CPFUserHeaderImg)
                     } else if self.currentIndexPathRow == 3 {
                         setUserInfo(value: response as AnyObject, forKey: CPFUserBgImg)
                     }
+                    
+                    self.reloadUserInfo()
                 })
             }
         }
+    }
+}
+
+extension CPFChangeUserInfoController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
 }

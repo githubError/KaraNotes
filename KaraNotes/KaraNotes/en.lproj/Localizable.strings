@@ -40,6 +40,17 @@
 "mine_changeInfo_navTitle" = "Personal Info";
 "mine_changeInfo_saveBtn" = "Save";
 
+"mine_changeInfo_headerImg" = "User Icon";
+"mine_changeInfo_userName" = "User Name";
+"mine_changeInfo_userSex" = "Sex";
+"mine_changeInfo_bgImg" = "User Bg";
+
+"mine_changeInfo_userSex_male" = "Male";
+"mine_changeInfo_userSex_female" = "Female";
+
+"mine_changeInfo_userSex_alertMessage" = "Select your Sex";
+"mine_changeInfo_userSex_alertCancel" = "Cancel";
+
 // MARK: - WriteArticle
 "writeArticle_title" = "Write";
 "writeArticle_preview" = "Preview";
