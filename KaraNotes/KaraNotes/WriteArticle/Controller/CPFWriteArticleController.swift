@@ -71,7 +71,11 @@ extension CPFWriteArticleController: CPFWriteArticleHeaderViewDelegate {
     func headerView(headerView: UIView, didClickPostArticleBtn postArticleBtn: UIButton) {
         print("发表")
         postArticle { (result, articleID) in
-            print("=======\(result)===\(articleID)")
+            if result == "1" {
+                print("发表成功")
+            } else {
+                print("发表失败")
+            }
         }
     }
 }
@@ -91,17 +95,17 @@ extension CPFWriteArticleController {
             
             switch response.result {
             case .success(let json as JSONDictionary):
-                guard let result = json["success"] as? String else {fatalError()}
+                guard let code = json["code"] as? String else {fatalError()}
                 
-                if result == "1" {
-                    guard let article_id = json["article_id"] as? String else {fatalError()}
-                    completionHandler(result, article_id)
+                if code == "1" {
+                    guard let result = json["result"] as? JSONDictionary else {fatalError()}
+                    completionHandler(code, "\(result)")
                 } else {
-                    guard let errorCode = json["messcode"] as? String else {fatalError()}
-                    if errorCode == "3" {
-                        completionHandler(result, String(errorCode))
+                    guard let message = json["message"] as? String else {fatalError()}
+                    if message == "3" {
+                        completionHandler(code, message)
                     } else {
-                        completionHandler(result, String(errorCode))
+                        completionHandler(code, message)
                     }
                 }
             case .failure(let error as JSONDictionary):

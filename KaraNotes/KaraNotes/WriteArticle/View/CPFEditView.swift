@@ -122,7 +122,7 @@ extension CPFEditView: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         textViewPlaceholderLabel.isHidden = hasText
-        editViewDelegate?.editView(editView: self, didChangeText: textView.text)
+        editViewDelegate?.editView(editView: self, didChangeText: self.text)
         
         highLightText()
     }
