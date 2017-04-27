@@ -71,7 +71,13 @@ extension CPFWriteArticleController: CPFWriteArticleHeaderViewDelegate {
         postArticle { (result, articleID) in
             if result == "1" {
                 print("发表成功")
+                CPFProgressView.sharedInstance().showProgressView(progress: 1.0, promptMessage: "发表成功")
+                self.dismiss(animated: true, completion: { 
+                    CPFProgressView.sharedInstance().dismissProgressView {}
+                })
             } else {
+                CPFProgressView.sharedInstance().showProgressView(progress: 1.0, promptMessage: "发表失败")
+                CPFProgressView.sharedInstance().dismissProgressView {}
                 print("发表失败")
             }
         }
