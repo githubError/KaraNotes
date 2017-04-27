@@ -85,3 +85,7 @@
 "notify_like" = "点赞";
 "notify_collection" = "收藏";
 "notify_attention" = "关注";
+
+
+// MARK: - MyArticle
+"myArticle_delete" = "删除";

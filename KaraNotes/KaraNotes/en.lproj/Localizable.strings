@@ -87,3 +87,6 @@
 "notify_like" = "Like";
 "notify_collection" = "Collection";
 "notify_comment" = "Comment";
+
+// MARK: - MyArticle
+"myArticle_delete" = "Delete";

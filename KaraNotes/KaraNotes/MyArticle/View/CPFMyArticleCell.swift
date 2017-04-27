@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CPFMyArticleCell: UITableViewCell {
 
@@ -16,9 +17,9 @@ class CPFMyArticleCell: UITableViewCell {
     
     var myArticleModel:CPFMyArticleModel! {
         didSet {
-            thumbImageView.image = UIImage.init(named: "myArticle_thumbImage")
-            titleLabel.text = "论母猪的产后护理"
-            createTimeLabel.text = "2017.04.19"
+            thumbImageView.af_setImage(withURL: myArticleModel.article_show_img_URL)
+            titleLabel.text = myArticleModel.article_title
+            createTimeLabel.text = myArticleModel.article_create_formatTime
         }
     }
     

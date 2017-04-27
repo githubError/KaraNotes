@@ -34,7 +34,7 @@ public enum CPFNetworkRoute: String {
     case headerImage = "/file/imgs/logo"                   // 用户头像
     case backgroundImage = "/file/imgs/backlogo"           // 用户背景图片
     case updateUserInfo = "/user/updateuserinfo"           // 更改用户信息
-    case myArticleWithoutCategory = "/extra/article"   // 获取我的文章，不限制分类
+    case myArticleWithoutCategory = "/extra/articlelist/alllist"   // 获取我的文章，不限制分类
     
     static func getAPIFromRouteType(route: CPFNetworkRoute) -> String {
         return "\(CPFNetworkRoute.base.rawValue)\(route.rawValue)"
@@ -122,4 +122,13 @@ public func createTimestamp() -> String {
     let index = timeString.index(timeString.startIndex, offsetBy: 10)
     let timestamp = timeString.substring(to: index)
     return timestamp
+}
+
+public func timestampToString(timestamp:TimeInterval) -> String {
+    
+    let timeInterval:TimeInterval = TimeInterval(timestamp) / 1000
+    let date = Date(timeIntervalSince1970: timeInterval)
+    let dformatter = DateFormatter()
+    dformatter.dateFormat = "yyyy.MM.dd"
+    return dformatter.string(from: date)
 }
