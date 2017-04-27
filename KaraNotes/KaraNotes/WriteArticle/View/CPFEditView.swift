@@ -271,9 +271,10 @@ extension CPFEditView: UIImagePickerControllerDelegate, UINavigationControllerDe
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let imageData: Data
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageData = UIImageJPEGRepresentation(image, 0)!
+            imageData = image.scaleImageToSize(newSize: CGSize(width: image.size.width / 5, height: image.size.height / 5))
             picker.dismiss(animated: true) {
                 self.uploadData(data: imageData, completionHandler: { (linkString) in
+                    print(linkString)
                     self.insertImageLink(linkString: linkString)
                 })
             }

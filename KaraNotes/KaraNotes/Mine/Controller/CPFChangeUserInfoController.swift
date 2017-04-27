@@ -273,7 +273,7 @@ extension CPFChangeUserInfoController: UIImagePickerControllerDelegate, UINaviga
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let imageData: Data
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageData = UIImageJPEGRepresentation(image, 0)!
+            imageData = image.scaleImageToSize(newSize: CGSize(width: image.size.width / 5, height: image.size.height / 5))
             picker.dismiss(animated: true) {
                 var route: CPFNetworkRoute!
                 if self.currentIndexPathRow == 0 {

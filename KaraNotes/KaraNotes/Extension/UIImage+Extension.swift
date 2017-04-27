@@ -17,4 +17,12 @@ extension UIImage {
         guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage() }
         return newImage
     }
+    
+    public func scaleImageToSize(newSize: CGSize) -> Data {
+        UIGraphicsBeginImageContext(newSize)
+        draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return Data() }
+        UIGraphicsEndImageContext()
+        return UIImageJPEGRepresentation(newImage, 0.8)!
+    }
 }

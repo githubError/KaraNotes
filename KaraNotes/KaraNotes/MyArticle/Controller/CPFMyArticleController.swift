@@ -36,6 +36,7 @@ extension CPFMyArticleController {
     func setupTableView() -> Void {
         tableView = UITableView(frame: view.bounds, style: .grouped)
         tableView.register(CPFMyArticleCell.self, forCellReuseIdentifier: CellID)
+        tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .singleLineEtched
         tableView.delegate = self
         tableView.dataSource = self
@@ -191,6 +192,7 @@ extension CPFMyArticleController: UITableViewDelegate, UITableViewDataSource {
                     if code == "1" {
                         self.models.remove(at: indexPath.row)
                         tableView.deleteRows(at: [indexPath], with: .left)
+                        tableView.reloadData()
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
