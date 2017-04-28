@@ -19,6 +19,8 @@ class CPFMyArticleController: BaseViewController {
     
     fileprivate let CellID: String = "MyArticleCell"
     
+    fileprivate let modalTransitioningDelegate = CPFModalTransitioningDelegate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +38,6 @@ extension CPFMyArticleController {
     func setupTableView() -> Void {
         tableView = UITableView(frame: view.bounds, style: .grouped)
         tableView.register(CPFMyArticleCell.self, forCellReuseIdentifier: CellID)
-        tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .singleLineEtched
         tableView.delegate = self
         tableView.dataSource = self
@@ -71,6 +72,8 @@ extension CPFMyArticleController {
                 
                 guard let code = json["code"] as? String else {fatalError()}
                 if code == "1" {
+                    
+                    self.tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
                     
                     guard let results = json["result"] as? [JSONDictionary] else {fatalError("Json 解析失败")}
                     
@@ -165,6 +168,18 @@ extension CPFMyArticleController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("点击:\(indexPath.row)")
         
+        // 相对 keyWindow 的位置
+        let currentCellItem = tableView.cellForRow(at: indexPath)
+        let keyWindow = UIApplication.shared.keyWindow
+        let currentCellItemRectInSuperView = currentCellItem?.superview?.convert((currentCellItem?.frame)!, to: keyWindow)
+        
+        modalTransitioningDelegate.startRect = CGRect(x: 0.0, y: (currentCellItemRectInSuperView?.origin.y)!, width: CPFScreenW, height: (currentCellItem?.height)!)
+        
+        let browseArticleVC = CPFBrowseArticleController()
+        browseArticleVC.isMyArticle = true
+        browseArticleVC.transitioningDelegate = modalTransitioningDelegate
+        browseArticleVC.modalPresentationStyle = .custom
+        present(browseArticleVC, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

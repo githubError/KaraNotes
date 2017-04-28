@@ -10,13 +10,10 @@ import UIKit
 
 extension UIButton {
     
-    public func verticalImageAndTitleWithSpacing(spacing:Float) -> Void {
-        let titleLabelSize = titleLabel?.frame.size
-        titleLabel?.frame.size = CGSize(width: frame.size.width, height: frame.size.height)
-        let totalHeight = (frame.size.height) + CGFloat(spacing)
-        
-        titleEdgeInsets = UIEdgeInsets(top: 0.0, left: (titleLabelSize?.width)!, bottom: -(totalHeight - (titleLabelSize?.height)!), right: 0.0)
-        imageEdgeInsets = UIEdgeInsets(top: (totalHeight - (titleLabelSize?.height)!), left: 0.0, bottom: 0.0, right: -(titleLabelSize?.height)!)
-        
+    public func verticalImageAndTitleWithSpacing(spacing:CGFloat) -> Void {
+        let imageSize:CGSize = imageView!.frame.size
+        let titleSize:CGSize = titleLabel!.frame.size
+        titleEdgeInsets = UIEdgeInsets(top: 0, left:-imageSize.width, bottom: -imageSize.height - spacing, right: 0)
+        imageEdgeInsets = UIEdgeInsets(top: -titleSize.height - spacing, left: 0, bottom: 0, right: -titleSize.width)
     }
 }

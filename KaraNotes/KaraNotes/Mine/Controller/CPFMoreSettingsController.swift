@@ -50,14 +50,14 @@ extension CPFMoreSettingsController {
         topCategaryView.x = 0.0
         topCategaryView.top = view.top
         topCategaryView.width = CPFScreenW
-        topCategaryView.height = 45.0
+        topCategaryView.height = 65.0
         setupTopCategoryBtns()
     }
     
     func setupTopCategoryBtns() -> Void {
         
         let btnW:CGFloat = 100
-        let btnH:CGFloat = 40
+        let btnH:CGFloat = 35
         let margin:CGFloat = 15
         
         fansBtn = UIButton()
@@ -71,11 +71,12 @@ extension CPFMoreSettingsController {
             let btn = view as! UIButton
             btn.width = btnW
             btn.height = btnH
-            btn.centerY = topCategaryView.centerY
+            btn.centerY = topCategaryView.centerY - 8.0
             btn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .normal)
-            btn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 14)
+            btn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 12)
             btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
             btn.addTarget(self, action: #selector(topCategoryBtnsClick(button:)), for: .touchUpInside)
+            
         }
         
         attentionBtn.setImage(UIImage.init(named: "setting_attentionBtn"), for: .normal)
@@ -93,6 +94,9 @@ extension CPFMoreSettingsController {
         tagsBtn.tag = 2
         tagsBtn.right = topCategaryView.right - margin
         
+        attentionBtn.verticalImageAndTitleWithSpacing(spacing: -3.0)
+        fansBtn.verticalImageAndTitleWithSpacing(spacing: -3.0)
+        tagsBtn.verticalImageAndTitleWithSpacing(spacing: -3.0)
     }
     
     func topCategoryBtnsClick(button:UIButton) -> Void {

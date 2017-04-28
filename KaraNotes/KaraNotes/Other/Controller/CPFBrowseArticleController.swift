@@ -10,6 +10,8 @@ import UIKit
 
 class CPFBrowseArticleController: BaseViewController {
 
+    var isMyArticle:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

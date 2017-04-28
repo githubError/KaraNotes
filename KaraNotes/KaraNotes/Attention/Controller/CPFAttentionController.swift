@@ -11,12 +11,12 @@ import Alamofire
 
 class CPFAttentionController: BaseViewController {
     
-    var collectionView: UICollectionView?
-    let flowLayout = UICollectionViewFlowLayout()
+    fileprivate var collectionView: UICollectionView?
+    fileprivate let flowLayout = UICollectionViewFlowLayout()
     
-    let modalTransitioningDelegate = CPFModalTransitioningDelegate()
+    fileprivate let modalTransitioningDelegate = CPFModalTransitioningDelegate()
     
-    let cellID = "AttentionCell"
+    fileprivate let cellID = "AttentionCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,8 +155,9 @@ extension CPFAttentionController: UICollectionViewDelegate, UICollectionViewData
         modalTransitioningDelegate.startRect = CGRect(x: 0.0, y: (currentCellItemRectInSuperView?.origin.y)!, width: CPFScreenW, height: (currentCellItem?.height)!)
         
         let browseArticleVC = CPFBrowseArticleController()
+        browseArticleVC.isMyArticle = false
         browseArticleVC.transitioningDelegate = modalTransitioningDelegate
         browseArticleVC.modalPresentationStyle = .custom
-        navigationController?.present(browseArticleVC, animated: true, completion: nil)
+        present(browseArticleVC, animated: true, completion: nil)
     }
 }
