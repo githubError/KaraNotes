@@ -14,6 +14,8 @@ class CPFAttentionController: BaseViewController {
     var collectionView: UICollectionView?
     let flowLayout = UICollectionViewFlowLayout()
     
+    let modalTransitioningDelegate = CPFModalTransitioningDelegate()
+    
     let cellID = "AttentionCell"
     
     override func viewDidLoad() {
@@ -144,7 +146,17 @@ extension CPFAttentionController: UICollectionViewDelegate, UICollectionViewData
     
     // delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("点击了：\(indexPath.row)行")
         
+        // 相对 keyWindow 的位置
+        let currentCellItem = collectionView.cellForItem(at: indexPath)
+        let keyWindow = UIApplication.shared.keyWindow
+        let currentCellItemRectInSuperView = currentCellItem?.superview?.convert((currentCellItem?.frame)!, to: keyWindow)
+        
+        modalTransitioningDelegate.startRect = CGRect(x: 0.0, y: (currentCellItemRectInSuperView?.origin.y)!, width: CPFScreenW, height: (currentCellItem?.height)!)
+        
+        let browseArticleVC = CPFBrowseArticleController()
+        browseArticleVC.transitioningDelegate = modalTransitioningDelegate
+        browseArticleVC.modalPresentationStyle = .custom
+        navigationController?.present(browseArticleVC, animated: true, completion: nil)
     }
 }
