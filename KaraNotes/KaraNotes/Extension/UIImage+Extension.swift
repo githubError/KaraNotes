@@ -15,6 +15,7 @@ extension UIImage {
         draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         
         guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage() }
+        UIGraphicsEndImageContext()
         return newImage
     }
     

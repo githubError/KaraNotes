@@ -106,13 +106,13 @@ extension CPFMineController {
             make.left.right.top.bottom.equalTo(user_InfoView)
         }
         
-        let blurEffect = UIBlurEffect(style: .light)
-        let visualEffectView = UIVisualEffectView(effect: blurEffect)
-        visualEffectView.alpha = 0.4
-        user_BgImageView.addSubview(visualEffectView)
-        visualEffectView.snp.makeConstraints { (make) in
-            make.left.right.top.bottom.equalToSuperview()
-        }
+//        let blurEffect = UIBlurEffect(style: .light)
+//        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+//        visualEffectView.alpha = 0.4
+//        user_BgImageView.addSubview(visualEffectView)
+//        visualEffectView.snp.makeConstraints { (make) in
+//            make.left.right.top.bottom.equalToSuperview()
+//        }
         
         user_HeaderImageView = UIImageView()
         user_InfoView.addSubview(user_HeaderImageView)

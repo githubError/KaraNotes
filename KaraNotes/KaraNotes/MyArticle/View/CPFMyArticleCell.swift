@@ -8,16 +8,25 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
 class CPFMyArticleCell: UITableViewCell {
 
+    var thumbImage:UIImage = UIImage()
+    
     fileprivate var thumbImageView:UIImageView!
-    fileprivate var titleLabel:UILabel!
-    fileprivate var createTimeLabel:UILabel!
+    var titleLabel:UILabel!
+    var createTimeLabel:UILabel!
     
     var myArticleModel:CPFMyArticleModel! {
         didSet {
-            thumbImageView.af_setImage(withURL: myArticleModel.article_show_img_URL)
+//            thumbImageView.af_setImage(withURL: myArticleModel.article_show_img_URL)
+            Alamofire.request(myArticleModel.article_show_img_URL).responseImage { (response) in
+                if let image = response.result.value {
+                    self.thumbImage = image
+                    self.thumbImageView.image = image
+                }
+            }
             titleLabel.text = myArticleModel.article_title
             createTimeLabel.text = myArticleModel.article_create_formatTime
         }

@@ -13,7 +13,7 @@ class CPFOverlayControllerAnimatedTransitioning: NSObject, UIViewControllerAnima
     var startRect:CGRect = CGRect.zero
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
+        return 0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
