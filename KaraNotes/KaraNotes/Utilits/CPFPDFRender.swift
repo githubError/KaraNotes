@@ -30,7 +30,7 @@ class CPFPDFRender: UIPrintPageRenderer {
         
         let pdfData = NSMutableData()
         UIGraphicsBeginPDFContextToData(pdfData, CGRect.zero, nil)
-        for i in 0...numberOfPages {
+        for i in 0..<numberOfPages {
             UIGraphicsBeginPDFPage()
             drawPage(at: i, in: UIGraphicsGetPDFContextBounds())
         }
@@ -44,7 +44,7 @@ class CPFPDFRender: UIPrintPageRenderer {
         
         let pdfData = NSMutableData()
         UIGraphicsBeginPDFContextToData(pdfData, CGRect.zero, nil)
-        for i in 0...numberOfPages {
+        for i in 0..<numberOfPages {
             UIGraphicsBeginPDFPage()
             drawPage(at: i, in: UIGraphicsGetPDFContextBounds())
         }

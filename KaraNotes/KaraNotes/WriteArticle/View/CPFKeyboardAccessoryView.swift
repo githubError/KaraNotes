@@ -17,7 +17,10 @@ class CPFKeyboardAccessoryView: UIScrollView {
     
     var maxCount:Int = 8
     
-    fileprivate let titles = ["Tab","add_image","add_link","¶","#","*","-",">","`","!","[","]","(",")","\\","keyboard_down"]
+    fileprivate let titles = ["Tab","add_image","add_link",
+//                              "¶",
+                              "|",
+                              "#","*","-",">","`","!","[","]","(",")","\\","keyboard_down"]
     
     var accessoryViewDelegate:CPFKeyboardAccessoryViewDelegate?
     
@@ -90,8 +93,8 @@ extension CPFKeyboardAccessoryView {
         switch button.tag {
         case 0:
             accessoryViewDelegate?.accessoryView(accessoryView: self, shouldSendString: "\t")
-        case 3:
-            accessoryViewDelegate?.accessoryView(accessoryView: self, shouldSendString: "&nbsp;")
+//        case 3:
+//            accessoryViewDelegate?.accessoryView(accessoryView: self, shouldSendString: "&nbsp;")
         case 1,2,15:
             accessoryViewDelegate?.accessoryView(accessoryView: self, didClickAccessoryItem: button)
         default:
