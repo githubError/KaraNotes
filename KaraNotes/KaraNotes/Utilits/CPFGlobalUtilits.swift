@@ -37,6 +37,12 @@ public enum CPFNetworkRoute: String {
     case myArticleWithoutCategory = "/extra/articlelist/alllist"   // 获取我的文章，不限制分类
     case loadArticleContent = "/select/articledetail"              // 加载文章详情
     
+    case searchUser = "/select/user/list"                     // 搜索用户
+    case searchArticle = "/select/article/title"              // 搜索文章标题
+    
+    case addAttent = "/follow/insert"                         // 添加关注
+    case cancelAttent = "/follow/delete"                      // 取消关注
+    
     static func getAPIFromRouteType(route: CPFNetworkRoute) -> String {
         return "\(CPFNetworkRoute.base.rawValue)\(route.rawValue)"
     }

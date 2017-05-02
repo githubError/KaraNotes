@@ -24,6 +24,10 @@
 		D12AC3F81EA8C9440023C541 /* CPFChangeUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F71EA8C9440023C541 /* CPFChangeUserInfoCell.swift */; };
 		D15104D11EB83464005B6992 /* CPFBrowseArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15104D01EB83464005B6992 /* CPFBrowseArticleModel.swift */; };
 		D15104D81EB86462005B6992 /* UIWebView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D15104D71EB86462005B6992 /* UIWebView+Extension.m */; };
+		D15EF64C1EB8AF8D006DC359 /* CPFSearchUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EF64B1EB8AF8D006DC359 /* CPFSearchUserCell.swift */; };
+		D15EF64E1EB8BD86006DC359 /* CPFSearchArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EF64D1EB8BD86006DC359 /* CPFSearchArticleModel.swift */; };
+		D15EF6501EB8BE08006DC359 /* CPFSearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EF64F1EB8BE08006DC359 /* CPFSearchUserModel.swift */; };
+		D15EF6521EB8BE3D006DC359 /* CPFSearchArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EF6511EB8BE3D006DC359 /* CPFSearchArticleCell.swift */; };
 		D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */; };
 		D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */; };
 		D185123B1EAE374300BA5D84 /* CPFSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D185123A1EAE374300BA5D84 /* CPFSearchController.swift */; };
@@ -113,6 +117,10 @@
 		D15104D01EB83464005B6992 /* CPFBrowseArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFBrowseArticleModel.swift; sourceTree = "<group>"; };
 		D15104D61EB86462005B6992 /* UIWebView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Extension.h"; sourceTree = "<group>"; };
 		D15104D71EB86462005B6992 /* UIWebView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Extension.m"; sourceTree = "<group>"; };
+		D15EF64B1EB8AF8D006DC359 /* CPFSearchUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFSearchUserCell.swift; sourceTree = "<group>"; };
+		D15EF64D1EB8BD86006DC359 /* CPFSearchArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFSearchArticleModel.swift; sourceTree = "<group>"; };
+		D15EF64F1EB8BE08006DC359 /* CPFSearchUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFSearchUserModel.swift; sourceTree = "<group>"; };
+		D15EF6511EB8BE3D006DC359 /* CPFSearchArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFSearchArticleCell.swift; sourceTree = "<group>"; };
 		D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsController.swift; sourceTree = "<group>"; };
 		D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFavoriteController.swift; sourceTree = "<group>"; };
 		D185123A1EAE374300BA5D84 /* CPFSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFSearchController.swift; sourceTree = "<group>"; };
@@ -590,6 +598,8 @@
 			isa = PBXGroup;
 			children = (
 				D1DB516B1E5A9EE900328B65 /* AttentionArticleModel.swift */,
+				D15EF64F1EB8BE08006DC359 /* CPFSearchUserModel.swift */,
+				D15EF64D1EB8BD86006DC359 /* CPFSearchArticleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -598,6 +608,8 @@
 			isa = PBXGroup;
 			children = (
 				D1DB51681E5A8D8000328B65 /* CPFAttentionCell.swift */,
+				D15EF64B1EB8AF8D006DC359 /* CPFSearchUserCell.swift */,
+				D15EF6511EB8BE3D006DC359 /* CPFSearchArticleCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -888,6 +900,7 @@
 			files = (
 				D1DB515D1E53F8FE00328B65 /* CPFMineController.swift in Sources */,
 				D1CF34781E978569001A615A /* UIScrollView+MJExtension.m in Sources */,
+				D15EF6501EB8BE08006DC359 /* CPFSearchUserModel.swift in Sources */,
 				D1CF34671E978569001A615A /* MJRefreshAutoFooter.m in Sources */,
 				D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */,
 				D1B1445F1EA311C400BC63DE /* buffer.c in Sources */,
@@ -927,6 +940,7 @@
 				D1CF347A1E978569001A615A /* UIView+MJExtension.m in Sources */,
 				D12AC3F41EA749200023C541 /* CPFMyArticleCell.swift in Sources */,
 				D1CF34731E978569001A615A /* MJRefreshNormalHeader.m in Sources */,
+				D15EF64E1EB8BD86006DC359 /* CPFSearchArticleModel.swift in Sources */,
 				D12AC3F01EA4B2F50023C541 /* CPFShareTools.swift in Sources */,
 				D1B1445D1EA311C400BC63DE /* hoedown_html_patch.c in Sources */,
 				D1CF346E1E978569001A615A /* MJRefreshAutoStateFooter.m in Sources */,
@@ -941,7 +955,9 @@
 				D1CF34761E978569001A615A /* MJRefreshConst.m in Sources */,
 				D1CF346C1E978569001A615A /* MJRefreshAutoGifFooter.m in Sources */,
 				D12AC3F61EA8C4000023C541 /* CPFChangeUserInfoController.swift in Sources */,
+				D15EF64C1EB8AF8D006DC359 /* CPFSearchUserCell.swift in Sources */,
 				D12AC3DD1EA3AAB50023C541 /* CPFPDFRender.swift in Sources */,
+				D15EF6521EB8BE3D006DC359 /* CPFSearchArticleCell.swift in Sources */,
 				D1CF346A1E978569001A615A /* MJRefreshFooter.m in Sources */,
 				D1B144631EA311C400BC63DE /* html_blocks.c in Sources */,
 				D1DB516C1E5A9EE900328B65 /* AttentionArticleModel.swift in Sources */,

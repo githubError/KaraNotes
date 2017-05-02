@@ -98,3 +98,11 @@
 "browse_collection" = "Collect";
 "browse_edit" = "Edit";
 "browse_share" = "Share";
+
+// MARK: - Attent User
+"user_attent_follow" = "Follow";
+"user_attent_unfollow" = "Unfollow";
+"user_attent_mut-follow" = "Mut-Follow";
+
+"user" = "User";
+"article" = "Article";

@@ -97,3 +97,11 @@
 "browse_collection" = "收藏";
 "browse_edit" = "编辑";
 "browse_share" = "分享";
+
+// MARK: - Attent User
+"user_attent_follow" = "关注";
+"user_attent_unfollow" = "取消关注";
+"user_attent_mut-follow" = "相互关注";
+
+"user" = "用户";
+"article" = "文章";
