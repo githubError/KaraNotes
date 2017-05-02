@@ -89,3 +89,11 @@
 
 // MARK: - MyArticle
 "myArticle_delete" = "删除";
+
+
+// MARK: - BrowseArticle
+"browse_like" = "点赞";
+"browse_comment" = "评论";
+"browse_collection" = "收藏";
+"browse_edit" = "编辑";
+"browse_share" = "分享";

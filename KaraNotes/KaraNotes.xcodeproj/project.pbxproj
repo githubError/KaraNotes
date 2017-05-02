@@ -22,6 +22,8 @@
 		D12AC3F41EA749200023C541 /* CPFMyArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F31EA749200023C541 /* CPFMyArticleCell.swift */; };
 		D12AC3F61EA8C4000023C541 /* CPFChangeUserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F51EA8C4000023C541 /* CPFChangeUserInfoController.swift */; };
 		D12AC3F81EA8C9440023C541 /* CPFChangeUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F71EA8C9440023C541 /* CPFChangeUserInfoCell.swift */; };
+		D15104D11EB83464005B6992 /* CPFBrowseArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15104D01EB83464005B6992 /* CPFBrowseArticleModel.swift */; };
+		D15104D51EB85728005B6992 /* UIView+CPFView.m in Sources */ = {isa = PBXBuildFile; fileRef = D15104D41EB85728005B6992 /* UIView+CPFView.m */; };
 		D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */; };
 		D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */; };
 		D185123B1EAE374300BA5D84 /* CPFSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D185123A1EAE374300BA5D84 /* CPFSearchController.swift */; };
@@ -84,6 +86,7 @@
 		D1DB51671E54371200328B65 /* CPFTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB51661E54371200328B65 /* CPFTabBar.swift */; };
 		D1DB51691E5A8D8000328B65 /* CPFAttentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB51681E5A8D8000328B65 /* CPFAttentionCell.swift */; };
 		D1DB516C1E5A9EE900328B65 /* AttentionArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB516B1E5A9EE900328B65 /* AttentionArticleModel.swift */; };
+		D1E0290B1EB6CEF20079D4EA /* github-markdown.css in Resources */ = {isa = PBXBuildFile; fileRef = D1E0290A1EB6CEF20079D4EA /* github-markdown.css */; };
 		D1EA68991E9CFB0B0073C6CA /* CPFProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EA68981E9CFB0B0073C6CA /* CPFProgressView.swift */; };
 		E7597725F5752EF8116D584F /* Pods_KaraNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2504BCA8CAAF8866B63E73 /* Pods_KaraNotes.framework */; };
 /* End PBXBuildFile section */
@@ -107,12 +110,15 @@
 		D12AC3F31EA749200023C541 /* CPFMyArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMyArticleCell.swift; sourceTree = "<group>"; };
 		D12AC3F51EA8C4000023C541 /* CPFChangeUserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFChangeUserInfoController.swift; sourceTree = "<group>"; };
 		D12AC3F71EA8C9440023C541 /* CPFChangeUserInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFChangeUserInfoCell.swift; sourceTree = "<group>"; };
+		D15104D01EB83464005B6992 /* CPFBrowseArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFBrowseArticleModel.swift; sourceTree = "<group>"; };
+		D15104D31EB85728005B6992 /* UIView+CPFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CPFView.h"; sourceTree = "<group>"; };
+		D15104D41EB85728005B6992 /* UIView+CPFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CPFView.m"; sourceTree = "<group>"; };
 		D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsController.swift; sourceTree = "<group>"; };
 		D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFavoriteController.swift; sourceTree = "<group>"; };
 		D185123A1EAE374300BA5D84 /* CPFSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFSearchController.swift; sourceTree = "<group>"; };
 		D185123D1EB30A5B00BA5D84 /* CPFModalTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFModalTransitioningDelegate.swift; sourceTree = "<group>"; };
 		D185123F1EB30B9A00BA5D84 /* CPFOverlayControllerAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFOverlayControllerAnimatedTransitioning.swift; sourceTree = "<group>"; };
-		D18512411EB3117500BA5D84 /* CPFBrowseArticleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFBrowseArticleController.swift; sourceTree = "<group>"; };
+		D18512411EB3117500BA5D84 /* CPFBrowseArticleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPFBrowseArticleController.swift; path = ../../Other/Controller/CPFBrowseArticleController.swift; sourceTree = "<group>"; };
 		D198909D1E631D1E00364DF3 /* CPFLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFLoginController.swift; sourceTree = "<group>"; };
 		D198909F1E631D4E00364DF3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D19890A21E631FB800364DF3 /* KaraNotes_Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaraNotes_Bridging_Header.h; sourceTree = "<group>"; };
@@ -203,6 +209,7 @@
 		D1DB51661E54371200328B65 /* CPFTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFTabBar.swift; sourceTree = "<group>"; };
 		D1DB51681E5A8D8000328B65 /* CPFAttentionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFAttentionCell.swift; sourceTree = "<group>"; };
 		D1DB516B1E5A9EE900328B65 /* AttentionArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttentionArticleModel.swift; sourceTree = "<group>"; };
+		D1E0290A1EB6CEF20079D4EA /* github-markdown.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "github-markdown.css"; sourceTree = "<group>"; };
 		D1EA68981E9CFB0B0073C6CA /* CPFProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +262,39 @@
 			path = CPFMarkdownHighLight;
 			sourceTree = "<group>";
 		};
+		D15104CC1EB8341E005B6992 /* BrowseArticle */ = {
+			isa = PBXGroup;
+			children = (
+				D15104CD1EB8341E005B6992 /* Controller */,
+				D15104CE1EB8341E005B6992 /* Model */,
+				D15104CF1EB8341E005B6992 /* View */,
+			);
+			path = BrowseArticle;
+			sourceTree = "<group>";
+		};
+		D15104CD1EB8341E005B6992 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D18512411EB3117500BA5D84 /* CPFBrowseArticleController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D15104CE1EB8341E005B6992 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D15104D01EB83464005B6992 /* CPFBrowseArticleModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D15104CF1EB8341E005B6992 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D185123C1EB309F900BA5D84 /* Transitioning */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +345,8 @@
 				D1CF342F1E975C44001A615A /* UIButton+Extension.swift */,
 				D1CF34311E975C55001A615A /* UIView+Extension.swift */,
 				D1CF34331E975C68001A615A /* UIImage+Extension.swift */,
+				D15104D31EB85728005B6992 /* UIView+CPFView.h */,
+				D15104D41EB85728005B6992 /* UIView+CPFView.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -440,6 +482,7 @@
 				D1DB514C1E53F3F300328B65 /* WriteArticle */,
 				D1DB51481E53F3F300328B65 /* Notify */,
 				D1DB51401E53F3F200328B65 /* Mine */,
+				D15104CC1EB8341E005B6992 /* BrowseArticle */,
 				D1DB51341E53F24200328B65 /* Other */,
 				D1DB51371E53F3D600328B65 /* Base */,
 				D1DB51311E52E5D400328B65 /* Utilits */,
@@ -448,6 +491,7 @@
 				D1DB51251E52DEAD00328B65 /* LaunchScreen.storyboard */,
 				D12AC3D41EA328BC0023C541 /* format.html */,
 				D12AC3E21EA4635D0023C541 /* GitHub.css */,
+				D1E0290A1EB6CEF20079D4EA /* github-markdown.css */,
 				D1DB51281E52DEAD00328B65 /* Info.plist */,
 				D1C1903C1E9A6B48007CA5D3 /* Assets.xcassets */,
 				D1DB51621E54201A00328B65 /* Localizable.strings */,
@@ -486,7 +530,6 @@
 				D1DB51501E53F5E600328B65 /* CPFTabBarController.swift */,
 				D1DB51521E53F7F200328B65 /* CPFNavigationController.swift */,
 				D198909D1E631D1E00364DF3 /* CPFLoginController.swift */,
-				D18512411EB3117500BA5D84 /* CPFBrowseArticleController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -769,6 +812,7 @@
 				D1DB51601E54201A00328B65 /* Localizable.strings in Resources */,
 				D12AC3D51EA328BC0023C541 /* format.html in Resources */,
 				D1C1903D1E9A6B48007CA5D3 /* Assets.xcassets in Resources */,
+				D1E0290B1EB6CEF20079D4EA /* github-markdown.css in Resources */,
 				D1CF34751E978569001A615A /* MJRefresh.bundle in Resources */,
 				D12AC3E31EA4635D0023C541 /* GitHub.css in Resources */,
 			);
@@ -853,6 +897,7 @@
 				D1B144601EA311C400BC63DE /* document.c in Sources */,
 				D1DB51571E53F8AB00328B65 /* CPFMyArticleController.swift in Sources */,
 				D1B144651EA311C400BC63DE /* stack.c in Sources */,
+				D15104D51EB85728005B6992 /* UIView+CPFView.m in Sources */,
 				D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */,
 				D1CF34301E975C44001A615A /* UIButton+Extension.swift in Sources */,
 				D1C1903B1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift in Sources */,
@@ -888,6 +933,7 @@
 				D1CF34681E978569001A615A /* MJRefreshBackFooter.m in Sources */,
 				D1CF34721E978569001A615A /* MJRefreshGifHeader.m in Sources */,
 				D1B144661EA311C400BC63DE /* version.c in Sources */,
+				D15104D11EB83464005B6992 /* CPFBrowseArticleModel.swift in Sources */,
 				D12AC3DB1EA336510023C541 /* CPFPreviewHeaderView.swift in Sources */,
 				D1B144641EA311C400BC63DE /* html_smartypants.c in Sources */,
 				D1CF34321E975C55001A615A /* UIView+Extension.swift in Sources */,

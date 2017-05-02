@@ -90,3 +90,11 @@
 
 // MARK: - MyArticle
 "myArticle_delete" = "Delete";
+
+
+// MARK: - BrowseArticle
+"browse_like" = "Like";
+"browse_comment" = "Comment";
+"browse_collection" = "Collect";
+"browse_edit" = "Edit";
+"browse_share" = "Share";

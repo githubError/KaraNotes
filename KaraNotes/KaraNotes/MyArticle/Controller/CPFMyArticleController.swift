@@ -179,6 +179,7 @@ extension CPFMyArticleController: UITableViewDelegate, UITableViewDataSource {
         browseArticleVC.articleTitle = currentCellItem.titleLabel.text
         browseArticleVC.articleCreateTime = currentCellItem.createTimeLabel.text
         browseArticleVC.articleAuthorName = getUserInfoForKey(key: CPFUserName)
+        browseArticleVC.articleID = currentCellItem.myArticleModel.article_id
         browseArticleVC.isMyArticle = true
         browseArticleVC.transitioningDelegate = modalTransitioningDelegate
         browseArticleVC.modalPresentationStyle = .custom

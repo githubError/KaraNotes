@@ -35,6 +35,7 @@ public enum CPFNetworkRoute: String {
     case backgroundImage = "/file/imgs/backlogo"           // 用户背景图片
     case updateUserInfo = "/user/updateuserinfo"           // 更改用户信息
     case myArticleWithoutCategory = "/extra/articlelist/alllist"   // 获取我的文章，不限制分类
+    case loadArticleContent = "/select/articledetail"              // 加载文章详情
     
     static func getAPIFromRouteType(route: CPFNetworkRoute) -> String {
         return "\(CPFNetworkRoute.base.rawValue)\(route.rawValue)"
