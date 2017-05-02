@@ -23,7 +23,7 @@
 		D12AC3F61EA8C4000023C541 /* CPFChangeUserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F51EA8C4000023C541 /* CPFChangeUserInfoController.swift */; };
 		D12AC3F81EA8C9440023C541 /* CPFChangeUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AC3F71EA8C9440023C541 /* CPFChangeUserInfoCell.swift */; };
 		D15104D11EB83464005B6992 /* CPFBrowseArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15104D01EB83464005B6992 /* CPFBrowseArticleModel.swift */; };
-		D15104D51EB85728005B6992 /* UIView+CPFView.m in Sources */ = {isa = PBXBuildFile; fileRef = D15104D41EB85728005B6992 /* UIView+CPFView.m */; };
+		D15104D81EB86462005B6992 /* UIWebView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D15104D71EB86462005B6992 /* UIWebView+Extension.m */; };
 		D17E70D91E6ABD0A001049ED /* CPFMoreSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */; };
 		D17E70DE1E6EA703001049ED /* CPFFavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */; };
 		D185123B1EAE374300BA5D84 /* CPFSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D185123A1EAE374300BA5D84 /* CPFSearchController.swift */; };
@@ -111,8 +111,8 @@
 		D12AC3F51EA8C4000023C541 /* CPFChangeUserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFChangeUserInfoController.swift; sourceTree = "<group>"; };
 		D12AC3F71EA8C9440023C541 /* CPFChangeUserInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFChangeUserInfoCell.swift; sourceTree = "<group>"; };
 		D15104D01EB83464005B6992 /* CPFBrowseArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFBrowseArticleModel.swift; sourceTree = "<group>"; };
-		D15104D31EB85728005B6992 /* UIView+CPFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CPFView.h"; sourceTree = "<group>"; };
-		D15104D41EB85728005B6992 /* UIView+CPFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CPFView.m"; sourceTree = "<group>"; };
+		D15104D61EB86462005B6992 /* UIWebView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Extension.h"; sourceTree = "<group>"; };
+		D15104D71EB86462005B6992 /* UIWebView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Extension.m"; sourceTree = "<group>"; };
 		D17E70D81E6ABD0A001049ED /* CPFMoreSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFMoreSettingsController.swift; sourceTree = "<group>"; };
 		D17E70DD1E6EA703001049ED /* CPFFavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFFavoriteController.swift; sourceTree = "<group>"; };
 		D185123A1EAE374300BA5D84 /* CPFSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFSearchController.swift; sourceTree = "<group>"; };
@@ -345,8 +345,8 @@
 				D1CF342F1E975C44001A615A /* UIButton+Extension.swift */,
 				D1CF34311E975C55001A615A /* UIView+Extension.swift */,
 				D1CF34331E975C68001A615A /* UIImage+Extension.swift */,
-				D15104D31EB85728005B6992 /* UIView+CPFView.h */,
-				D15104D41EB85728005B6992 /* UIView+CPFView.m */,
+				D15104D61EB86462005B6992 /* UIWebView+Extension.h */,
+				D15104D71EB86462005B6992 /* UIWebView+Extension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -897,7 +897,6 @@
 				D1B144601EA311C400BC63DE /* document.c in Sources */,
 				D1DB51571E53F8AB00328B65 /* CPFMyArticleController.swift in Sources */,
 				D1B144651EA311C400BC63DE /* stack.c in Sources */,
-				D15104D51EB85728005B6992 /* UIView+CPFView.m in Sources */,
 				D198909E1E631D1E00364DF3 /* CPFLoginController.swift in Sources */,
 				D1CF34301E975C44001A615A /* UIButton+Extension.swift in Sources */,
 				D1C1903B1E9A1F51007CA5D3 /* CPFKeyboardAccessoryView.swift in Sources */,
@@ -907,6 +906,7 @@
 				D18512401EB30B9A00BA5D84 /* CPFOverlayControllerAnimatedTransitioning.swift in Sources */,
 				D1CF34691E978569001A615A /* MJRefreshComponent.m in Sources */,
 				D1CF34791E978569001A615A /* UIScrollView+MJRefresh.m in Sources */,
+				D15104D81EB86462005B6992 /* UIWebView+Extension.m in Sources */,
 				D1CF34341E975C68001A615A /* UIImage+Extension.swift in Sources */,
 				D18512421EB3117500BA5D84 /* CPFBrowseArticleController.swift in Sources */,
 				D1C190391E99D71B007CA5D3 /* CPFEditView.swift in Sources */,

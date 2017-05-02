@@ -1,5 +1,5 @@
 //
-//  UIView+CPFView.h
+//  UIWebView+Extension.h
 //  KaraNotes
 //
 //  Created by 崔鹏飞 on 2017/5/2.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (CPFView)
-
-    -(UIView *)getSubviewFromString:(NSString *)name;
+@interface UIWebView (Extension)
+    
+- (UIView *)getUIWebBrowserView;
 
 @end

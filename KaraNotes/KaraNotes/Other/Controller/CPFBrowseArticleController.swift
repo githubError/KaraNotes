@@ -142,7 +142,7 @@ extension CPFBrowseArticleController {
             make.left.right.top.bottom.equalToSuperview()
         }
         
-        webBrowserView = articleContentWebView.getSubviewFrom("UIWebBrowserView")
+        webBrowserView = articleContentWebView.getUIWebBrowserView()
         webBrowserView.frame = CGRect(x: 0, y: (CPFScreenH - 100), width: 0, height: 0)
         
         let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(dismissCtr))
