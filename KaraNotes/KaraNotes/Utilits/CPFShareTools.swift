@@ -32,6 +32,18 @@ extension CPFShareTools {
         }
     }
     
+    func saveAsMarkdownFromMarkdownString(markdownString: String, useName name: String, completionHandler: @escaping (_ toPath: String) -> Void) -> Void {
+        let markdownData = markdownString.data(using: .utf8)
+        let documentPath = CPFFileManager.shareInstance().createLocalWorkspace()
+        let urlString = (documentPath as NSString).appendingPathComponent("\(name)_\(createTimestamp()).md")
+        
+        if CPFFileManager.shareInstance().saveFileToPath(filePath: urlString, withContent: markdownData! as NSData) {
+            completionHandler(urlString)
+        } else {
+            completionHandler("")
+        }
+    }
+    
     func saveAsPDFFromUIView(view: UIView, useName name: String, completionHandler: @escaping (_ toPath: String) -> Void) -> Void {
         let pdfRender = CPFPDFRender()
         let pdfData = pdfRender.renderPDFFromUIView(view: view)

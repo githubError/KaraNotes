@@ -74,12 +74,22 @@ extension CPFPreviewController: CPFPreviewHeaderViewDelegate {
             }
         }
         
+        let MarkdownAction = UIAlertAction(title: "Markdown", style: .default) { (alertAction) in
+            CPFShareTools.sharedInstance().saveAsMarkdownFromMarkdownString(markdownString: self.markdownString, useName: self.articleTitle, completionHandler: { (toPath) in
+                CPFShareTools.sharedInstance().exportFile(filePath: toPath, completionHandler: { controller in
+                    self.present(controller, animated: true, completion: nil)
+                    print("toPath:\(toPath)")
+                })
+            })
+        }
+        
         let cancelAction = UIAlertAction(title: CPFLocalizableTitle("previewArticle_export_alert_cancel"), style: .cancel) { (alertAction) in
             alertCtr.dismiss(animated: true, completion: nil)
         }
         
         alertCtr.addAction(PDFAction)
         alertCtr.addAction(HTMLAction)
+        alertCtr.addAction(MarkdownAction)
         alertCtr.addAction(cancelAction)
         
         present(alertCtr, animated: true, completion: nil)
