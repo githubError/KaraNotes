@@ -149,6 +149,10 @@ extension CPFFavoriteController: UICollectionViewDelegate, UICollectionViewDataS
         
         attentionCell.attentionArticleModel = favoriteArticleModels[indexPath.row]
         
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: attentionCell)
+        }
+        
         return attentionCell
     }
     
@@ -180,7 +184,6 @@ extension CPFFavoriteController: UICollectionViewDelegate, UICollectionViewDataS
     // 上拉加载更多
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        let collectionViewHeight = (collectionView?.contentSize.height)! + (collectionView?.contentInset.bottom)! - (collectionView?.height)!
         let offsetY = (collectionView?.contentOffset.y)!
         
         if offsetY < 20.0 {
@@ -198,4 +201,37 @@ protocol CPFFavoriteControllerDelegate {
     func favoriteControllerScrollToShowBottom(favoriteController:CPFFavoriteController) -> Void
     
     func favoriteControllerScrollToShowTop(favoriteController:CPFFavoriteController) -> Void
+}
+
+// MARK: - 3D Touch
+extension CPFFavoriteController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        let currentCell = previewingContext.sourceView as! CPFAttentionCell
+        let currentIndexPath = collectionView?.indexPath(for: currentCell)
+        let attentModel = favoriteArticleModels[(currentIndexPath?.row)!]
+        
+        let keyWindow = UIApplication.shared.keyWindow
+        let currentCellItemRectInSuperView = currentCell.superview?.convert(currentCell.frame, to: keyWindow)
+        
+        modalTransitioningDelegate.startRect = CGRect(x: 0.0, y: (currentCellItemRectInSuperView?.origin.y)!, width: CPFScreenW, height: currentCell.height)
+        
+        let browseArticleVC = CPFBrowseArticleController()
+        browseArticleVC.thumbImage = currentCell.thumbImage
+        browseArticleVC.articleTitle = attentModel.article_title
+        browseArticleVC.articleCreateTime = attentModel.article_create_formatTime
+        browseArticleVC.articleAuthorName = getUserInfoForKey(key: CPFUserName)
+        browseArticleVC.articleID = attentModel.article_id
+        browseArticleVC.isMyArticle = false
+        browseArticleVC.transitioningDelegate = modalTransitioningDelegate
+        browseArticleVC.modalPresentationStyle = .custom
+        browseArticleVC.is3DTouchPreviewing = true
+        
+        return browseArticleVC
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        present(viewControllerToCommit, animated: true, completion: nil)
+    }
 }

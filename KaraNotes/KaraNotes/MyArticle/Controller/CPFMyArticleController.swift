@@ -157,6 +157,10 @@ extension CPFMyArticleController: UITableViewDelegate, UITableViewDataSource {
         
         cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.white : CPFRGB(r: 240, g: 240, b: 240)
         
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: cell)
+        }
+        
         return cell
     }
     
@@ -222,5 +226,38 @@ extension CPFMyArticleController: UITableViewDelegate, UITableViewDataSource {
                 }
             })
         }
+    }
+}
+
+// MARK: - 3D Touch
+extension CPFMyArticleController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        let currentCell = previewingContext.sourceView as! CPFMyArticleCell
+        let currentIndexPath = tableView?.indexPath(for: currentCell)
+        let model = models[(currentIndexPath?.row)!]
+        
+        let keyWindow = UIApplication.shared.keyWindow
+        let currentCellItemRectInSuperView = currentCell.superview?.convert(currentCell.frame, to: keyWindow)
+        
+        modalTransitioningDelegate.startRect = CGRect(x: 0.0, y: (currentCellItemRectInSuperView?.origin.y)!, width: CPFScreenW, height: currentCell.height)
+        
+        let browseArticleVC = CPFBrowseArticleController()
+        browseArticleVC.thumbImage = currentCell.thumbImage
+        browseArticleVC.articleTitle = model.article_title
+        browseArticleVC.articleCreateTime = model.article_create_formatTime
+        browseArticleVC.articleAuthorName = getUserInfoForKey(key: CPFUserName)
+        browseArticleVC.articleID = model.article_id
+        browseArticleVC.isMyArticle = true
+        browseArticleVC.transitioningDelegate = modalTransitioningDelegate
+        browseArticleVC.modalPresentationStyle = .custom
+        browseArticleVC.is3DTouchPreviewing = true
+        
+        return browseArticleVC
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        present(viewControllerToCommit, animated: true, completion: nil)
     }
 }

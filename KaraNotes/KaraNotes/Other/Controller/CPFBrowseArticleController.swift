@@ -18,6 +18,8 @@ class CPFBrowseArticleController: BaseViewController {
     var articleAuthorName:String!
     var articleID:String!
     
+    var is3DTouchPreviewing:Bool = false
+    
     fileprivate var scrollView:UIScrollView!
     
     fileprivate var topImageView:UIImageView!
@@ -44,6 +46,13 @@ class CPFBrowseArticleController: BaseViewController {
         super.viewWillAppear(animated)
         
         loadArticleContent(articleID: articleID)
+        
+        bottomAssistView.isHidden = is3DTouchPreviewing
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        is3DTouchPreviewing = false
+        bottomAssistView.isHidden = is3DTouchPreviewing
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -79,7 +88,9 @@ extension CPFBrowseArticleController {
         
         DispatchQueue.main.async { [weak self] in
             let htmlString = CPFShareTools.sharedInstance().HTMLFormatStringFromMarkdownString(markdownString:  browseArticleModel.article_content)
-            self!.articleContentWebView.loadHTMLString(htmlString, baseURL: nil)
+            if self?.articleContentWebView != nil {
+                self?.articleContentWebView.loadHTMLString(htmlString, baseURL: nil)
+            }
         }
         
         bottomAssistBtns.forEach { (button) in
