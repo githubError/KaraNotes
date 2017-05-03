@@ -44,7 +44,7 @@ extension CPFTabBarController {
     
     func setupChildViewController(viewController : UIViewController, title : String, image : String, selectedImage : String) -> Void {
         
-        tabBar.tintColor = CPFRGB(r: 220, g: 6, b: 13)
+        tabBar.tintColor = CPFTabTintColor
         
         viewController.navigationItem.title = title
         viewController.tabBarItem.title = title

@@ -58,7 +58,6 @@ extension CPFMineController {
     func configUserInfo() -> Void {
         user_NameLabel.text = getUserInfoForKey(key: CPFUserName)
         user_SexImageView.image = (getUserInfoForKey(key: CPFUserSex) == "1") ? UIImage.init(named: "male") : UIImage.init(named: "female")
-        navigationItem.title = getUserInfoForKey(key: CPFUserName)
         
         let headerImageURLString = "\(CPFNetworkRoute.getAPIFromRouteType(route: .headerImage))/\(getUserInfoForKey(key: CPFUserHeaderImg))"
         let headerImagURL = URL(string: headerImageURLString)!
@@ -135,7 +134,7 @@ extension CPFMineController {
         
         user_NameLabel = UILabel()
         user_InfoView.addSubview(user_NameLabel)
-        user_NameLabel.text = "我七岁就很帅"
+        user_NameLabel.text = "KaraNotes"
         user_NameLabel.textAlignment = .center
         user_NameLabel.textColor = UIColor.white
         user_NameLabel.font = CPFPingFangSC(weight: .semibold, size: 20)
@@ -155,7 +154,7 @@ extension CPFMineController {
         categoryView.snp.makeConstraints { make in
             make.left.right.equalTo(user_InfoView)
             make.top.equalTo(user_InfoView.snp.bottom)
-            make.height.equalTo(35*CPFFitHeight)
+            make.height.equalTo(40*CPFFitHeight)
         }
         
         collectBtn = UIButton(type: .custom)
@@ -163,7 +162,7 @@ extension CPFMineController {
         collectBtn.titleLabel?.textAlignment = .center
         collectBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 16)
         collectBtn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .normal)
-        collectBtn.setTitleColor(CPFRGB(r: 208, g: 2, b: 27), for: .selected)
+        collectBtn.setTitleColor(CPFTabTintColor, for: .selected)
         collectBtn.tag = 0
         collectBtn.addTarget(self, action: #selector(categoryBtnClick(button:)), for: .touchUpInside)
         categoryView.addSubview(collectBtn)
@@ -180,7 +179,7 @@ extension CPFMineController {
         moreBtn.titleLabel?.textAlignment = .center
         moreBtn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 16)
         moreBtn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .normal)
-        moreBtn.setTitleColor(CPFRGB(r: 208, g: 2, b: 27), for: .selected)
+        moreBtn.setTitleColor(CPFTabTintColor, for: .selected)
         moreBtn.tag = 1
         moreBtn.addTarget(self, action: #selector(categoryBtnClick(button:)), for: .touchUpInside)
         categoryView.addSubview(moreBtn)
@@ -232,7 +231,7 @@ extension CPFMineController {
         
         let frame = navigationController?.navigationBar.frame
         navAlphaView = UIView(frame: CGRect(x: 0, y: -20, width: (frame?.size.width)!, height: (frame?.size.height)!+20))
-        navAlphaView.backgroundColor = CPFRGB(r: 189, g: 34, b: 35)
+        navAlphaView.backgroundColor = CPFNavColor
         navAlphaView.isUserInteractionEnabled = false
         
         navBackBtn = UIButton(type: .custom)
@@ -304,7 +303,6 @@ extension CPFMineController: UIScrollViewDelegate, UICollectionViewDelegate {
 
 extension CPFMineController:CPFFavoriteControllerDelegate {
     func favoriteControllerScrollToShowTop(favoriteController: CPFFavoriteController) {
-        print("显示用户头像")
         
         UIView.animate(withDuration: 0.25, animations: {
             
@@ -318,7 +316,6 @@ extension CPFMineController:CPFFavoriteControllerDelegate {
     }
     
     func favoriteControllerScrollToShowBottom(favoriteController: CPFFavoriteController) {
-        print("隐藏用户信息")
         
         UIView.animate(withDuration: 0.25, animations: {
             

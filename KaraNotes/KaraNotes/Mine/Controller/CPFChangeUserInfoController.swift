@@ -61,7 +61,7 @@ extension CPFChangeUserInfoController {
         saveBtn.centerX = CPFScreenW - saveBtn.size.width
         saveBtn.centerY = 25
         saveBtn.setTitle(CPFLocalizableTitle("mine_changeInfo_saveBtn"), for: .normal)
-        saveBtn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .disabled)
+        saveBtn.setTitleColor(CPFRGB(r: 230, g: 230, b: 230), for: .disabled)
         
         saveBtn.isEnabled = false
         saveBtn.addTarget(self, action: #selector(saveBtnClick), for: .touchUpInside)

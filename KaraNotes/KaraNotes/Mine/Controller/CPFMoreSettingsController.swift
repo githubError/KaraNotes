@@ -50,7 +50,7 @@ extension CPFMoreSettingsController {
         topCategaryView.x = 0.0
         topCategaryView.top = view.top
         topCategaryView.width = CPFScreenW
-        topCategaryView.height = 65.0
+        topCategaryView.height = 60.0
         setupTopCategoryBtns()
     }
     
@@ -71,12 +71,11 @@ extension CPFMoreSettingsController {
             let btn = view as! UIButton
             btn.width = btnW
             btn.height = btnH
-            btn.centerY = topCategaryView.centerY - 8.0
+            btn.centerY = topCategaryView.middleY
             btn.setTitleColor(CPFRGB(r: 155, g: 155, b: 155), for: .normal)
             btn.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 12)
             btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
             btn.addTarget(self, action: #selector(topCategoryBtnsClick(button:)), for: .touchUpInside)
-            
         }
         
         attentionBtn.setImage(UIImage.init(named: "setting_attentionBtn"), for: .normal)
@@ -94,9 +93,10 @@ extension CPFMoreSettingsController {
         tagsBtn.tag = 2
         tagsBtn.right = topCategaryView.right - margin
         
-        attentionBtn.verticalImageAndTitleWithSpacing(spacing: -3.0)
-        fansBtn.verticalImageAndTitleWithSpacing(spacing: -3.0)
-        tagsBtn.verticalImageAndTitleWithSpacing(spacing: -3.0)
+        topCategaryView.subviews.forEach { view in
+            let btn = view as! UIButton
+            btn.verticalImageAndTitleWithSpacing(spacing: 3.0)
+        }
     }
     
     func topCategoryBtnsClick(button:UIButton) -> Void {
@@ -104,7 +104,7 @@ extension CPFMoreSettingsController {
     }
     
     func setupTableView() -> Void {
-        tableView = UITableView(frame: CGRect(x: 0, y: 45, width: CPFScreenW, height: CPFScreenH), style: .grouped)
+        tableView = UITableView(frame: CGRect(x: 0, y: topCategaryView.height, width: CPFScreenW, height: CPFScreenH), style: .grouped)
         view.addSubview(tableView)
         
         tableView.delegate = self
@@ -148,7 +148,7 @@ extension CPFMoreSettingsController: UITableViewDelegate, UITableViewDataSource 
             cell.accessoryView = label
         default:
             cell.textLabel?.text = CPFLocalizableTitle("mine_more_logout")
-            cell.textLabel?.textColor = CPFRGB(r: 255, g: 1, b: 1)
+            cell.textLabel?.textColor = CPFTabTintColor
         }
         
         return cell

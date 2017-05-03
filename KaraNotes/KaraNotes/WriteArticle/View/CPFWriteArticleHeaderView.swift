@@ -40,7 +40,7 @@ class CPFWriteArticleHeaderView: UIView {
 extension CPFWriteArticleHeaderView {
     
     func setupSubviews(frame: CGRect) -> Void {
-        backgroundColor = CPFRGBA(r: 189, g: 34, b: 35, a: 1.0)
+        backgroundColor = CPFNavColor
         
         dismissBtn = UIButton(type: .custom)
         dismissBtn.setImage(UIImage.init(named: "dismissBtn"), for: .normal)
