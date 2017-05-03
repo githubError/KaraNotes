@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class CPFAttentionCell: UICollectionViewCell {
     
@@ -15,6 +16,9 @@ class CPFAttentionCell: UICollectionViewCell {
     fileprivate var authorNameLabel: UILabel!
     fileprivate var articleCreateTimeLabel: UILabel!
     fileprivate var articleTitleLabel: UILabel!
+    
+    var thumbImage:UIImage!
+    
     
     var attentionArticleModel: AttentionArticleModel! {
         didSet {
@@ -26,13 +30,21 @@ class CPFAttentionCell: UICollectionViewCell {
             let attrDic = [NSShadowAttributeName: shadow]
             
             // 设置文章信息
-            bgImageView.image = UIImage.init(named: "attention_article_cell_bgImage")!
-            authorHeaderImageView.image = UIImage.init(named: "authorHead_placeholderImage")
+            Alamofire.request(attentionArticleModel.article_show_img_URL).responseImage { (response) in
+                if let image = response.result.value {
+                    self.thumbImage = image
+                    self.bgImageView.image = image
+                }
+            }
             
-            authorNameLabel.attributedText = NSAttributedString(string: "我七岁就很帅", attributes: attrDic)
-            articleCreateTimeLabel.attributedText = NSAttributedString(string: "2016.12.23", attributes: attrDic)
+            let headerImageURLString = "\(CPFNetworkRoute.getAPIFromRouteType(route: .headerImage))/\(attentionArticleModel.user_headimg)"
+            let headerImagURL = URL(string: headerImageURLString)!
+            authorHeaderImageView.af_setImage(withURL: headerImagURL)
             
-            articleTitleLabel.attributedText = NSAttributedString(string: "iOS开发从入门到改行", attributes: attrDic)
+            authorNameLabel.attributedText = NSAttributedString(string: attentionArticleModel.user_name, attributes: attrDic)
+            articleCreateTimeLabel.attributedText = NSAttributedString(string: attentionArticleModel.article_create_formatTime, attributes: attrDic)
+            
+            articleTitleLabel.attributedText = NSAttributedString(string: attentionArticleModel.article_title, attributes: attrDic)
         }
     }
     

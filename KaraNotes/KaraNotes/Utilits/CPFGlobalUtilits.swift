@@ -21,7 +21,7 @@ public enum FontWeight: String {
 }
 
 public enum CPFNetworkRoute: String {
-    
+    // karanotes  //ngrok
     case base = "http://karanotes.viakiba.cn/karanotes"                              // 基地址
     case login = "/select/user/login"                  // 登录
     case register = "/select/user/register"            // 注册
@@ -42,6 +42,9 @@ public enum CPFNetworkRoute: String {
     
     case addAttent = "/follow/insert"                         // 添加关注
     case cancelAttent = "/follow/delete"                      // 取消关注
+    
+    case followArticleList = "/article/followlist"            // 关注文章列表
+    case favoriteArticleList = "/collect/notifyuser"          // 收藏列表
     
     static func getAPIFromRouteType(route: CPFNetworkRoute) -> String {
         return "\(CPFNetworkRoute.base.rawValue)\(route.rawValue)"

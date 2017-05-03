@@ -51,7 +51,7 @@ class CPFSearchUserCell: UITableViewCell {
                 self.cellType = .withoutAttent
             case "1":
                 // 被关注
-                self.cellType = .cancelAttent
+                self.cellType = .withoutAttent
             case "2":
                 // 已关注
                 self.cellType = .cancelAttent
@@ -94,6 +94,17 @@ extension CPFSearchUserCell {
                     guard let code = json["code"] as? String else { fatalError("关注出现问题")}
                     if code == "1" {
                         self.cellType = .cancelAttent
+                        
+                        switch self.userModel.is_eachother {
+                        case "0", "1":
+                            print("未关注")
+                            self.userModel.is_eachother = "2"
+                        case "2","3":
+                            print("已关注")
+                            self.userModel.is_eachother = "0"
+                        default:
+                            print("Unknown ‘is_eachother’ type")
+                        }
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
@@ -114,6 +125,17 @@ extension CPFSearchUserCell {
                     guard let code = json["code"] as? String else { fatalError("关注出现问题")}
                     if code == "1" {
                         self.cellType = .withoutAttent
+                        
+                        switch self.userModel.is_eachother {
+                        case "0", "1":
+                            print("未关注")
+                            self.userModel.is_eachother = "2"
+                        case "2","3":
+                            print("已关注")
+                            self.userModel.is_eachother = "0"
+                        default:
+                            print("Unknown ‘is_eachother’ type")
+                        }
                     }
                 case .failure(let error):
                     print(error.localizedDescription)

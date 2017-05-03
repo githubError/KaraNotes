@@ -22,7 +22,7 @@ struct CPFSearchUserModel {
 extension CPFSearchUserModel {
     
     static func parse(json: JSONDictionary) -> CPFSearchUserModel {
-        print(json)
+        print("------\(json)")
         guard let follow_id = json["follow_id"] as? String else {fatalError("解析CPFSearchUserModel出错")}
         guard let is_eachother = json["is_eachother"] as? String else {fatalError("解析CPFSearchUserModel出错")}
         guard let user_headimg = json["user_headimg"] as? String else {fatalError("解析CPFSearchUserModel出错")}

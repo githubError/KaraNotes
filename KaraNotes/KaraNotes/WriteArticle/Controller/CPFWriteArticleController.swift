@@ -90,7 +90,7 @@ extension CPFWriteArticleController {
         
         let params: [String : Any] = ["token_id":CPFUserManager.sharedInstance().userToken(),
                       "article_title":editView.titleTextField.text!,
-                      "classify_id": "分类测试",
+                      "classify_id": getUserInfoForKey(key: CPFUserID),
                       "article_show_img": editView.firstImageLinkString,
                       "article_content" : editView.text,
                       "tag_content" : "[\"测试标签1\", \"测试标签2\"]"]
