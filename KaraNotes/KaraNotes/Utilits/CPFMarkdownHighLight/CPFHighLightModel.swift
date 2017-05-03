@@ -77,19 +77,19 @@ struct CPFHighLightModel {
     
     fileprivate let colorsDic = ["headers" : CPFRGB(r:  10, g:  120, b:  20),
                      "title" : CPFRGB(r:  220, g:  220, b:  20),
-                     "link" : CPFRGB(r:  20, g:  20, b:  20),
-                     "image" : CPFRGB(r:  120, g:  20, b:  20),
-                     "bold" : CPFRGB(r:  20, g:  20, b:  20),
-                     "deletion" : CPFRGB(r:  20, g:  20, b:  20),
-                     "quotes" : CPFRGB(r:  20, g:  20, b:  20),
-                     "blockquotes" : CPFRGB(r:  20, g:  20, b:  20),
-                     "separate" : CPFRGB(r:  20, g:  20, b:  20),
-                     "emphasis" : CPFRGB(r:  20, g:  20, b:  20),
-                     "ulLists" : CPFRGB(r:  20, g:  20, b:  20),
-                     "olLists" : CPFRGB(r:  20, g:  20, b:  20),
-                     "inlineCode" : CPFRGB(r:  20, g:  20, b:  20),
-                     "codeBlock" : CPFRGB(r:  20, g:  20, b:  20),
-                     "implicitCodeBlock" : CPFRGB(r:  20, g:  20, b:  20),]
+                     "link" : CPFRGB(r:  70, g:  93, b:  198),
+                     "image" : CPFRGB(r:  182, g:  69, b:  124),
+                     "bold" : CPFRGB(r:  0, g:  0, b:  0),
+                     "deletion" : CPFRGB(r:  116, g:  114, b:  112),
+                     "quotes" : CPFRGB(r:  174, g:  138, b:  134),
+                     "blockquotes" : CPFRGB(r:  174, g:  138, b:  134),
+                     "separate" : CPFRGB(r:  189, g:  21, b:  134),
+                     "emphasis" : CPFRGB(r:  112, g:  112, b:  112),
+                     "ulLists" : CPFRGB(r:  73, g:  54, b:  46),
+                     "olLists" : CPFRGB(r:  73, g:  54, b:  46),
+                     "inlineCode" : CPFRGB(r:  51, g:  161, b:  145),
+                     "codeBlock" : CPFRGB(r:  51, g:  161, b:  145),
+                     "implicitCodeBlock" : CPFRGB(r:  51, g:  161, b:  145),]
     
     fileprivate func attributes() -> [String : Any] {
         var font = CPFPingFangSC(weight: .regular, size: 16.0)
