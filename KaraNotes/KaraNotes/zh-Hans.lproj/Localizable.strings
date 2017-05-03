@@ -105,3 +105,10 @@
 
 "user" = "用户";
 "article" = "文章";
+
+// MARK: - Short Cut Item
+"shortcut_writeArticle" = "写文章";
+"shortcut_search" = "搜索";
+"shortcut_search_subtitle" = "用户、文章等";
+"shortcut_share" = "分享";
+"shortcut_share_content" = "KaraNotes 一个基于Swift3.1的iOS移动端Blog系统，支持Markdown编辑、支持导出PDF、HTML以及Markdown文件。😀";

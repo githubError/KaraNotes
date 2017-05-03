@@ -14,6 +14,8 @@ class CPFTabBarController: UITabBarController {
         super.viewDidLoad()
         
         setupChildViewControllers()
+        
+        setupShortCutItem()
     }
 }
 
@@ -53,5 +55,19 @@ extension CPFTabBarController {
         let navCtr = CPFNavigationController(rootViewController: viewController)
         
         addChildViewController(navCtr)
+    }
+    
+    func setupShortCutItem() -> Void {
+        
+        let addItemIcon = UIApplicationShortcutIcon(type: .add)
+        let addItem = UIApplicationShortcutItem(type: "add", localizedTitle: CPFLocalizableTitle("shortcut_writeArticle"), localizedSubtitle: "", icon: addItemIcon, userInfo: nil)
+        
+        let searchItemIcon = UIApplicationShortcutIcon(type: .search)
+        let searchItem = UIApplicationShortcutItem(type: "search", localizedTitle: CPFLocalizableTitle("shortcut_search"), localizedSubtitle: CPFLocalizableTitle("shortcut_search_subtitle"), icon: searchItemIcon, userInfo: nil)
+        
+        let shareItemIcon = UIApplicationShortcutIcon(type: .share)
+        let shareItem = UIApplicationShortcutItem(type: "share", localizedTitle: CPFLocalizableTitle("shortcut_share"), localizedSubtitle: "", icon: shareItemIcon, userInfo: nil)
+        
+        UIApplication.shared.shortcutItems = [addItem, searchItem, shareItem]
     }
 }
