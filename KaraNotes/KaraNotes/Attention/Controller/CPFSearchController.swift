@@ -19,6 +19,8 @@ class CPFSearchController: BaseViewController {
     fileprivate let SearchUserCellID: String = "searchUserCell"
     fileprivate let SearchArticleCellID: String = "searchArticleCell"
     
+    fileprivate let modalTransitioningDelegate = CPFModalTransitioningDelegate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,7 +70,8 @@ extension CPFSearchController: UISearchBarDelegate {
         Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .searchArticle), method: .post, parameters: articleParams, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
             switch response.result {
             case .success(let json as JSONDictionary):
-                print(json)
+                guard let code = json["code"] as? String else { fatalError("解析 search 文章列表失败")}
+                if code != "1" { return }
                 guard let result = json["result"] as? [JSONDictionary] else { fatalError("解析 search 文章列表失败")}
                 self.articleModels = result.map({ (json) -> CPFSearchArticleModel in
                     return CPFSearchArticleModel.parse(json: json)
@@ -160,6 +163,33 @@ extension CPFSearchController: UITableViewDelegate, UITableViewDataSource {
             (cell as! CPFSearchArticleCell).searchArticleModel = articleModels[indexPath.row]
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let currentCell = tableView.cellForRow(at: indexPath)
+        // 相对 keyWindow 的位置
+        let keyWindow = UIApplication.shared.keyWindow
+        let currentCellItemRectInSuperView = currentCell?.superview?.convert((currentCell?.frame)!, to: keyWindow)
+        modalTransitioningDelegate.startRect = CGRect(x: 0.0, y: (currentCellItemRectInSuperView?.origin.y)!, width: CPFScreenW, height: 85.0)
+        
+        switch indexPath.section {
+        case 0:
+            print("用户列表")
+        default:
+            // 文章列表
+            let articleModel = articleModels[indexPath.row]
+            let browseArticleCtr = CPFBrowseArticleController()
+            browseArticleCtr.isMyArticle = false
+            browseArticleCtr.thumbImage = (currentCell as! CPFSearchArticleCell).thumbImage
+            browseArticleCtr.articleID = articleModel.article_id
+            browseArticleCtr.articleTitle = articleModel.article_title
+            browseArticleCtr.articleCreateTime = articleModel.article_create_formatTime
+            browseArticleCtr.articleAuthorName = articleModel.user_name
+            browseArticleCtr.transitioningDelegate = modalTransitioningDelegate
+            browseArticleCtr.modalPresentationStyle = .custom
+            present(browseArticleCtr, animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -97,28 +97,28 @@ extension CPFAttentionController {
     
     func loadNewDatas() -> Void {
         print("下拉加载更多")
-//        let requestURL = "\(CPFNetworkRoute.getAPIFromRouteType(route: .myArticleWithoutCategory))/\(getUserInfoForKey(key: CPFUserPath))/\(0)/\(10)"
-//        
-//        print("request:\(requestURL)")
-//        
-//        Alamofire.request(requestURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
-//            switch response.result {
-//            case .success(let json as JSONDictionary):
-//                guard let code = json["code"] as? String else {fatalError()}
-//                if code == "1" {
-//                    print("========\(json)")
-//                    guard let results = json["result"] as? [JSONDictionary] else {fatalError("Json 解析失败")}
-//                    
-//                } else {
-//                    print("--解析错误--")
-//                }
-//            case .failure(let error):
-//                print("--------\(error.localizedDescription)")
-//            default:
-//                print("unknow type error")
-//            }
-//            
-//        }
+        let requestURL = "\(CPFNetworkRoute.getAPIFromRouteType(route: .myArticleWithoutCategory))/\(getUserInfoForKey(key: CPFUserPath))/\(0)/\(10)"
+        
+        print("request:\(requestURL)")
+        
+        Alamofire.request(requestURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+            switch response.result {
+            case .success(let json as JSONDictionary):
+                guard let code = json["code"] as? String else {fatalError()}
+                if code == "1" {
+                    print("========\(json)")
+                    guard let results = json["result"] as? [JSONDictionary] else {fatalError("Json 解析失败")}
+                    
+                } else {
+                    print("--解析错误--")
+                }
+            case .failure(let error):
+                print("--------\(error.localizedDescription)")
+            default:
+                print("unknow type error")
+            }
+            
+        }
         self.collectionView?.mj_header.endRefreshing()
     }
     

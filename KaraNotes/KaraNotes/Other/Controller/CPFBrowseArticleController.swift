@@ -136,7 +136,7 @@ extension CPFBrowseArticleController {
         articleContentWebView = UIWebView()
         articleContentWebView.backgroundColor = UIColor.white
         articleContentWebView.scrollView.backgroundColor = UIColor.white
-        articleContentWebView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 45, right: 0)
+        articleContentWebView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -20, right: 0)
         view.addSubview(articleContentWebView)
         articleContentWebView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
@@ -288,6 +288,6 @@ extension CPFBrowseArticleController: UIScrollViewDelegate {
             make.top.equalTo(articleInfoView.snp.bottom)
         })
         
-        articleContentWebView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 500*CPFFitHeight * scale + 45.0, right: 0)
+        articleContentWebView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 500*CPFFitHeight * scale + 165.0, right: 0)
     }
 }

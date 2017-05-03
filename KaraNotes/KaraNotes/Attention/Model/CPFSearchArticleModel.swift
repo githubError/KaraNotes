@@ -14,6 +14,7 @@ struct CPFSearchArticleModel {
     var article_id:String
     var article_show_img:String
     var article_title:String
+    var user_name:String
     
     var article_create_formatTime:String {
         
@@ -29,11 +30,14 @@ extension CPFSearchArticleModel {
     
     static func parse(json: JSONDictionary) -> CPFSearchArticleModel {
         
+        guard let userinfo = json["userinfo"] as? JSONDictionary else {fatalError("解析CPFSearchArticleModel出错")}
+        guard let user_name = userinfo["user_name"] as? String else {fatalError("解析CPFSearchArticleModel出错")}
+        
         guard let article_create_time = json["article_create_time"] as? TimeInterval else {fatalError("解析CPFSearchArticleModel出错")}
         guard let article_id = json["article_id"] as? String else {fatalError("解析CPFSearchArticleModel出错")}
         guard let article_show_img = json["article_show_img"] as? String else {fatalError("解析CPFSearchArticleModel出错")}
         guard let article_title = json["article_title"] as? String else {fatalError("解析CPFSearchArticleModel出错")}
         
-        return CPFSearchArticleModel(article_create_time: article_create_time, article_id: article_id, article_show_img: article_show_img, article_title: article_title)
+        return CPFSearchArticleModel(article_create_time: article_create_time, article_id: article_id, article_show_img: article_show_img, article_title: article_title, user_name: user_name)
     }
 }
