@@ -38,7 +38,7 @@ extension CPFMyArticleController {
     func setupTableView() -> Void {
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.register(CPFMyArticleCell.self, forCellReuseIdentifier: CellID)
-        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 65, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 65, right: 0)
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self

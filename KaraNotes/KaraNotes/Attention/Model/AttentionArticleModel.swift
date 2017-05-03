@@ -36,6 +36,7 @@ struct AttentionArticleModel {
 extension AttentionArticleModel {
     
     static func parse(json: JSONDictionary) -> AttentionArticleModel {
+        
         guard let abstract_content = json["abstract_content"] as? String else {fatalError("解析AttentionArticleModel出错")}
         guard let article_attachment = json["article_attachment"] as? String else {fatalError("解析AttentionArticleModel出错")}
         guard let article_create_time = json["article_create_time"] as? TimeInterval else {fatalError("解析AttentionArticleModel出错")}

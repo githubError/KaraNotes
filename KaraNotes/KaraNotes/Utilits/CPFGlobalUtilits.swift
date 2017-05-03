@@ -46,6 +46,12 @@ public enum CPFNetworkRoute: String {
     case followArticleList = "/article/followlist"            // 关注文章列表
     case favoriteArticleList = "/collect/notifyuser"          // 收藏列表
     
+    case addCollect = "/collect/insert"                       // 添加收藏
+    case removeCollect = "/collect/delete"                    // 取消收藏
+    
+    case addPraise = "/praise/insert"                         // 点赞
+    case removePraise = "/praise/delete"                      // 取消点赞
+    
     static func getAPIFromRouteType(route: CPFNetworkRoute) -> String {
         return "\(CPFNetworkRoute.base.rawValue)\(route.rawValue)"
     }
@@ -91,7 +97,7 @@ public let CPFGlobalColor = CPFRGB(r: 245, g: 245, b: 245)
 public var CPFRandomColor = CPFRGB(r: Int(arc4random_uniform(255)), g: Int(arc4random_uniform(255)), b: Int(arc4random_uniform(255)))
 
 // 颜色偏好
-public let CPFNavColor = CPFRGBA(r: 236, g: 68, b: 75, a: 1.0)           //浅蓝 CPFRGBA(r: 26, g: 167, b: 242, a: 1.0)
+public let CPFNavColor = CPFRGBA(r: 236, g: 68, b: 75, a: 1.0) // EC444B    //浅蓝 CPFRGBA(r: 26, g: 167, b: 242, a: 1.0)
 public let CPFTabTintColor = CPFRGBA(r: 236, g: 68, b: 75, a: 1.0)
 
 public let CPFScreenW = UIScreen.main.bounds.size.width

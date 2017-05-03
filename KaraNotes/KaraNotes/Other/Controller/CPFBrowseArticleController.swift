@@ -93,14 +93,21 @@ extension CPFBrowseArticleController {
             }
         }
         
+        refreshAssistBtnsStatus(browseArticleModel: browseArticleModel)
+    }
+    
+    func refreshAssistBtnsStatus(browseArticleModel: CPFBrowseArticleModel) -> Void {
         bottomAssistBtns.forEach { (button) in
             switch button.tag {
             case 0:
                 button.setTitle("\(CPFLocalizableTitle("browse_like"))"+" \(browseArticleModel.praise_num!)", for: .normal)
+                browseArticleModel.is_praise == "0" ? (button.isSelected = false) : (button.isSelected = true)
             case 1:
                 button.setTitle("\(CPFLocalizableTitle("browse_comment"))"+" \(browseArticleModel.comment_num!)", for: .normal)
             case 2:
                 button.setTitle("\(CPFLocalizableTitle("browse_collection"))"+" \(browseArticleModel.collect_num!)", for: .normal)
+                browseArticleModel.is_collect == "0" ? (button.isSelected = false) : (button.isSelected = true)
+                
             case 3,4:
                 break
             default:
@@ -113,18 +120,93 @@ extension CPFBrowseArticleController {
         print(button.tag)
         switch button.tag {
         case 0:
-            print("点赞")
+            praiseArticle(button: button)
         case 1:
-            print("评论")
+            commentArticle(button: button)
         case 2:
-            print("收藏")
+            collectArticle(button: button)
         case 3:
-            print("编辑")
+            editArticle(button: button)
         case 4:
-            print("分享")
+            shareArticle(button: button)
         default:
             print(button.tag)
         }
+    }
+    
+    func praiseArticle(button:UIButton) -> Void {
+        print("点赞")
+        let params = ["token_id": getUserInfoForKey(key: CPFUserToken),
+                      "article_id": browseArticleModel.article_id!,
+                      "author_id": browseArticleModel.user_id!]
+        
+        let requestURL = browseArticleModel.is_praise == "1" ? CPFNetworkRoute.getAPIFromRouteType(route: .removePraise) : CPFNetworkRoute.getAPIFromRouteType(route: .addPraise)
+        
+        Alamofire.request(requestURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+            switch response.result {
+            case .success(let json as JSONDictionary):
+                
+                guard let code = json["code"] as? String else { fatalError("code parse error")}
+                if code == "1" {
+                    if self.browseArticleModel.is_praise == "0" {
+                        self.browseArticleModel.praise_num! += 1
+                        self.browseArticleModel.is_praise = "1"
+                    } else {
+                        self.browseArticleModel.praise_num! -= 1
+                        self.browseArticleModel.is_praise = "0"
+                    }
+                    self.refreshAssistBtnsStatus(browseArticleModel: self.browseArticleModel)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            default:
+                print("Unkonw error when collect article")
+            }
+        }
+    }
+    
+    func commentArticle(button:UIButton) -> Void {
+        print("评论")
+        
+    }
+    
+    func collectArticle(button:UIButton) -> Void {
+        print("收藏")
+        let params = ["token_id": getUserInfoForKey(key: CPFUserToken),
+                      "article_id": browseArticleModel.article_id!,
+                      "author_id": browseArticleModel.user_id!]
+        
+        let requestURL = browseArticleModel.is_collect == "1" ? CPFNetworkRoute.getAPIFromRouteType(route: .removeCollect) : CPFNetworkRoute.getAPIFromRouteType(route: .addCollect)
+        
+        Alamofire.request(requestURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+            switch response.result {
+            case .success(let json as JSONDictionary):
+                
+                guard let code = json["code"] as? String else { fatalError("code parse error")}
+                if code == "1" {
+                    if self.browseArticleModel.is_collect == "0" {
+                        self.browseArticleModel.collect_num! += 1
+                        self.browseArticleModel.is_collect = "1"
+                    } else {
+                        self.browseArticleModel.collect_num! -= 1
+                        self.browseArticleModel.is_collect = "0"
+                    }
+                    self.refreshAssistBtnsStatus(browseArticleModel: self.browseArticleModel)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            default:
+                print("Unkonw error when collect article")
+            }
+        }
+    }
+    
+    func editArticle(button:UIButton) -> Void {
+        print("编辑")
+    }
+    
+    func shareArticle(button:UIButton) -> Void {
+        print("分享")
     }
     
     func dismissCtr() -> Void {
@@ -250,6 +332,7 @@ extension CPFBrowseArticleController {
         }
         
         let bottomAssistBtnImages = ["browse_like","browse_comment","browse_collection","browse_edit","browse_share"]
+        let bottomAssistBtnSelectedImages = ["browse_like_selected","browse_comment_selected","browse_collection_selected","browse_edit_selected","browse_share_selected"]
         for i in 0..<bottomAssistBtnImages.count {
             if !isMyArticle && i == 3 {
                 continue
@@ -262,8 +345,9 @@ extension CPFBrowseArticleController {
             
             let button = UIButton(type: .custom)
             button.setImage(UIImage.init(named: bottomAssistBtnImages[i]), for: .normal)
+            button.setImage(UIImage.init(named: bottomAssistBtnSelectedImages[i]), for: .selected)
             button.setTitle(CPFLocalizableTitle(bottomAssistBtnImages[i]), for: .normal)
-            button.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 11)
+            button.titleLabel?.font = CPFPingFangSC(weight: .regular, size: 10)
             button.setTitleColor(CPFRGB(r: 74, g: 74, b: 74), for: .normal)
             button.width = btnsWidth
             button.height = btnsHeight

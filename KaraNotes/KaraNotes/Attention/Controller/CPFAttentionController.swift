@@ -68,7 +68,7 @@ extension CPFAttentionController {
             collectionView.backgroundColor = CPFGlobalColor
             collectionView.register(CPFAttentionCell.self, forCellWithReuseIdentifier: cellID)
             
-            collectionView.contentInset = UIEdgeInsets(top: -flowLayout.headerReferenceSize.height, left: 0, bottom: -flowLayout.headerReferenceSize.height, right: 0)
+            collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
             
             collectionView.delegate = self
             collectionView.dataSource = self
@@ -105,14 +105,14 @@ extension CPFAttentionController {
         let params = ["token_id": getUserInfoForKey(key: CPFUserToken),
                       "pagenum": String(pageNum),
                       "pagesize": "10"] as [String : Any]
-        print(params)
+        
         Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .followArticleList), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
             switch response.result {
             case .success(let json as JSONDictionary):
                 guard let code = json["code"] as? String else {fatalError()}
                 if code == "1" {
                     guard let results = json["result"] as? [JSONDictionary] else {fatalError("Json 解析失败")}
-                    print("========\(results)")
+                    
                     self.attentionArticleModels = results.map({ (json) -> AttentionArticleModel in
                         return AttentionArticleModel.parse(json: json)
                     })

@@ -46,6 +46,7 @@ extension CPFFavoriteController {
             collectionView.frame = CGRect(x: 0, y: 0, width: CPFScreenW, height: CPFScreenH - 150)
             collectionView.backgroundColor = CPFGlobalColor
             collectionView.register(CPFAttentionCell.self, forCellWithReuseIdentifier: cellID)
+            collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
             
             collectionView.delegate = self
             collectionView.dataSource = self
@@ -73,10 +74,11 @@ extension CPFFavoriteController {
                       "pagenum": String(pageNum),
                       "pagesize": "10"] as [String : Any]
         
-        print(params)
-        Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .followArticleList), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+        
+        Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .favoriteArticleList), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
             switch response.result {
             case .success(let json as JSONDictionary):
+                
                 guard let code = json["code"] as? String else {fatalError()}
                 if code == "1" {
                     guard let results = json["result"] as? [JSONDictionary] else {fatalError("Json 解析失败")}
@@ -104,7 +106,7 @@ extension CPFFavoriteController {
                       "pagenum": String(pageNum),
                       "pagesize": "10"] as [String : Any]
         
-        Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .followArticleList), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+        Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .favoriteArticleList), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
             switch response.result {
             case .success(let json as JSONDictionary):
                 guard let code = json["code"] as? String else {fatalError()}
