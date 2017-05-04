@@ -70,7 +70,6 @@ extension CPFMyArticleController {
         Alamofire.request(requestURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
             switch response.result {
             case .success(let json as JSONDictionary):
-                
                 guard let code = json["code"] as? String else {fatalError()}
                 if code == "1" {
                     

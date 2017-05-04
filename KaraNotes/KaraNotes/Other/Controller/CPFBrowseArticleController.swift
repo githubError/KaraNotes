@@ -66,9 +66,8 @@ extension CPFBrowseArticleController {
     
     func loadArticleContent(articleID: String) -> Void {
         
-        let params = ["token_id": getUserInfoForKey(key: CPFUserToken),
-                      "article_id": articleID]
-        Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .loadArticleContent), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+        let requestURL = "\(CPFNetworkRoute.getAPIFromRouteType(route: .loadArticleContent))/\(articleID)?tokenid=\(getUserInfoForKey(key: CPFUserToken))"
+        Alamofire.request(requestURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
             switch response.result {
             case .success(let json as JSONDictionary):
                 guard let result = json["result"] as? JSONDictionary else {fatalError("Json 解析失败")}

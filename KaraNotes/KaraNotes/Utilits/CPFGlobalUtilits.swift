@@ -35,7 +35,7 @@ public enum CPFNetworkRoute: String {
     case backgroundImage = "/file/imgs/backlogo"           // 用户背景图片
     case updateUserInfo = "/user/updateuserinfo"           // 更改用户信息
     case myArticleWithoutCategory = "/extra/articlelist/alllist"   // 获取我的文章，不限制分类
-    case loadArticleContent = "/select/articledetail"              // 加载文章详情
+    case loadArticleContent = "/extra/articledetail"              // 加载文章详情
     
     case searchUser = "/select/user/list"                     // 搜索用户
     case searchArticle = "/select/article/title"              // 搜索文章标题
