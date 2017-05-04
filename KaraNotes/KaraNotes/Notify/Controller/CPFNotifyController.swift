@@ -51,18 +51,14 @@ extension CPFNotifyController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID)
         
         cell?.selectionStyle = .none
-        cell?.textLabel?.textColor = CPFRGB(r: 155, g: 155, b: 155)
-        cell?.textLabel?.font = CPFPingFangSC(weight: .medium, size: 16)
+        cell?.textLabel?.textColor = UIColor.black
+        cell?.textLabel?.font = CPFPingFangSC(weight: .regular, size: 18)
         cell?.accessoryType = .disclosureIndicator
         cell?.textLabel?.text = CPFLocalizableTitle(cellTitles[indexPath.row])
         
-        let imageIcon = UIImage.init(named: cellImages[indexPath.row])
-        let imageSize = CGSize(width: 20, height: 20)
-        UIGraphicsBeginImageContext(imageSize)
-        let imageRect = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
-        imageIcon?.draw(in: imageRect)
-        cell?.imageView?.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        let imageIcon = UIImage.init(named: cellImages[indexPath.row])?.scaleToSize(newSize: CGSize(width: 25, height: 25))
+        cell?.imageView?.image = imageIcon
+        
         return cell!
     }
     
@@ -71,14 +67,18 @@ extension CPFNotifyController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             print("点击\(indexPath.row)")
-        case 0:
+        case 1:
             print("点击\(indexPath.row)")
-        case 0:
+        case 2:
             print("点击\(indexPath.row)")
-        case 0:
+        case 3:
             print("点击\(indexPath.row)")
         default:
             print("点击\(indexPath.row)")
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }

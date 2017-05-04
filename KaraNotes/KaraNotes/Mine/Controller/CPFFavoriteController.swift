@@ -46,7 +46,7 @@ extension CPFFavoriteController {
             collectionView.frame = CGRect(x: 0, y: 0, width: CPFScreenW, height: CPFScreenH - 150)
             collectionView.backgroundColor = CPFGlobalColor
             collectionView.register(CPFAttentionCell.self, forCellWithReuseIdentifier: cellID)
-            collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+            collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 300, right: 0)
             
             collectionView.delegate = self
             collectionView.dataSource = self
