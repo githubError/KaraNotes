@@ -366,6 +366,7 @@ extension CPFBrowseArticleController {
 extension CPFBrowseArticleController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 10 {
+            if scrollView.contentOffset.y > 150 { return }
             let scale = (1.0 - scrollView.contentOffset.y/500.0)
             updateConstraints(scale: scale)
         }

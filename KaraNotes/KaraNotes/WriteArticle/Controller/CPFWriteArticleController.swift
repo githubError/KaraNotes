@@ -93,7 +93,7 @@ extension CPFWriteArticleController {
                       "classify_id": getUserInfoForKey(key: CPFUserID),
                       "article_show_img": editView.firstImageLinkString,
                       "article_content" : editView.text,
-                      "tag_content" : "[\"测试标签1\", \"测试标签2\"]"]
+                      "tag_content" : "[\"tag1\", \"tag2\"]"]
         
         Alamofire.request(CPFNetworkRoute.getAPIFromRouteType(route: .insertArticle), method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
             

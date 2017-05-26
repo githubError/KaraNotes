@@ -149,7 +149,15 @@ extension CPFSearchController: UITableViewDelegate, UITableViewDataSource {
         
         if section == 1 && articleModels.count > 0 { return CPFLocalizableTitle("article") }
         
-        tableView.contentInset = (userModels.count == 0 && articleModels.count > 0) ? UIEdgeInsets(top: -60, left: 0, bottom: 0, right: 0) : UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
+//        if userModels.count == 0 && articleModels.count > 0 {
+//            print("----------------")
+//            tableView.contentInset = UIEdgeInsets(top: -50, left: 0, bottom: 0, right: 0)
+//        } else {
+//            print("+++++")
+//            tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
+//        }
+        
+//        tableView.contentInset = (userModels.count == 0 && articleModels.count > 0) ? UIEdgeInsets(top: -50, left: 0, bottom: 0, right: 0) : UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         
         return ""
     }
