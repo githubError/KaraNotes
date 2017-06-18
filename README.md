@@ -46,25 +46,22 @@
 
 2、文章撰写
 
-![文章撰写](http://www.cuipengfei.cn/assets/post_images/2017/write_article.png)
+<img src="http://www.cuipengfei.cn/assets/post_images/2017/write_article.png" width = "33%" />
 
 3、文章阅读、3D Touch
 
-![文章阅读](http://www.cuipengfei.cn/assets/post_images/2017/article.png)
-
-![3D Touch](http://www.cuipengfei.cn/assets/post_images/2017/article_pop.png)
-
-![3D Touch](http://www.cuipengfei.cn/assets/post_images/2017/peek.png)
+<img src="http://www.cuipengfei.cn/assets/post_images/2017/article.png" width = "33%" />
+<img src="http://www.cuipengfei.cn/assets/post_images/2017/article_pop.png" width = "33%" />
+<img src="http://www.cuipengfei.cn/assets/post_images/2017/peek.png" width = "33%" />
 
 4、文章预览、导出
 
-![文章预览](http://www.cuipengfei.cn/assets/post_images/2017/preview_article.png)
-
-![文章导出](http://www.cuipengfei.cn/assets/post_images/2017/export_article.png)
+<img src="http://www.cuipengfei.cn/assets/post_images/2017/preview_article.png" width = "33%" />
+<img src="http://www.cuipengfei.cn/assets/post_images/2017/export_article.png" width = "33%" />
 
 5、个人中心
 
-![个人中心](http://www.cuipengfei.cn/assets/post_images/2017/mine.gif)
+<img src="http://www.cuipengfei.cn/assets/post_images/2017/mine.gif" width = "33%" />
 
 
 
