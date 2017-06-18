@@ -2,7 +2,7 @@
 > 基于Swift3.0的iOS移动端Blog的设计与实现
 
 
-本项目的初衷是为了做一个 iOS 移动端博客收发平台用以作为**毕业设计**。项目使用的是 Swift 3.0 + Alamofire + SnapKit，服务端采用的是Java + SpringMVC + Ehcache。
+本项目的初衷是为了做一个 iOS 移动端博客收发平台用以作为**毕业设计**。项目使用的是 Swift 3.0 + Alamofire + SnapKit，[服务端](https://github.com/viakiba/karanotes)采用的是Java + SpringMVC + Ehcache。
 
 ****
 ### 支持功能
