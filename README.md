@@ -42,7 +42,7 @@
 
 1、关注列表
 
-![关注列表](http://www.cuipengfei.cn/assets/post_images/2017/attention.png)
+<img src="http://www.cuipengfei.cn/assets/post_images/2017/attention.png" width = "33%" />
 
 2、文章撰写
 
