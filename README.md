@@ -40,22 +40,29 @@
 
 ### 项目展示
 
-1. 关注列表
+1、关注列表
 
 ![关注列表](http://www.cupengfei.cn/assets/post_images/2017/attention.png)
-2. 文章撰写
+
+2、文章撰写
 
 ![文章撰写](http://www.cupengfei.cn/assets/post_images/2017/write_article.png)
-3. 文章阅读、3D Touch
+
+3、文章阅读、3D Touch
 
 ![文章阅读](http://www.cupengfei.cn/assets/post_images/2017/article.png)
+
 ![3D Touch](http://www.cupengfei.cn/assets/post_images/2017/article_pop.png)
+
 ![3D Touch](http://www.cupengfei.cn/assets/post_images/2017/peek.png)
-4. 文章预览、导出
+
+4、文章预览、导出
 
 ![文章预览](http://www.cupengfei.cn/assets/post_images/2017/preview_article.png)
+
 ![文章导出](http://www.cupengfei.cn/assets/post_images/2017/export_article.png)
-5. 个人中心
+
+5、个人中心
 
 ![个人中心](http://www.cupengfei.cn/assets/post_images/2017/mine.gif)
 
